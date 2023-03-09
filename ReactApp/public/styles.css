@@ -1,0 +1,15 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: #333;
+  letter-spacing: 1px;
+  background: antiquewhite;
+  font-weight: 300;
+}
+
+.react-grid-item {
+  background-color: white;
+}

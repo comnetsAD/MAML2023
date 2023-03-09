@@ -1,0 +1,8 @@
+.carousel-editor {  
+  background-color: grey;
+}
+
+.popup-content {  
+  max-height: 90vh;
+  overflow-y: auto
+}

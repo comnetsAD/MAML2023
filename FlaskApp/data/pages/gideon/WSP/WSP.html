@@ -1,0 +1,326 @@
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<style>
+            /* Dropdown Button */
+    .dropbtn {
+      background-color: rgba(239,239,239);
+      color: black;
+      font-size: 16px;
+      border: none;
+      width: 100%;
+      height: 100%
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {background-color: rgba(200,200,200);}
+
+    .carousel-inner {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .carousel-open:checked + .carousel-item {
+        position: static;
+        opacity: 100;
+    }
+
+    .carousel-item {
+        position: absolute;
+        opacity: 0;
+        -webkit-transition: opacity 0.6s ease-out;
+        transition: opacity 0.6s ease-out;
+    }
+
+    .carousel-item img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .carousel-control {
+        background: rgba(0, 0, 0, 0.28);
+        border-radius: 50%;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+        font-size: 40px;
+        height: 40px;
+        line-height: 35px;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        cursor: pointer;
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        text-align: center;
+        width: 40px;
+        z-index: 10;
+    }
+
+    .carousel-control.prev {
+        left: 2%;
+    }
+
+    .carousel-control.next {
+        right: 2%;
+    }
+
+    .carousel-control:hover {
+        background: rgba(0, 0, 0, 0.8);
+        color: #aaaaaa;
+    }
+
+    #carousel-1:checked ~ .control-1,
+    #carousel-2:checked ~ .control-2,
+    #carousel-3:checked ~ .control-3 {
+        display: block;
+    }
+
+    .carousel-indicators {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 2%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 10;
+    }
+
+    .carousel-indicators li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    .carousel-bullet {
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        font-size: 35px;
+    }
+
+    .carousel-bullet:hover {
+        color: #aaaaaa;
+    }
+
+    #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+    #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+    #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+        color: #428bca;
+    }
+
+        </style>
+</head>
+<body>
+<div style='position:absolute; width:1200px; height:50px; left: 70px; top: 0px; background-color:#ffffff'>
+</div>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 80px; top: 10px'>
+News</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 199px; top: 10px'>
+Culture</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 318px; top: 10px'>
+Arts</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 437px; top: 10px'>
+Abroad</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 556px; top: 10px'>
+Opinion</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 675px; top: 10px'>
+Features</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 794px; top: 10px'>
+Sports</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 913px; top: 10px'>
+Under the Arch</button>
+<div class="dropdown" style='position:absolute; width:109px; height:30px; left: 1032px; top: 10px'>
+<button class="dropbtn" >More</button>
+<div class="dropdown-content">
+<a href="#">Multimedia</a><a href="#">Sponsored</a></div>
+</div>
+<img style='position:absolute; width:1198px; height:94px; left: 71px; top: 51px' src="0.png" alt="">
+<p style='margin:0px; position:absolute; width:688px; height:36px; left: 86px; top: 207px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:26px'>
+David Sabatini will not be hired by NYU</p>
+<p style='margin:0px; position:absolute; width:688px; height:36px; left: 86px; top: 243px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The former tenured MIT professor, who was forced out of three institutions following allegations of sexual misconduct, will no longer be considered for employment by NYU’s medical school.</p>
+<p style='margin:0px; position:absolute; width:329px; height:18px; left: 86px; top: 303px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+By <a href="https://nyunews.com/staff_name/abby-wilson/" rel="noopener noreferrer" target="_blank">Abby Wilson</a>, News Editor</p>
+<p style='margin:0px; position:absolute; width:329px; height:18px; left: 86px; top: 321px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+May 3, 2022</p>
+<p style='margin:0px; position:absolute; width:329px; height:18px; left: 86px; top: 339px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:329px; height:73px; left: 86px; top: 358px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+David Sabatini will not be joining the NYU Grossman School of Medicine faculty, according to a spokesperson and the Grossman administration.</p>
+<p style='margin:0px; position:absolute; width:329px; height:147px; left: 86px; top: 432px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+In an email to the NYU Grossman School of Medicine community Tuesday morning, administrators announced that the former tenured Massachusetts Institute of Technology professor — who was forced out of three institutions due to allegations of sexual misconduct — is no longer being considered for employment by the school.</p>
+<img style='position:absolute; width:359px; height:239px; left: 431px; top: 291px' src="3.jpg" alt="">
+<p style='margin:0px; position:absolute; width:329px; height:18px; left: 446px; top: 543px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/staff_name/manasa-gudavalli/" rel="noopener noreferrer" target="_blank">Manasa Gudavalli</a></p>
+<p style='margin:0px; position:absolute; width:329px; height:73px; left: 446px; top: 561px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+David Sabatini has withdrawn his name from consideration for employment at the NYU Grossman School of Medicine. (Image via MIT, Staff Photo by Manasa Gudavalli)</p>
+<p style='margin:0px; position:absolute; width:688px; height:92px; left: 86px; top: 655px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+“After careful and thorough consideration that included the perspectives of many stakeholders, both Dr. David Sabatini and NYU Grossman School of Medicine have reached the conclusion that it will not be possible for him to become a member of our faculty,” reads the email, which was co-signed by Grossman executive vice president Dafna Bar-Sagi and the school’s dean and CEO Robert Grossman.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 747px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:73px; left: 86px; top: 765px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The same announcement was shared by Grossman’s Twitter account about 20 minutes later. The school said after careful consideration and the inclusion of many opinions — both from Sabatini’s former colleagues and students and from the NYU community — administrators had decided not to move forward with his hiring.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 839px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 857px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<em>[</em><a href="https://nyunews.us7.list-manage.com/subscribe?u=55aa0ab3692ba635701ae542e&amp;id=84b6d4e8bb" rel="noopener noreferrer" target="_blank"><em>Click here to subscribe to WSN’s newsletter and get our top stories in your inbox.</em></a><em>]</em></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 876px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:55px; left: 86px; top: 894px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+According to a Sabatini spokesperson, the scientist said he decided to withdraw his name due to the pressure it has placed on NYU Langone Health and its values. He called the allegations made against him by the press and in social media “false, distorted and preposterous.”</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 950px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:55px; left: 86px; top: 968px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+“I deeply respect NYU Langone Health’s mission and appreciate the support from individuals who took the time to learn the facts,” he wrote. “I remain steadfast in believing that the truth will ultimately emerge and that I will eventually be vindicated and able to return to my research.”</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 1024px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:92px; left: 86px; top: 1042px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Sabatini’s potential recruitment had caused an uproar among Grossman students, faculty and employees. NYU president Andrew Hamilton had previously <a href="https://nyunews.com/news/2022/04/27/hamilton-against-grossman-hiring-controversial-professor/" rel="noopener noreferrer" target="_blank">strongly advised against</a> his hiring. Many students and staff signed a letter condemning his continued consideration and pledging to not attend NYU events, give lectures, or teach courses at the school or work with NYU Langone Health labs, experiments, facilities and projects until hiring conversations came to an end.&nbsp;</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 1134px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 1153px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<em>[Read more: </em><a href="https://nyunews.com/news/2022/04/29/nyu-grossman-town-hall-defends-david-sabatini/" rel="noopener noreferrer" target="_blank"><em>NYU Grossman admins defend potential Sabatini hiring, dispute allegations</em></a><em>]</em></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 1171px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:110px; left: 86px; top: 1190px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Hundreds of Langone students and staff <a href="https://nyunews.com/news/2022/04/28/grossman-school-student-walkout/" rel="noopener noreferrer" target="_blank">walked out of the medical school</a> on April 27 to protest the continued consideration of Sabatini’s hiring. Bar-Sagi and Langone general counsel Annette Johnson held a restricted access town hall the next day, in which they praised the scientist’s research accomplishments and refuted allegations made against him. Johnson claimed that MIT’s investigation into his behavior was unfairly conducted and said that sexual misconduct claims against him had been unfounded.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 1300px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 1319px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<em>Contact Abby Wilson at awilson@nyunews.com.</em></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 1337px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:27px; left: 86px; top: 1356px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+About the Contributor</p>
+<img style='position:absolute; width:239px; height:239px; left: 71px; top: 1395px' src="6.png" alt="">
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 1407px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/staff/abby-wilson-spring-2022/" rel="noopener noreferrer" target="_blank">Abby Wilson, News Editor</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:55px; left: 326px; top: 1425px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Abby Wilson is a junior studying journalism and English. She’s from a Chicago suburb and more mid-western than she’d like to admit. In her free time,...</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1647px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/category/news/" rel="noopener noreferrer" target="_blank">News</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1665px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/category/culture/" rel="noopener noreferrer" target="_blank">Culture</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1683px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/category/arts/" rel="noopener noreferrer" target="_blank">Arts</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1702px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/category/abroad/" rel="noopener noreferrer" target="_blank">Abroad</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1720px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/category/opinion/" rel="noopener noreferrer" target="_blank">Opinion</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1739px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/category/features/" rel="noopener noreferrer" target="_blank">Features</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1757px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/category/sports/" rel="noopener noreferrer" target="_blank">Sports</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1776px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/category/under-the-arch/" rel="noopener noreferrer" target="_blank">Under the Arch</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1794px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/" rel="noopener noreferrer" target="_blank">More</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1647px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/about/" rel="noopener noreferrer" target="_blank">About</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1665px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/staff/" rel="noopener noreferrer" target="_blank">Staff</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1683px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/join/" rel="noopener noreferrer" target="_blank">Join WSN</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1702px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/advertise/" rel="noopener noreferrer" target="_blank">Advertise</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1720px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/classifieds/" rel="noopener noreferrer" target="_blank">Classifieds</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1739px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/off-campus-housing/" rel="noopener noreferrer" target="_blank">Off-Campus Housing</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1757px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nyunews.com/wp-admin" rel="noopener noreferrer" target="_blank">Log In</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 207px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&nbsp;&nbsp;TRENDING</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 225px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 243px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/news/2022/05/03/david-sabatini-nyu-grossman-withdrawn-consideration/" rel="noopener noreferrer" target="_blank">David Sabatini will not be hired by NYU</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 262px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 280px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/news/2022/04/29/nyu-grossman-town-hall-defends-david-sabatini/" rel="noopener noreferrer" target="_blank">NYU Grossman admins defend potential Sabatini hiring, </a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 299px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/news/2022/04/29/nyu-grossman-town-hall-defends-david-sabatini/" rel="noopener noreferrer" target="_blank">dispute allegations</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 317px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 336px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/news/2022/05/04/police-report-identifies-rubin-hall-intruder/" rel="noopener noreferrer" target="_blank">Rubin Hall intruder’s identity revealed in police report&nbsp;</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 354px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 373px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/2022/04/21/new-york-cannot-be-the-city-of-your-dreams-moving-beyond-idealism-through-photography/" rel="noopener noreferrer" target="_blank">New York cannot be the city of your dreams</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 391px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 409px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/news/2022/05/02/shanghai-china-covid-lockdown-nyu/" rel="noopener noreferrer" target="_blank">‘I need to get out’: NYU Shanghai lockdown leaves students </a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 428px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/news/2022/05/02/shanghai-china-covid-lockdown-nyu/" rel="noopener noreferrer" target="_blank">struggling in dorms</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 446px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 465px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/" rel="noopener noreferrer" target="_blank">LATEST</a></p>
+<img style='position:absolute; width:119px; height:89px; left: 790px; top: 483px' src="11.png" alt="">
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 495px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/uta/specialissues/2022/05/06/while-you-were-here-2022/" rel="noopener noreferrer" target="_blank">While You Were Here 2022</a></p>
+<img style='position:absolute; width:119px; height:74px; left: 790px; top: 579px' src="13.jpg" alt="">
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 591px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/culture/ranked/2022/05/06/ranked-nyu-meta-articles/" rel="noopener noreferrer" target="_blank">Ranked: Our own Ranked </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 609px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/culture/ranked/2022/05/06/ranked-nyu-meta-articles/" rel="noopener noreferrer" target="_blank">articles</a></p>
+<img style='position:absolute; width:119px; height:89px; left: 790px; top: 659px' src="15.jpg" alt="">
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 671px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/underthearch/specialissues/2022/05/06/not-according-to-the-plan/" rel="noopener noreferrer" target="_blank">Not according to plan: From </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 689px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/underthearch/specialissues/2022/05/06/not-according-to-the-plan/" rel="noopener noreferrer" target="_blank">college major to career path</a></p>
+<img style='position:absolute; width:119px; height:79px; left: 790px; top: 755px' src="17.jpg" alt="">
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 767px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/underthearch/specialissues/2022/05/06/graduating-from-school-and-from-sports/" rel="noopener noreferrer" target="_blank">Graduating from school and </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 785px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/underthearch/specialissues/2022/05/06/graduating-from-school-and-from-sports/" rel="noopener noreferrer" target="_blank">from sports</a></p>
+<img style='position:absolute; width:119px; height:58px; left: 790px; top: 851px' src="19.jpg" alt="">
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 863px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/opinion/2022/05/06/donate-to-small-local-abortion-funds/" rel="noopener noreferrer" target="_blank">Opinion: Community-based </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 881px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/opinion/2022/05/06/donate-to-small-local-abortion-funds/" rel="noopener noreferrer" target="_blank">abortion funds need your help </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 899px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/opinion/2022/05/06/donate-to-small-local-abortion-funds/" rel="noopener noreferrer" target="_blank">right now, not Planned </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 918px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nyunews.com/opinion/2022/05/06/donate-to-small-local-abortion-funds/" rel="noopener noreferrer" target="_blank">Parenthood</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 1855px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+© 2022 Washington Square News. All rights reserved. 75 Third Ave. #SB07, New York, NY 10003 • <a href="https://snosites.com/why-sno/" rel="noopener noreferrer" target="_blank">FLEX Pro WordPress Theme</a> by <a href="http://snosites.com" rel="noopener noreferrer" target="_blank">SNO</a> • <a href="https://nyunews.com/wp-login.php" rel="noopener noreferrer" target="_blank">Log in</a></p>
+</body>
+</html>

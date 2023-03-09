@@ -1,0 +1,395 @@
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<style>
+            /* Dropdown Button */
+    .dropbtn {
+      background-color: rgba(239,239,239);
+      color: black;
+      font-size: 16px;
+      border: none;
+      width: 100%;
+      height: 100%
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {background-color: rgba(200,200,200);}
+
+    .carousel-inner {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .carousel-open:checked + .carousel-item {
+        position: static;
+        opacity: 100;
+    }
+
+    .carousel-item {
+        position: absolute;
+        opacity: 0;
+        -webkit-transition: opacity 0.6s ease-out;
+        transition: opacity 0.6s ease-out;
+    }
+
+    .carousel-item img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .carousel-control {
+        background: rgba(0, 0, 0, 0.28);
+        border-radius: 50%;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+        font-size: 40px;
+        height: 40px;
+        line-height: 35px;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        cursor: pointer;
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        text-align: center;
+        width: 40px;
+        z-index: 10;
+    }
+
+    .carousel-control.prev {
+        left: 2%;
+    }
+
+    .carousel-control.next {
+        right: 2%;
+    }
+
+    .carousel-control:hover {
+        background: rgba(0, 0, 0, 0.8);
+        color: #aaaaaa;
+    }
+
+    #carousel-1:checked ~ .control-1,
+    #carousel-2:checked ~ .control-2,
+    #carousel-3:checked ~ .control-3 {
+        display: block;
+    }
+
+    .carousel-indicators {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 2%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 10;
+    }
+
+    .carousel-indicators li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    .carousel-bullet {
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        font-size: 35px;
+    }
+
+    .carousel-bullet:hover {
+        color: #aaaaaa;
+    }
+
+    #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+    #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+    #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+        color: #428bca;
+    }
+
+        </style>
+</head>
+<body>
+<div style='position:absolute; width:1200px; height:50px; left: 70px; top: 0px; background-color:#ffffff'>
+</div>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 80px; top: 10px'>
+UKRAINE</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 199px; top: 10px'>
+COVID</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 318px; top: 10px'>
+MIDTERM ELECTIONS</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 437px; top: 10px'>
+RECODE</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 556px; top: 10px'>
+THE GOODS</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 675px; top: 10px'>
+FUTURE PERFECT</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 794px; top: 10px'>
+THE HIGHLIGHT</button>
+<div class="dropdown" style='position:absolute; width:109px; height:30px; left: 913px; top: 10px'>
+<button class="dropbtn" >MORE</button>
+<div class="dropdown-content">
+<a href="#">CROSSWORD</a><a href="#">PODCASTS</a><a href="#">VIDEO</a></div>
+</div>
+<p style='margin:0px; position:absolute; width:808px; height:36px; left: 206px; top: 63px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:26px'>
+How many people have died from the Covid-19 crisis?</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 99px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 118px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The virus itself killed millions, but pandemic disruptions led to nearly three times as many deaths.</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 136px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+ By  <a href="https://www.vox.com/authors/umair-irfan" rel="noopener noreferrer" target="_blank">Umair Irfan</a>    May 5, 2022, 3:00pm EDT&nbsp; </p>
+<img style='position:absolute; width:838px; height:558px; left: 191px; top: 163px' src="1.jpeg" alt="">
+<p style='margin:0px; position:absolute; width:808px; height:36px; left: 206px; top: 719px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Family members write a message to two sisters who died of Covid-19 on the National Covid Memorial wall in London, England, on March 29. Alastair Grant/AP </p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 755px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:36px; left: 206px; top: 774px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The <a href="https://www.who.int/data/stories/global-excess-deaths-associated-with-covid-19-january-2020-december-2021" rel="noopener noreferrer" target="_blank">World Health Organization</a> (WHO) on Thursday released its estimate of global mortality from the Covid-19 pandemic: 14.9 million deaths, from January 1, 2020, to December 31, 2021.</p>
+<p style='margin:0px; position:absolute; width:808px; height:55px; left: 206px; top: 811px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+That tally is the number of “<a href="https://www.cdc.gov/nchs/nvss/vsrr/covid19/excess_deaths.htm" rel="noopener noreferrer" target="_blank">excess deaths</a>” compared to a baseline of expected deaths in a world without Covid-19. This number includes not just the people who died from the virus, but also those who passed away in the ensuing chaos as hospitals filled up and workplaces shut down.</p>
+<p style='margin:0px; position:absolute; width:808px; height:55px; left: 206px; top: 866px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+It’s a stunning snapshot of the sweeping devastation the Covid-19 pandemic unleashed around the world, showing that the virus wreaked havoc far beyond the infections it caused. The WHO attributed about 5.4 million deaths to the virus itself.&nbsp;</p>
+<img style='position:absolute; width:359px; height:583px; left: 431px; top: 931px' src="3.jpeg" alt="">
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 1535px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Global deaths from the Covid-19 pandemic are far greater than those from just infections. World Health Organization </p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 1553px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:110px; left: 206px; top: 1571px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The burden of these deaths was not spread equally. <a href="https://www.bbc.com/news/world-asia-india-60981318" rel="noopener noreferrer" target="_blank">India suffered the highest toll</a> from the pandemic with nearly 4.7 million fatalities, about 10 times the country’s official estimates. India’s per capita excess fatality rate average for 2020-2021 — 171 per 100,000 per year — was roughly in the middle of the pack among countries. The highest per capita rate was in Peru at 437 per 100,000 per year. The US meanwhile saw 820,000 official deaths from Covid-19 by the end of 2021, but the WHO estimated an additional 110,000 fatalities over this time frame, with a per capita rate of 140 per 100,000 per year.&nbsp;</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 1682px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:36px; left: 206px; top: 1701px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Within populations across the globe, older people faced the highest risks, with 82 percent of excess deaths among those older than 60.</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 1737px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:73px; left: 206px; top: 1756px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Researchers at the WHO built their estimates on official reported deaths and used models to calculate them where direct tallies weren’t available. Their excess death results are a bit lower than some prior estimates. In March, the <a href="https://www.healthdata.org/research-article/estimating-excess-mortality-due-covid-19-pandemic-systematic-analysis-covid-19" rel="noopener noreferrer" target="_blank">Institute for Health Metrics and Evaluation</a> counted 18.2 million excess deaths in the same time frame. <a href="https://www.economist.com/graphic-detail/coronavirus-excess-deaths-estimates" rel="noopener noreferrer" target="_blank">The Economist</a> calculated excess deaths as high as 25 million.</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 1830px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 1848px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+What does this all mean for the Covid-19 pandemic?</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 1867px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:92px; left: 206px; top: 1885px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+For one thing, the wide gap between the official number of Covid-19 deaths and the estimates of excess deaths highlights how the pandemic has had devastating knock-on effects. Ignoring Covid-19 has proven deadly, but some of the interventions deployed have had immense costs too. Shutdowns of economies, schools, travel, routine medical care, and social functions created stress in societies. The pandemic led to an <a href="https://www.cdc.gov/mmwr/volumes/71/su/su7103a3.htm" rel="noopener noreferrer" target="_blank">increase in suicides</a> and <a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2791852" rel="noopener noreferrer" target="_blank">deaths from excessive drinking</a>, for example.</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 1977px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:73px; left: 206px; top: 1996px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+And counting deaths is not just an academic exercise. It’s an important measure of how well a country is handling the crisis and serves as a basis for preventing future casualties. “When we undercount, we miss targeting our interventions where and when they are most needed,” said <a href="https://www.who.int/director-general/who-headquarters-leadership-team" rel="noopener noreferrer" target="_blank">Samira Asma</a>, assistant director-general for data, analytics, and delivery at the WHO, during a press conference on Thursday. “We must hold ourselves and our policymakers accountable.”</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2070px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:110px; left: 206px; top: 2088px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The discrepancy between deaths specifically from Covid-19 and excess deaths during the pandemic shows how hard it is to keep track of the true extent of the crisis. With health care systems stressed by millions of infections, record-keeping often became a low priority. In some places, health metrics were poorly tracked to begin with, so reporting on deaths varies widely between countries, with some like <a href="https://www.nbcnews.com/science/science-news/covid-death-toll-india-likely-far-higher-official-record-research-says-rcna11357" rel="noopener noreferrer" target="_blank">India</a> and <a href="https://www.cnbc.com/video/2022/04/13/china-is-likely-dramatically-undercounting-covid-cases-says-dr-scott-gottlieb.html" rel="noopener noreferrer" target="_blank">China</a> likely undercounting their fatalities by wide margins. Excess death estimates also reveal how some outbreaks were far more severe than previously realized and highlight hidden fractures in health care.</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2199px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:55px; left: 206px; top: 2217px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The timing of excess deaths throughout the pandemic shows, perhaps not surprisingly, that the situation is worst when transmission of the virus is high and vaccination rates are low. While protection against infection can wane, Covid-19 <a href="https://www.vox.com/22894978/covid-19-vaccine-lives-saved-deaths-avoided-omicron-chart" rel="noopener noreferrer" target="_blank">vaccines prevented millions of deaths</a>.</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2273px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:55px; left: 206px; top: 2291px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+In the current moment, it’s important to recognize that the pandemic is still not over. The United States has just passed more than <a href="https://www.cnbc.com/2022/05/04/covid-deaths-top-1-million-in-us-nbc-news-tally-shows.html" rel="noopener noreferrer" target="_blank">1 million deaths</a> directly caused by Covid-19. The SARS-CoV-2 virus behind the disease is <a href="https://www.washingtonpost.com/health/2022/05/01/coronavirus-more-mutations/" rel="noopener noreferrer" target="_blank">continuing to mutate</a> in ways that make it more transmissible and better able to evade immune protection.</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2346px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:73px; left: 206px; top: 2365px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Some of the places that have avoided major Covid-19 outbreaks are getting hammered now. Cities like <a href="https://www.vox.com/22994648/covid-19-hong-kong-outbreak-omicron-ba2-cases-deaths-record-vaccine" rel="noopener noreferrer" target="_blank">Hong Kong</a> and <a href="https://www.vox.com/23033466/shanghai-covid-zero-lockdown-interview" rel="noopener noreferrer" target="_blank">Shanghai</a> have seen huge spikes in cases and deaths from Covid-19 as recent waves of infections revealed that many of the older residents in these cities were not vaccinated. No one can afford to be complacent, and earlier success in containing the pandemic is no guarantee against future misery.</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2439px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:92px; left: 206px; top: 2457px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+It’s also worth noting that death is the most severe outcome of Covid-19, but not the most likely result. The majority of people sickened by Covid-19 don’t die. However, their illnesses have social and economic consequences as they miss work or isolate from family. Not everyone who survives an infection makes a complete recovery, with a significant fraction facing <a href="https://www.vox.com/22906853/omicron-long-covid-vaccinated-symptoms-cause" rel="noopener noreferrer" target="_blank">long Covid</a> and enduring health problems. The excess death toll of Covid-19 is massive, but so too is the excess suffering.</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2549px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:73px; left: 206px; top: 2568px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+And while there is wide variation in how severely Covid-19 has afflicted different countries, with some relaxing precautions like wearing face masks, it remains a global threat. As long as the virus is spreading, it will mutate, increasing the chances of another dangerous variant emerging. Preventing this requires containing the disease wherever possible, particularly through closing vaccination gaps around the world.</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2642px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:36px; left: 206px; top: 2660px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+“No country is safe until all countries are safe,” said <a href="https://www.who.int/director-general/who-headquarters-leadership-team" rel="noopener noreferrer" target="_blank">Ibrahima Socé Fall</a>, assistant director-general for emergency response at the WHO, during a press conference.</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2697px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2716px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2734px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="http://vox.com/pages/support-now?itm_campaign=default&amp;itm_medium=article&amp;itm_source=article-footer" rel="noopener noreferrer" target="_blank"><strong>Will you support Vox’s explanatory journalism?</strong></a></p>
+<p style='margin:0px; position:absolute; width:808px; height:73px; left: 206px; top: 2752px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Millions turn to Vox to understand what’s happening in the news. Our mission has never been more vital than it is in this moment: to empower through understanding. Financial contributions from our readers are a critical part of supporting our resource-intensive work and help us keep our journalism free for all. <a href="http://vox.com/pages/support-now?itm_campaign=default&amp;itm_medium=article&amp;itm_source=article-footer" rel="noopener noreferrer" target="_blank"> Please consider making a contribution to Vox today.</a></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2826px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2845px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:27px; left: 206px; top: 2863px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+In This Stream</p>
+<p style='margin:0px; position:absolute; width:808px; height:21px; left: 206px; top: 2891px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+<a href="https://www.vox.com/21569964/covid-19-vaccines-news-and-updates" rel="noopener noreferrer" target="_blank">Covid-19 vaccines: News and updates</a></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2912px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/23058380/covid-19-who-excess-death-total-toll-vaccine-variant" rel="noopener noreferrer" target="_blank">How many people have died from the Covid-19 crisis? </a></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2931px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/22994648/covid-19-hong-kong-outbreak-omicron-ba2-cases-deaths-record-vaccine" rel="noopener noreferrer" target="_blank">How Hong Kong’s pandemic success story turned into a nightmare </a></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 2949px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/21569964/covid-19-vaccines-news-and-updates" rel="noopener noreferrer" target="_blank"> View all 150 stories </a></p>
+<p style='margin:0px; position:absolute; width:808px; height:27px; left: 206px; top: 2968px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:27px; left: 206px; top: 2995px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+More From Vox</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 3023px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/the-highlight/22983104/justice-forgiveness" rel="noopener noreferrer" target="_blank"> When justice isn’t served, how do we find forgiveness? </a></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 3042px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/vox-conversations-podcast/22899471/forgiveness-american-politics-polarization-lucy-allais" rel="noopener noreferrer" target="_blank"> The limits of forgiveness </a></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 3060px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/22967752/how-to-forgive-someone-who-isnt-sorry-wont-apologize" rel="noopener noreferrer" target="_blank"> How to forgive someone who isn’t sorry </a></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 3079px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/22969804/forgiveness-gibson-logan-paul-jk-rowling" rel="noopener noreferrer" target="_blank"> Everyone wants forgiveness, but no one is being forgiven </a></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 3097px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/22979070/restorative-justice-forgiveness-limits-promise" rel="noopener noreferrer" target="_blank"> The promise — and problem — of restorative justice </a></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 3115px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/22979953/forgiveness-reconciliation-truth" rel="noopener noreferrer" target="_blank"> The impossible task of truth and reconciliation </a></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 3134px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:27px; left: 206px; top: 3152px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+The Latest</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 3180px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:27px; left: 326px; top: 3199px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+<a href="https://www.vox.com/23042818/climate-change-ipcc-wind-solar-battery-technology-breakthrough" rel="noopener noreferrer" target="_blank">This is what we need to invent to fight climate change</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 3226px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+ By  <a href="https://www.vox.com/authors/umair-irfan" rel="noopener noreferrer" target="_blank">Umair Irfan</a> </p>
+<img style='position:absolute; width:119px; height:119px; left: 191px; top: 3187px' src="6.gif" alt="">
+<img style='position:absolute; width:119px; height:119px; left: 191px; top: 3315px' src="7.gif" alt="">
+<img style='position:absolute; width:119px; height:119px; left: 191px; top: 3443px' src="8.gif" alt="">
+<img style='position:absolute; width:119px; height:119px; left: 191px; top: 3571px' src="9.gif" alt="">
+<img style='position:absolute; width:119px; height:119px; left: 191px; top: 3699px' src="10.gif" alt="">
+<img style='position:absolute; width:119px; height:119px; left: 191px; top: 3827px' src="11.gif" alt="">
+<p style='margin:0px; position:absolute; width:688px; height:27px; left: 326px; top: 3327px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+<a href="https://www.vox.com/23058465/supreme-court-roe-wade-lgbtq-samuel-alito-marriage-equality-obergefell-lawrence" rel="noopener noreferrer" target="_blank">If Roe v. Wade falls, are LGBTQ rights next?</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 3354px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+ By  <a href="https://www.vox.com/authors/ian-millhiser" rel="noopener noreferrer" target="_blank">Ian Millhiser</a> </p>
+<p style='margin:0px; position:absolute; width:688px; height:27px; left: 326px; top: 3455px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+<a href="https://www.vox.com/23059122/the-staircase-real-story-kathleen-peterson-murder-michael-peterson-trial-owl-theory" rel="noopener noreferrer" target="_blank">The owl did it, and other reasons true crime fans love </a></p>
+<p style='margin:0px; position:absolute; width:688px; height:27px; left: 326px; top: 3482px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+<a href="https://www.vox.com/23059122/the-staircase-real-story-kathleen-peterson-murder-michael-peterson-trial-owl-theory" rel="noopener noreferrer" target="_blank">The Staircase </a></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 3510px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+ By  <a href="https://www.vox.com/authors/aja-romano" rel="noopener noreferrer" target="_blank">Aja Romano</a> </p>
+<p style='margin:0px; position:absolute; width:688px; height:27px; left: 326px; top: 3583px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+<a href="https://www.vox.com/recode/23059057/privacy-abortion-phone-data-roe" rel="noopener noreferrer" target="_blank">What police could find out about your illegal abortion</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 3610px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+ By  <a href="https://www.vox.com/authors/sara-morrison" rel="noopener noreferrer" target="_blank">Sara Morrison</a> </p>
+<p style='margin:0px; position:absolute; width:688px; height:27px; left: 326px; top: 3711px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+<a href="https://www.vox.com/23057041/doctor-strange-multiverse-of-madness-credits-scene-charlize-theron-clea" rel="noopener noreferrer" target="_blank">One of Multiverse of Madness’s 2 credits scenes is a huge </a></p>
+<p style='margin:0px; position:absolute; width:688px; height:27px; left: 326px; top: 3738px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+<a href="https://www.vox.com/23057041/doctor-strange-multiverse-of-madness-credits-scene-charlize-theron-clea" rel="noopener noreferrer" target="_blank">casting announcement </a></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 3766px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+ By  <a href="https://www.vox.com/authors/alex-abad-santos" rel="noopener noreferrer" target="_blank">Alex Abad-Santos</a> </p>
+<p style='margin:0px; position:absolute; width:688px; height:27px; left: 326px; top: 3839px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+<a href="https://www.vox.com/the-goods/2022/5/5/23057317/abortion-supreme-court-roe-v-wade" rel="noopener noreferrer" target="_blank">Abortion has been treated as a fringe issue by Democrats for </a></p>
+<p style='margin:0px; position:absolute; width:688px; height:27px; left: 326px; top: 3866px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+<a href="https://www.vox.com/the-goods/2022/5/5/23057317/abortion-supreme-court-roe-v-wade" rel="noopener noreferrer" target="_blank">decades. This is the result.</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 3894px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+ By  <a href="https://www.vox.com/authors/anna-north" rel="noopener noreferrer" target="_blank">Anna North</a> </p>
+<p style='margin:0px; position:absolute; width:209px; height:21px; left: 1045px; top: 431px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+Most Read&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 452px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 63px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<img style='position:absolute; width:239px; height:179px; left: 1030px; top: 451px' src="19.jpeg" alt="">
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 655px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/recode/23056251/nurdles-plastic-pollution-ocean-microplastics" rel="noopener noreferrer" target="_blank">The massive, unregulated </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 673px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/recode/23056251/nurdles-plastic-pollution-ocean-microplastics" rel="noopener noreferrer" target="_blank">source of plastic pollution </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 691px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/recode/23056251/nurdles-plastic-pollution-ocean-microplastics" rel="noopener noreferrer" target="_blank">you’ve probably never </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 710px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/recode/23056251/nurdles-plastic-pollution-ocean-microplastics" rel="noopener noreferrer" target="_blank">heard of</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 943px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/23057041/doctor-strange-multiverse-of-madness-credits-scene-charlize-theron-clea" rel="noopener noreferrer" target="_blank">One of Multiverse of Madness’s </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 961px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/23057041/doctor-strange-multiverse-of-madness-credits-scene-charlize-theron-clea" rel="noopener noreferrer" target="_blank">2 credits scenes is a huge </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 979px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/23057041/doctor-strange-multiverse-of-madness-credits-scene-charlize-theron-clea" rel="noopener noreferrer" target="_blank">casting announcement&nbsp;</a></p>
+<img style='position:absolute; width:239px; height:179px; left: 1030px; top: 739px' src="22.jpeg" alt="">
+<img style='position:absolute; width:239px; height:179px; left: 1030px; top: 1027px' src="23.jpeg" alt="">
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 1231px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/culture/23043519/johnny-depp-amber-heard-defamation-trial-fairfax-county-domestic-abuse-violence-me-too" rel="noopener noreferrer" target="_blank">Johnny Depp, Amber Heard, </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 1249px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/culture/23043519/johnny-depp-amber-heard-defamation-trial-fairfax-county-domestic-abuse-violence-me-too" rel="noopener noreferrer" target="_blank">and their $50 million </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 1267px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/culture/23043519/johnny-depp-amber-heard-defamation-trial-fairfax-county-domestic-abuse-violence-me-too" rel="noopener noreferrer" target="_blank">defamation suit, explained</a></p>
+<img style='position:absolute; width:239px; height:179px; left: 1030px; top: 1315px' src="25.jpeg" alt="">
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 1519px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/recode/23057167/home-battery-tesla-powerwall-biden" rel="noopener noreferrer" target="_blank">These batteries work from </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 1537px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/recode/23057167/home-battery-tesla-powerwall-biden" rel="noopener noreferrer" target="_blank">home</a></p>
+<img style='position:absolute; width:239px; height:179px; left: 1030px; top: 1571px' src="27.jpeg" alt="">
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 1775px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/science-and-health/23030491/ocean-scientific-mysteries-unexplainable-podcast" rel="noopener noreferrer" target="_blank">7 ocean mysteries scientists </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 1045px; top: 1793px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/science-and-health/23030491/ocean-scientific-mysteries-unexplainable-podcast" rel="noopener noreferrer" target="_blank">haven’t solved yet</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3967px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.voxmedia.com/legal/terms-of-use" rel="noopener noreferrer" target="_blank">Terms of Use</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3985px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.voxmedia.com/legal/privacy-notice" rel="noopener noreferrer" target="_blank">Privacy Notice</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 4003px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.voxmedia.com/legal/cookie-policy" rel="noopener noreferrer" target="_blank">Cookie Policy</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:36px; left: 86px; top: 4022px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/contact#donotsell" rel="noopener noreferrer" target="_blank">Do Not Sell My Personal Info</a><a href="https://www.voxmedia.com/pages/licensing" rel="noopener noreferrer" target="_blank">Licensing FAQ</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 4059px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.voxmedia.com/legal/accessibility" rel="noopener noreferrer" target="_blank">Accessibility</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 4077px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://status.voxmedia.com" rel="noopener noreferrer" target="_blank">Platform Status</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 4096px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/contact" rel="noopener noreferrer" target="_blank">Contact</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 4114px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/contact#tip" rel="noopener noreferrer" target="_blank">Send Us a Tip</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 4133px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/masthead" rel="noopener noreferrer" target="_blank">Masthead</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 4151px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/pages/about-us" rel="noopener noreferrer" target="_blank">About Us</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:36px; left: 86px; top: 4169px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.vox.com/press-room" rel="noopener noreferrer" target="_blank">Press Room</a><a href="https://www.vox.com/2018/12/7/18113237/ethics-and-guidelines-at-vox-com" rel="noopener noreferrer" target="_blank">Editorial Ethics and Guidelines</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 4206px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 3967px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://voxmedia.stories.usechorus.com/?community_id=441" rel="noopener noreferrer" target="_blank">Author Login</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 3985px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.voxmedia.com/vox-advertising" rel="noopener noreferrer" target="_blank">Advertise with us</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 4003px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://jobs.voxmedia.com" rel="noopener noreferrer" target="_blank">Jobs @ Vox Media</a> </p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 4022px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+© 2022 <a href="https://www.voxmedia.com" rel="noopener noreferrer" target="_blank">Vox Media</a>, LLC. All Rights Reserved&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+</body>
+</html>

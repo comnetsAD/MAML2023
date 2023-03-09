@@ -1,0 +1,322 @@
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<style>
+            /* Dropdown Button */
+    .dropbtn {
+      background-color: rgba(239,239,239);
+      color: black;
+      font-size: 16px;
+      border: none;
+      width: 100%;
+      height: 100%
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {background-color: rgba(200,200,200);}
+
+    .carousel-inner {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .carousel-open:checked + .carousel-item {
+        position: static;
+        opacity: 100;
+    }
+
+    .carousel-item {
+        position: absolute;
+        opacity: 0;
+        -webkit-transition: opacity 0.6s ease-out;
+        transition: opacity 0.6s ease-out;
+    }
+
+    .carousel-item img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .carousel-control {
+        background: rgba(0, 0, 0, 0.28);
+        border-radius: 50%;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+        font-size: 40px;
+        height: 40px;
+        line-height: 35px;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        cursor: pointer;
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        text-align: center;
+        width: 40px;
+        z-index: 10;
+    }
+
+    .carousel-control.prev {
+        left: 2%;
+    }
+
+    .carousel-control.next {
+        right: 2%;
+    }
+
+    .carousel-control:hover {
+        background: rgba(0, 0, 0, 0.8);
+        color: #aaaaaa;
+    }
+
+    #carousel-1:checked ~ .control-1,
+    #carousel-2:checked ~ .control-2,
+    #carousel-3:checked ~ .control-3 {
+        display: block;
+    }
+
+    .carousel-indicators {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 2%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 10;
+    }
+
+    .carousel-indicators li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    .carousel-bullet {
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        font-size: 35px;
+    }
+
+    .carousel-bullet:hover {
+        color: #aaaaaa;
+    }
+
+    #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+    #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+    #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+        color: #428bca;
+    }
+
+        </style>
+</head>
+<body>
+<p style='margin:0px; position:absolute; width:808px; height:36px; left: 206px; top: 45px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:26px'>
+Shelter in Chinatown Is Canceled After Community Protests</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 81px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:36px; left: 206px; top: 100px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The shelter in the shadow of the Manhattan Bridge would have housed 49 men and is one of three that New York City planned for the area.</p>
+<p style='margin:0px; position:absolute; width:808px; height:36px; left: 206px; top: 717px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The proposed shelter at 47 Madison Street in Chinatown was one of three that neighborhood residents have opposed.Credit: Andrew Seng for The New York Times</p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 753px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 772px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+By <a href="https://www.nytimes.com/by/andy-newman" rel="noopener noreferrer" target="_blank">Andy Newman</a></p>
+<p style='margin:0px; position:absolute; width:808px; height:18px; left: 206px; top: 790px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+April 28, 2022</p>
+<p style='margin:0px; position:absolute; width:808px; height:55px; left: 206px; top: 809px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+New York City has canceled one of three homeless shelters it planned to open in Chinatown, amid <a href="https://www.nytimes.com/2022/04/27/nyregion/chinatown-nyc-shelter-anti-asian-attacks.html" rel="noopener noreferrer" target="_blank">fierce resistance from Chinatown residents</a> who fear that more homeless shelters will mean a further increase in anti-Asian hate crimes, many of which have been linked to homeless people.</p>
+<p style='margin:0px; position:absolute; width:808px; height:73px; left: 206px; top: 864px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The city will no longer open a shelter at 47 Madison Street, which would have housed 49 men. The cancellation comes two days after a community board in a different part of Chinatown passed a resolution asking the city not to open a shelter on Grand Street. That shelter is planned for a site around the corner from where a 35-year-old Asian American woman was <a href="https://www.nytimes.com/2022/02/14/nyregion/suspect-christina-yuna-lee-murder.html" rel="noopener noreferrer" target="_blank">murdered in February</a>.</p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 957px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Subscribe to The Times to read as many articles as you like.</p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 975px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/subscription" rel="noopener noreferrer" target="_blank"><strong>nytimes.com/subscription</strong></a></p>
+<p style='margin:0px; position:absolute; width:209px; height:21px; left: 86px; top: 1101px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+news</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1122px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/" rel="noopener noreferrer" target="_blank">Home Page</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1141px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/world" rel="noopener noreferrer" target="_blank">World</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1159px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/news-event/coronavirus" rel="noopener noreferrer" target="_blank">Coronavirus</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1177px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/us" rel="noopener noreferrer" target="_blank">U.S.</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1196px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/politics" rel="noopener noreferrer" target="_blank">Politics</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1214px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/nyregion" rel="noopener noreferrer" target="_blank">New York</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1233px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/business" rel="noopener noreferrer" target="_blank">Business</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1251px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/technology" rel="noopener noreferrer" target="_blank">Tech</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1270px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/science" rel="noopener noreferrer" target="_blank">Science</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1288px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/sports" rel="noopener noreferrer" target="_blank">Sports</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1307px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/interactive/2021/us/wildfires-air-quality-tracker.html" rel="noopener noreferrer" target="_blank">Wildfire Tracker</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1325px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/obituaries" rel="noopener noreferrer" target="_blank">Obituaries</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1344px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/todayspaper" rel="noopener noreferrer" target="_blank">Today's Paper</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1362px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/corrections" rel="noopener noreferrer" target="_blank">Corrections</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1380px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/trending/" rel="noopener noreferrer" target="_blank">Trending</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1399px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:21px; left: 326px; top: 1101px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+Opinion</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1122px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/opinion" rel="noopener noreferrer" target="_blank">Today's Opinion</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1141px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/opinion/columnists" rel="noopener noreferrer" target="_blank">Columnists</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1159px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/opinion/editorials" rel="noopener noreferrer" target="_blank">Editorials</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1177px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/opinion/contributors" rel="noopener noreferrer" target="_blank">Guest Essays</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1196px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/opinion/letters" rel="noopener noreferrer" target="_blank">Letters</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1214px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/opinion/sunday" rel="noopener noreferrer" target="_blank">Sunday Review</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1233px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/spotlight/opinion-video" rel="noopener noreferrer" target="_blank">Opinion Video</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1251px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:21px; left: 566px; top: 1101px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+Arts</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1122px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/arts" rel="noopener noreferrer" target="_blank">Today's Arts</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1141px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/arts/design" rel="noopener noreferrer" target="_blank">Art &amp; Design</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1159px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/books" rel="noopener noreferrer" target="_blank">Books</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1177px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/books/best-sellers/" rel="noopener noreferrer" target="_blank">Best Sellers Book List</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1196px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/arts/dance" rel="noopener noreferrer" target="_blank">Dance</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1214px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/movies" rel="noopener noreferrer" target="_blank">Movies</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1233px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/arts/music" rel="noopener noreferrer" target="_blank">Music</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1251px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/spotlight/pop-culture" rel="noopener noreferrer" target="_blank">Pop Culture</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1270px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/arts/television" rel="noopener noreferrer" target="_blank">Television</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1288px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/theater" rel="noopener noreferrer" target="_blank">Theater</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1307px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/video/arts" rel="noopener noreferrer" target="_blank">Video: Arts</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1325px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:89px; height:21px; left: 805px; top: 1101px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+Living</p>
+<p style='margin:0px; position:absolute; width:89px; height:18px; left: 805px; top: 1122px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/automobiles" rel="noopener noreferrer" target="_blank">Automotive</a></p>
+<p style='margin:0px; position:absolute; width:89px; height:18px; left: 805px; top: 1141px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/crosswords" rel="noopener noreferrer" target="_blank">Games</a></p>
+<p style='margin:0px; position:absolute; width:89px; height:18px; left: 805px; top: 1159px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/education" rel="noopener noreferrer" target="_blank">Education</a></p>
+<p style='margin:0px; position:absolute; width:89px; height:18px; left: 805px; top: 1177px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/food" rel="noopener noreferrer" target="_blank">Food</a></p>
+<p style='margin:0px; position:absolute; width:89px; height:18px; left: 805px; top: 1196px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/health" rel="noopener noreferrer" target="_blank">Health</a></p>
+<p style='margin:0px; position:absolute; width:89px; height:18px; left: 805px; top: 1214px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/jobs" rel="noopener noreferrer" target="_blank">Jobs</a></p>
+<p style='margin:0px; position:absolute; width:89px; height:18px; left: 805px; top: 1233px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/fashion/weddings" rel="noopener noreferrer" target="_blank">Love</a></p>
+<p style='margin:0px; position:absolute; width:89px; height:18px; left: 805px; top: 1251px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/magazine" rel="noopener noreferrer" target="_blank">Magazine</a></p>
+<p style='margin:0px; position:absolute; width:89px; height:18px; left: 805px; top: 1270px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/parenting" rel="noopener noreferrer" target="_blank">Parenting</a></p>
+<p style='margin:0px; position:absolute; width:89px; height:18px; left: 805px; top: 1288px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/realestate" rel="noopener noreferrer" target="_blank">Real Estate</a></p>
+<p style='margin:0px; position:absolute; width:89px; height:18px; left: 805px; top: 1307px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/style" rel="noopener noreferrer" target="_blank">Style</a></p>
+<p style='margin:0px; position:absolute; width:89px; height:18px; left: 805px; top: 1325px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/t-magazine" rel="noopener noreferrer" target="_blank">T Magazine</a></p>
+<p style='margin:0px; position:absolute; width:89px; height:18px; left: 805px; top: 1344px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/travel" rel="noopener noreferrer" target="_blank">Travel</a></p>
+<p style='margin:0px; position:absolute; width:89px; height:18px; left: 805px; top: 1362px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:21px; left: 925px; top: 1101px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+More</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1122px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/reader-center" rel="noopener noreferrer" target="_blank">Reader Center</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1141px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://theathletic.com" rel="noopener noreferrer" target="_blank">The Athletic</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1159px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/wirecutter/" rel="noopener noreferrer" target="_blank">Wirecutter</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1177px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://cooking.nytimes.com" rel="noopener noreferrer" target="_blank">Cooking</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1196px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/headway" rel="noopener noreferrer" target="_blank">Headway</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1214px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/spotlight/nyt-events" rel="noopener noreferrer" target="_blank">Live Events</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1233px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/learning" rel="noopener noreferrer" target="_blank">The Learning Network</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1251px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/subscription/info/tools-and-services" rel="noopener noreferrer" target="_blank">Tools &amp; Services</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1270px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/spotlight/podcasts" rel="noopener noreferrer" target="_blank">Podcasts</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1288px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/video" rel="noopener noreferrer" target="_blank">Video</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1307px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://timesmachine.nytimes.com/browser" rel="noopener noreferrer" target="_blank">TimesMachine</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1325px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://store.nytimes.com/" rel="noopener noreferrer" target="_blank">NYT Store</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1344px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://myaccount.nytimes.com/seg" rel="noopener noreferrer" target="_blank">Manage My Account</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1362px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://nytlicensing.com/" rel="noopener noreferrer" target="_blank">NYTLicensing</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 925px; top: 1380px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 1565px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://help.nytimes.com/hc/en-us/articles/115014792127-Copyright-notice" rel="noopener noreferrer" target="_blank">©&nbsp;2022&nbsp;The New York Times Company</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 1583px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytco.com/" rel="noopener noreferrer" target="_blank">NYTCo</a> <a href="https://help.nytimes.com/hc/en-us/articles/115015385887-Contact-Us" rel="noopener noreferrer" target="_blank">Contact Us</a> <a href="https://help.nytimes.com/hc/en-us/articles/115015727108-Accessibility" rel="noopener noreferrer" target="_blank">Accessibility</a> <a href="https://www.nytco.com/careers/" rel="noopener noreferrer" target="_blank">Work with us</a> <a href="https://nytmediakit.com/" rel="noopener noreferrer" target="_blank">Advertise</a> <a href="https://www.tbrandstudio.com/" rel="noopener noreferrer" target="_blank">T Brand Studio</a> <a href="https://www.nytimes.com/privacy/cookie-policy#how-do-i-manage-trackers" rel="noopener noreferrer" target="_blank">Your Ad Choices</a> <a href="https://www.nytimes.com/privacy/privacy-policy" rel="noopener noreferrer" target="_blank">Privacy Policy</a> <a href="https://help.nytimes.com/hc/en-us/articles/115014893428-Terms-of-service" rel="noopener noreferrer" target="_blank">Terms of Service</a> <a href="https://help.nytimes.com/hc/en-us/articles/115014893968-Terms-of-sale" rel="noopener noreferrer" target="_blank">Terms of Sale</a> <a href="https://www.nytimes.com/sitemap/" rel="noopener noreferrer" target="_blank">Site Map</a> <a href="https://help.nytimes.com/hc/en-us" rel="noopener noreferrer" target="_blank">Help</a> <a href="https://www.nytimes.com/subscription?campaignId=37WXW" rel="noopener noreferrer" target="_blank">Subscriptions</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 1601px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<img style='position:absolute; width:838px; height:559px; left: 191px; top: 145px' src="9.jpeg" alt="">
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 13px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.nytimes.com/section/nyregion" rel="noopener noreferrer" target="_blank">New York</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 31px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+</body>
+</html>

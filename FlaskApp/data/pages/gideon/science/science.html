@@ -1,0 +1,525 @@
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<style>
+            /* Dropdown Button */
+    .dropbtn {
+      background-color: rgba(239,239,239);
+      color: black;
+      font-size: 16px;
+      border: none;
+      width: 100%;
+      height: 100%
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {background-color: rgba(200,200,200);}
+
+    .carousel-inner {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .carousel-open:checked + .carousel-item {
+        position: static;
+        opacity: 100;
+    }
+
+    .carousel-item {
+        position: absolute;
+        opacity: 0;
+        -webkit-transition: opacity 0.6s ease-out;
+        transition: opacity 0.6s ease-out;
+    }
+
+    .carousel-item img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .carousel-control {
+        background: rgba(0, 0, 0, 0.28);
+        border-radius: 50%;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+        font-size: 40px;
+        height: 40px;
+        line-height: 35px;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        cursor: pointer;
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        text-align: center;
+        width: 40px;
+        z-index: 10;
+    }
+
+    .carousel-control.prev {
+        left: 2%;
+    }
+
+    .carousel-control.next {
+        right: 2%;
+    }
+
+    .carousel-control:hover {
+        background: rgba(0, 0, 0, 0.8);
+        color: #aaaaaa;
+    }
+
+    #carousel-1:checked ~ .control-1,
+    #carousel-2:checked ~ .control-2,
+    #carousel-3:checked ~ .control-3 {
+        display: block;
+    }
+
+    .carousel-indicators {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 2%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 10;
+    }
+
+    .carousel-indicators li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    .carousel-bullet {
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        font-size: 35px;
+    }
+
+    .carousel-bullet:hover {
+        color: #aaaaaa;
+    }
+
+    #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+    #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+    #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+        color: #428bca;
+    }
+
+        </style>
+</head>
+<body>
+<div style='position:absolute; width:1200px; height:50px; left: 70px; top: 0px; background-color:#ffffff'>
+</div>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 80px; top: 10px'>
+Health</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 199px; top: 10px'>
+Tech</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 318px; top: 10px'>
+Enviro</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 437px; top: 10px'>
+Society</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 556px; top: 10px'>
+Quirky</button>
+<img style='position:absolute; width:239px; height:39px; left: 71px; top: 51px' src="0.png" alt="">
+<p style='margin:0px; position:absolute; width:329px; height:18px; left: 86px; top: 111px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Your source for the latest research news</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 566px; top: 111px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/breaking/" rel="noopener noreferrer" target="_blank"><strong>New</strong></a>：<a href="https://www.sciencedaily.com/releases/2022/05/220504130817.htm" rel="noopener noreferrer" target="_blank">Wingless Small Reptile Gave Rise to Pterosaurs</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 566px; top: 129px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:928px; height:18px; left: 326px; top: 63px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:55px; left: 1045px; top: 143px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Follow all of ScienceDaily's <a href="https://www.sciencedaily.com/news/" rel="noopener noreferrer" target="_blank"><strong>latest research news</strong></a> and <a href="https://www.sciencedaily.com/news/top/science/" rel="noopener noreferrer" target="_blank"><strong>top science headlines</strong></a>!</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 239px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Science News</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 257px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+from research organizations</p>
+<p style='margin:0px; position:absolute; width:688px; height:73px; left: 86px; top: 275px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:26px'>
+Prehistoric people created art by firelight, new research reveals</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 349px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 368px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Date: April 20, 2022</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 386px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 405px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Source: University of York</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 423px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 442px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Summary:</p>
+<p style='margin:0px; position:absolute; width:688px; height:36px; left: 86px; top: 460px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Stones that were incised with artistic designs around 15,000 years ago have patterns of heat damage which suggests they were carved close to the flickering light of a fire, a new study has found.&nbsp;</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 239px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 527px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/releases/2022/04/220420151543.htm#" rel="noopener noreferrer" target="_blank">RELATED TOPICS</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 545px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/news/fossils_ruins/" rel="noopener noreferrer" target="_blank">Fossils &amp; Ruins</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 563px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/news/fossils_ruins/origin_of_life/" rel="noopener noreferrer" target="_blank">Origin of Life</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 582px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/news/fossils_ruins/early_mammals/" rel="noopener noreferrer" target="_blank">Early Mammals</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 600px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/news/fossils_ruins/fossils/" rel="noopener noreferrer" target="_blank">Fossils</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 619px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/news/fossils_ruins/early_humans/" rel="noopener noreferrer" target="_blank">Early Humans</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 637px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/news/fossils_ruins/cultures/" rel="noopener noreferrer" target="_blank">Cultures</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 656px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/news/fossils_ruins/human_evolution/" rel="noopener noreferrer" target="_blank">Human Evolution</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 674px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/news/fossils_ruins/evolution/" rel="noopener noreferrer" target="_blank">Evolution</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 693px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/news/fossils_ruins/early_birds/" rel="noopener noreferrer" target="_blank">Early Birds</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 711px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<img style='position:absolute; width:479px; height:319px; left: 311px; top: 515px' src="8.jpg" alt="">
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 847px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Campfire in cave (stock image).</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 865px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<em>Credit: © Kozioł Kamila / </em><a href="https://stock.adobe.com" rel="noopener noreferrer" target="_blank"><em>Adobe Stock</em></a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 883px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:55px; left: 326px; top: 902px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Our early ancestors probably created intricate artwork by firelight, an examination of 50 engraved stones unearthed in France has revealed.</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 957px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:73px; left: 326px; top: 976px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The stones were incised with artistic designs around 15,000 years ago and have patterns of heat damage which suggests they were carved close to the flickering light of a fire, the new study has found.</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 1049px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:110px; left: 326px; top: 1068px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The study, by researchers at the Universities of York and Durham, looked at the collection of engraved stones, known as plaquettes, which are now held in the British Museum. They are likely to have been made using stone tools by Magdalenian people, an early hunter-gatherer culture dating from between 23,000 and 14,000 years ago.</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 1179px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:55px; left: 326px; top: 1197px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The researchers identified patterns of pink heat damage around the edges of some of the stones, providing evidence that they had been placed in close proximity to a fire.</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 1252px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:110px; left: 326px; top: 1271px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Following their discovery, the researchers have experimented with replicating the stones themselves and used 3D models and virtual reality software to recreate the plaquettes as prehistoric artists would have seen them: under fireside light conditions and with the fresh white lines engravers would have made as they first cut into the rock thousands of years ago.</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 1382px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:129px; left: 326px; top: 1400px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Lead author of the study, Dr Andy Needham from the Department of Archaeology at the University of York and Co-Director of the York Experimental Archaeology Research Centre said: "It has previously been assumed that the heat damage visible on some plaquettes was likely to have been caused by accident, but experiments with replica plaquettes showed the damage was more consistent with being purposefully positioned close to a fire.</p>
+<p style='margin:0px; position:absolute; width:449px; height:73px; left: 326px; top: 1529px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+"In the modern day, we might think of art as being created on a blank canvas in daylight or with a fixed light source; but we now know that people 15,000 years ago were creating art around a fire at night, with flickering shapes and shadows."</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 1603px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:110px; left: 326px; top: 1622px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Working under these conditions would have had a dramatic effect on the way prehistoric people experienced the creation of art, the researchers say. It may have activated an evolutionary capacity designed to protect us from predators called "Pareidolia," where perception imposes a meaningful interpretation such as the form of an animal, a face or a pattern where there is none.</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 1732px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:129px; left: 326px; top: 1751px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Dr Needham added: "Creating art by firelight would have been a very visceral experience, activating different parts of the human brain. We know that flickering shadows and light enhance our evolutionary capacity to see forms and faces in inanimate objects and this might help explain why it's common to see plaquette designs that have used or integrated natural features in the rock to draw animals or artistic forms."</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 1880px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:55px; left: 326px; top: 1898px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The Magdalenian era saw a flourishing of early art, from cave art and the decoration of tools and weapons to the engraving of stones and bones.</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 1954px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:166px; left: 326px; top: 1972px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Co-author of the study, PhD student Izzy Wisher from the Department of Archaeology at the University of Durham, said: "During the Magdalenian period conditions were very cold and the landscape was more exposed. While people were well-adapted to the cold, wearing warm clothing made from animal hides and fur, fire was still really important for keeping warm. Our findings reinforce the theory that the warm glow of the fire would have made it the hub of the community for social gatherings, telling stories and making art.</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 2138px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:110px; left: 326px; top: 2157px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+"At a time when huge amounts of time and effort would have gone into finding food, water and shelter, it's fascinating to think that people still found the time and capacity to create art. It shows how these activities have formed part of what makes us human for thousands of years and demonstrates the cognitive complexity of prehistoric people."</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 2267px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 2286px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 2304px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<strong>Story Source:</strong></p>
+<p style='margin:0px; position:absolute; width:449px; height:36px; left: 326px; top: 2323px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.york.ac.uk/news-and-events/news/2022/research/art-by-firelight/" rel="noopener noreferrer" target="_blank">Materials</a> provided by <a href="https://www.york.ac.uk/" rel="noopener noreferrer" target="_blank"><strong>University of York</strong></a>. <em>Note: Content may be edited for style and length.</em></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 2360px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<strong>Journal Reference</strong>:</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 2378px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:92px; left: 326px; top: 2397px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Andy Needham, Izzy Wisher, Andrew Langley, Matthew Amy, Aimée Little. <strong>Art by firelight? Using experimental and digital techniques to explore Magdalenian engraved plaquette use at Montastruc (France)</strong>. <em>PLOS ONE</em>, 2022; 17 (4): e0266146 DOI: <a href="http://dx.doi.org/10.1371/journal.pone.0266146" rel="noopener noreferrer" target="_blank">10.1371/journal.pone.0266146</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 326px; top: 2489px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1279px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/releases/2022/04/220420151543.htm#" rel="noopener noreferrer" target="_blank">RELATED TERMS</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1297px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1315px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/terms/homo_(genus).htm" rel="noopener noreferrer" target="_blank">Homo (genus)</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1334px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/terms/homo_heidelbergensis.htm" rel="noopener noreferrer" target="_blank">Homo heidelbergensis</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1352px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/terms/neandertal_interaction_with_cro-magnons.htm" rel="noopener noreferrer" target="_blank">Neandertal interaction with </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1371px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/terms/neandertal_interaction_with_cro-magnons.htm" rel="noopener noreferrer" target="_blank">Cro-Magnons</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1389px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/terms/cave_painting.htm" rel="noopener noreferrer" target="_blank">Cave painting</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1408px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/terms/petroglyph.htm" rel="noopener noreferrer" target="_blank">Petroglyph</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1426px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/terms/homo_antecessor.htm" rel="noopener noreferrer" target="_blank">Homo antecessor</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1445px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/terms/the_genographic_project.htm" rel="noopener noreferrer" target="_blank">The Genographic Project</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1463px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&gt; <a href="https://www.sciencedaily.com/terms/neanderthal.htm" rel="noopener noreferrer" target="_blank">Neanderthal</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1481px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 2559px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<strong>Featured Content     </strong>                                                                                    from New Scientist</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 2577px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newscientist.com/article/mg25433832-100-stunning-images-of-mollusc-shells-reveal-their-beauty-and-diversity/?utm_source=sciencedaily&amp;utm_medium=partner&amp;utm_campaign=sciencedaily_article" rel="noopener noreferrer" target="_blank">Stunning images of mollusc shells reveal their beauty and diversity</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:36px; left: 326px; top: 2595px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+April 20, 2022 — These fascinating and colourful mollusc shells from a collection at the Natural History Museum in London are drawn from a new book, Interesting Shells by Andreia Salvador.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 2632px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 2651px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newscientist.com/article/2316858-climate-change-and-farming-may-have-halved-some-insect-populations/?utm_source=sciencedaily&amp;utm_medium=partner&amp;utm_campaign=sciencedaily_article" rel="noopener noreferrer" target="_blank">Climate change and farming may have halved some insect populations</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:36px; left: 326px; top: 2669px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+April 20, 2022 — Warmer temperatures and intense agriculture may be responsible for a 49 per cent decline in insect numbers in some areas, with the tropics worst hit.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 2706px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 2725px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newscientist.com/article/mg25433820-200-stunning-photograph-shows-a-flower-as-an-insect-might-see-it/?utm_source=sciencedaily&amp;utm_medium=partner&amp;utm_campaign=sciencedaily_article" rel="noopener noreferrer" target="_blank">Stunning photograph shows a flower as an insect might see it</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:55px; left: 326px; top: 2743px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+April 13, 2022 — Debora Lombardi's image, shortlisted for the 2022 Sony World Photography Awards, uses a photography technique to show the fluorescence of flowers under UV light, revealing them as insects might see them.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 2798px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 2817px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Visit <a href="https://www.newscientist.com/?utm_source=sciencedaily&amp;utm_medium=partner&amp;utm_campaign=190122_sciencedaily_editorial" rel="noopener noreferrer" target="_blank"><em>New Scientist</em></a> for more global science stories &gt;&gt;&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p style='margin:0px; position:absolute; width:688px; height:27px; left: 326px; top: 2835px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:27px; left: 326px; top: 2863px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+Explore More</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 2891px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+from ScienceDaily</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 2909px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 2928px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<strong>RELATED STORIES</strong></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 2946px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 2964px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/releases/2021/11/211125154838.htm" rel="noopener noreferrer" target="_blank">Loss of Ancient Grazers Triggered a Global Rise in Fires</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:55px; left: 326px; top: 2983px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Nov. 25, 2021 — From 50,000 years to 6,000 years ago, many of the world's largest animals, including such iconic grassland grazers as the woolly mammoth, giant bison, and ancient horses, went extinct. The loss of ...</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 3038px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 3057px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/releases/2021/10/211020135914.htm" rel="noopener noreferrer" target="_blank">Humans Did Not Cause Woolly Mammoths to Go Extinct -- Climate Change Did</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:55px; left: 326px; top: 3075px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Oct. 20, 2021 — Humans did not cause woolly mammoths to go extinct -- climate change did. For five million years, woolly mammoths roamed the earth until they vanished for good nearly 4,000 years ago -- and ...</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 3131px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 3149px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/releases/2021/01/210127085217.htm" rel="noopener noreferrer" target="_blank">Ancient Indigenous New Mexican Community Knew How to Sustainably Coexist With Wildfire</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:55px; left: 326px; top: 3167px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Jan. 27, 2021 — Wildfires are the enemy when they threaten homes in California and elsewhere. But a new study suggests that people living in fire-prone places can learn to manage fire as an ally to prevent dangerous ...</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 3223px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 3241px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/releases/2018/03/180323104824.htm" rel="noopener noreferrer" target="_blank">Germany Was Covered by Glaciers 450,000 Years Ago</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:55px; left: 326px; top: 3260px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Mar. 23, 2018 — Researchers have obtained new chronological data for the timing of the Elsterian and Saalian glacial cycles in central Germany. They found that the first Quaternary glaciation, which covered huge ...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 863px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 881px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:27px; left: 805px; top: 899px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+Most Popular</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 927px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+this week</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 946px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/news/plants_animals/" rel="noopener noreferrer" target="_blank">PLANTS &amp; ANIMALS</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 964px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 982px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/04/220408083901.htm" rel="noopener noreferrer" target="_blank">Old Skins Cells Reprogrammed to Regain Youthful Function</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 998px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 1016px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/04/220428085820.htm" rel="noopener noreferrer" target="_blank">Climate Change Could Spark the Next Pandemic, New Study Finds</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 1032px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 1050px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/05/220504082622.htm" rel="noopener noreferrer" target="_blank">Fecal Transplants Reverse Hallmarks of Aging</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 1065px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 1084px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/news/earth_climate/" rel="noopener noreferrer" target="_blank">EARTH &amp; CLIMATE</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 1102px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 1121px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/04/220428152229.htm" rel="noopener noreferrer" target="_blank">From Seawater to Drinking Water, With the Push of a Button</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 1136px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 1154px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/04/220407141837.htm" rel="noopener noreferrer" target="_blank">Ocean Water Samples Yield Treasure Trove of RNA Virus Data</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 1170px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 1188px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/04/220413131137.htm" rel="noopener noreferrer" target="_blank">A New Heat Engine With No Moving Parts Is as Efficient as a Steam Turbine</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 1204px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 1222px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/news/fossils_ruins/" rel="noopener noreferrer" target="_blank">FOSSILS &amp; RUINS</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 1240px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 1259px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2008/01/080130170343.htm" rel="noopener noreferrer" target="_blank">Blue-Eyed Humans Have a Single, Common Ancestor</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 1274px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 1293px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2008/12/081211121835.htm" rel="noopener noreferrer" target="_blank">Boy or Girl? It's in the Father's Genes</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 1308px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 1326px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/04/220420151543.htm" rel="noopener noreferrer" target="_blank">Prehistoric People Created Art by Firelight, New Research Reveals</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 1342px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2063px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Strange &amp; Offbeat</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2081px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+&nbsp;</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2099px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/news/strange_offbeat/plants_animals/" rel="noopener noreferrer" target="_blank">PLANTS &amp; ANIMALS</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2118px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 2136px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/05/220505085605.htm" rel="noopener noreferrer" target="_blank">Quantum Mechanics Could Explain Why DNA Can Spontaneously Mutate</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2152px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 2170px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/05/220504130817.htm" rel="noopener noreferrer" target="_blank">A New 225-Million-Year-Old Reptile from Brazil</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2185px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 2204px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/05/220504082625.htm" rel="noopener noreferrer" target="_blank">Taste of the Future: Robot Chef Learns to 'Taste as You Go'</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2219px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2238px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/news/strange_offbeat/earth_climate/" rel="noopener noreferrer" target="_blank">EARTH &amp; CLIMATE</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2256px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 2275px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/05/220505085644.htm" rel="noopener noreferrer" target="_blank">Rapid Adaptation of Deep Learning Teaches Drones to Survive Any </a></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 2290px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/05/220505085644.htm" rel="noopener noreferrer" target="_blank">Weather</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 2305px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 2321px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/04/220428085840.htm" rel="noopener noreferrer" target="_blank">Giant Marine Reptiles at 2,800 Meters Above Sea Level</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 2336px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 2351px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/04/220426101800.htm" rel="noopener noreferrer" target="_blank">Six New Species of Tiny Frog Discovered in Mexico</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2366px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2385px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/news/strange_offbeat/fossils_ruins/" rel="noopener noreferrer" target="_blank">FOSSILS &amp; RUINS</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2403px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 2422px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/05/220504082333.htm" rel="noopener noreferrer" target="_blank">Squid and Octopus Genome Studies Reveal How Cephalopods' Unique </a></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 2437px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/05/220504082333.htm" rel="noopener noreferrer" target="_blank">Traits Evolved</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2452px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 2471px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/04/220421131003.htm" rel="noopener noreferrer" target="_blank">Glowing Spider Fossils Prompt Breakthrough Study of How They Were </a></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 2486px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/04/220421131003.htm" rel="noopener noreferrer" target="_blank">Preserved at Aix-En-Provence</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2502px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:15px; left: 805px; top: 2520px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:10.79px'>
+<a href="https://www.sciencedaily.com/releases/2022/04/220420133623.htm" rel="noopener noreferrer" target="_blank">Pterosaur Discovery Solves Ancient Feather Mystery</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2535px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3359px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Free Subscriptions</p>
+<p style='margin:0px; position:absolute; width:209px; height:110px; left: 326px; top: 3377px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Get the latest science news with ScienceDaily's free email newsletters, updated daily and weekly. Or view hourly updated newsfeeds in your RSS reader:</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3488px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3506px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+ <a href="https://www.sciencedaily.com/newsletters.htm" rel="noopener noreferrer" target="_blank">Email Newsletters</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3525px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+ <a href="https://www.sciencedaily.com/newsfeeds.htm" rel="noopener noreferrer" target="_blank">RSS Feeds</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3543px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 3359px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Follow Us</p>
+<p style='margin:0px; position:absolute; width:209px; height:55px; left: 566px; top: 3377px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Keep up to date with the latest news from ScienceDaily via social networks:</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 3432px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 3451px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+ <a href="https://www.facebook.com/sciencedaily" rel="noopener noreferrer" target="_blank">Facebook</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 3469px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+ <a href="https://twitter.com/sciencedaily" rel="noopener noreferrer" target="_blank">Twitter</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 3488px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+ <a href="https://www.linkedin.com/company/sciencedaily" rel="noopener noreferrer" target="_blank">LinkedIn</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 3506px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 805px; top: 3359px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Have Feedback?</p>
+<p style='margin:0px; position:absolute; width:209px; height:92px; left: 805px; top: 3377px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Tell us what you think of ScienceDaily -- we welcome both positive and negative comments. Have any problems using the site? Questions?</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 805px; top: 3469px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 805px; top: 3488px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Leave Feedback</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 805px; top: 3506px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+ <a href="https://www.sciencedaily.com/contact.htm" rel="noopener noreferrer" target="_blank">Contact Us</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 805px; top: 3525px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 3679px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/about.htm" rel="noopener noreferrer" target="_blank">About This Site</a>&nbsp;|&nbsp;<a href="https://www.sciencedaily.com/staff.htm" rel="noopener noreferrer" target="_blank">Staff</a>&nbsp;|&nbsp;<a href="https://www.sciencedaily.com/reviews.htm" rel="noopener noreferrer" target="_blank">Reviews</a>&nbsp;|&nbsp;<a href="https://www.sciencedaily.com/contribute.htm" rel="noopener noreferrer" target="_blank">Contribute</a>&nbsp;|&nbsp;<a href="https://www.sciencedaily.com/advertise.htm" rel="noopener noreferrer" target="_blank">Advertise</a>&nbsp;|&nbsp;<a href="https://www.sciencedaily.com/privacy.htm" rel="noopener noreferrer" target="_blank">Privacy Policy</a>&nbsp;|&nbsp;<a href="https://www.sciencedaily.com/editorial.htm" rel="noopener noreferrer" target="_blank">Editorial Policy</a>&nbsp;|&nbsp;<a href="https://www.sciencedaily.com/terms.htm" rel="noopener noreferrer" target="_blank">Terms of Use</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 3697px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.sciencedaily.com/copyright.htm" rel="noopener noreferrer" target="_blank">Copyright 1995-2022 ScienceDaily</a> or by other parties, where indicated. All rights controlled by their respective owners.</p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 3715px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Content on this website is for information only. It is not intended to provide medical or other professional advice.</p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 3734px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Views expressed here do not necessarily reflect those of ScienceDaily, its staff, its contributors, or its partners.</p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 3752px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Financial support for ScienceDaily comes from advertisements and referral programs, where indicated.</p>
+</body>
+</html>

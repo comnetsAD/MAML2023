@@ -1,0 +1,355 @@
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<style>
+            /* Dropdown Button */
+    .dropbtn {
+      background-color: rgba(239,239,239);
+      color: black;
+      font-size: 16px;
+      border: none;
+      width: 100%;
+      height: 100%
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {background-color: rgba(200,200,200);}
+
+    .carousel-inner {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .carousel-open:checked + .carousel-item {
+        position: static;
+        opacity: 100;
+    }
+
+    .carousel-item {
+        position: absolute;
+        opacity: 0;
+        -webkit-transition: opacity 0.6s ease-out;
+        transition: opacity 0.6s ease-out;
+    }
+
+    .carousel-item img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .carousel-control {
+        background: rgba(0, 0, 0, 0.28);
+        border-radius: 50%;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+        font-size: 40px;
+        height: 40px;
+        line-height: 35px;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        cursor: pointer;
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        text-align: center;
+        width: 40px;
+        z-index: 10;
+    }
+
+    .carousel-control.prev {
+        left: 2%;
+    }
+
+    .carousel-control.next {
+        right: 2%;
+    }
+
+    .carousel-control:hover {
+        background: rgba(0, 0, 0, 0.8);
+        color: #aaaaaa;
+    }
+
+    #carousel-1:checked ~ .control-1,
+    #carousel-2:checked ~ .control-2,
+    #carousel-3:checked ~ .control-3 {
+        display: block;
+    }
+
+    .carousel-indicators {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 2%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 10;
+    }
+
+    .carousel-indicators li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    .carousel-bullet {
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        font-size: 35px;
+    }
+
+    .carousel-bullet:hover {
+        color: #aaaaaa;
+    }
+
+    #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+    #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+    #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+        color: #428bca;
+    }
+
+        </style>
+</head>
+<body>
+<div style='position:absolute; width:1200px; height:50px; left: 70px; top: 0px; background-color:#000000'>
+</div>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 80px; top: 10px'>
+Newsletter</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 199px; top: 10px'>
+Sign In</button>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 86px; top: 127px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/news/daily-comment" rel="noopener noreferrer" target="_blank">Daily Comment</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 86px; top: 145px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:147px; left: 86px; top: 163px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:26px'>
+What an Unprecedented Supreme Court Leak Says About the Future of Abortion—and About Precedent Itself</p>
+<p style='margin:0px; position:absolute; width:449px; height:36px; left: 86px; top: 311px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The fragility of the right to an abortion has become synonymous with the fragility of the Court’s legitimacy.</p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 86px; top: 348px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+By <a href="https://www.newyorker.com/contributors/jeannie-suk" rel="noopener noreferrer" target="_blank">Jeannie Suk Gersen</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 86px; top: 366px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+May 4, 2022</p>
+<img style='position:absolute; width:718px; height:718px; left: 551px; top: 115px' src="1.jpeg" alt="">
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 847px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Illustration by Nicholas Konrad / The New Yorker; Source photograph from Getty</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 865px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:184px; left: 86px; top: 883px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The Court Chamber inside the Pantheon-like building of the Supreme Court of the United States is adorned with marble friezes depicting ancient lawgivers, including Hammurabi, Moses, and Confucius. To begin each session of the Court, at ten o’clock in the morning, the marshal strikes a gavel and commands, “All rise!” The audience goes silent and obeys. The nine Justices, in dark robes, then emerge from behind a heavy velvet curtain to take their seats on the elevated mahogany bench, as the marshal announces, “The Honorable, the Chief Justice and the Associate Justices of the Supreme Court of the United States. Oyez! Oyez! Oyez! All persons having business before the Honorable, the Supreme Court of the United States, are admonished to draw near and give their attention, for the Court is now sitting. God save the United States and this Honorable Court!” It is the closest thing we have, in the American civic sphere, to a papal audience.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 1068px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:147px; left: 86px; top: 1086px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The solemn ritual was supposed to have preceded the Supreme Court’s revelation from the bench of its decision in Dobbs v. Jackson Women’s Health Organization, the case about Mississippi’s ban on abortion after fifteen weeks of pregnancy. It still surely will, later this spring, but it will feel as if we’ve already been behind the curtain in Oz. On Monday, a <a href="https://www.politico.com/news/2022/05/02/supreme-court-abortion-draft-opinion-00029473" rel="noopener noreferrer" target="_blank">leaked first-draft opinion</a> by Justice Samuel Alito, writing for a majority, which was apparently circulated to all the Justices in February, was published by Politico. It states that the Court is overruling Roe v. Wade, which declared a constitutional right to an abortion, in 1973, and Planned Parenthood v. Casey, which reaffirmed Roe’s “central holding” under the Fourteenth Amendment’s due-process clause, in 1992.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 1234px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:221px; left: 86px; top: 1252px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The leak has launched abundant speculation about the leaker’s motives. Commentators have wondered whether leaking the draft was intended to corner a “squishy” conservative Justice into staying onboard with the majority or, alternatively, to create pressure to jump ship from the majority. It is difficult to fathom. But one effect of the leak is less speculative. At a time when the fragility of the right to an abortion has become synonymous with the fragility of the Court’s legitimacy, such a brazen breach of the Court’s process and decorum deflates its dignified mystery. It evinces contempt for the internal rules of the highest body that hands down rulings. Being unprecedented—I know of no past instance when the full text of an early draft opinion of the Court was made public—the leak seems to mock the current Court’s apparent disregard of precedent. It takes away the Court’s total control over what the public sees of its work. In short, it is like catching the Court in its underwear, before it has had the chance to don the garments that cover, even armor, its deliberations in secrecy. It implies that the Justices have no clothes.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 1474px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:147px; left: 86px; top: 1492px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Chief Justice John Roberts, who is reportedly not joining in to overturn Roe, issued a statement on Tuesday that the leak “was a singular and egregious breach of that trust that is an affront to the Court and the community of public servants who work here.” He directed the marshal to “investigate the source of the leak.” Perhaps the assault on the Court’s legitimacy through an act that invades its privacy norms, disrespects its dignified process, and disrupts its control over the timing of its decision effectively holds up a kind of perverse mirror to what Alito is doing in the draft: depriving people of privacy, dignity, and control in the important and serious decision to have a child when they are ready.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 1640px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:184px; left: 86px; top: 1658px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The content of <a href="https://www.newyorker.com/news/daily-comment/whats-missing-from-the-drafted-decision-to-overturn-roe-v-wade" rel="noopener noreferrer" target="_blank">Alito’s draft</a> is exactly what I would expect of the long-pent-up takedown of Roe that generations of legal conservatives have been fantasizing about for decades. The draft’s account is a standard one, expressed without much restraint: that the Court in Roe arrogantly took the issue of abortion out of the democratic political processes in each of the states, where it belongs, and imposed on the nation a fake constitutional right in an “abuse of judicial authority” and exercise of “raw judicial power.” Alito writes, “Roe was egregiously wrong from the start. Its reasoning was exceptionally weak, and the decision has had damaging consequences. And far from bringing about a national settlement of the abortion issue, Roe and Casey have enflamed debate and deepened division. It is time to heed the Constitution and return the issue of abortion to the people’s elected representatives.&nbsp;.&nbsp;.&nbsp;. That is what the Constitution and the rule of law demand.”</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 1843px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:239px; left: 86px; top: 1861px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The bulk of Alito’s draft is devoted to arguing that “a right to abortion is not deeply rooted in the Nation’s <a href="https://www.newyorker.com/news/daily-comment/why-there-are-no-women-in-the-constitution" rel="noopener noreferrer" target="_blank">history and traditions</a>” and that, to the contrary, “an unbroken tradition of prohibiting abortion on pain of criminal punishment persisted from the earliest days of the common law until 1973,” when Roe was decided. Before Roe, he writes, “there was no support in American law for a constitutional right to obtain an abortion. Zero. None.” He spends many pages describing laws that made abortion a crime, and then dozens of pages in an appendix laying out “statutes criminalizing abortion at all stages of pregnancy in the States existing in 1868,” the year the Fourteenth Amendment was ratified, and another appendix of statutes criminalizing abortion in the District of Columbia and in territories that became states. The appendices even take the trouble to italicize phrases tending to show that abortion was criminal regardless of the stage of pregnancy (though Alito acknowledges that, at the time, abortion before “quickening” was allowed in a number of states). All this is to prove that abortion cannot be a fundamental right guaranteed under the Constitution.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 2101px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:166px; left: 86px; top: 2120px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Given what we heard from the Justices at oral arguments in December, it is not surprising that five of them seemingly voted to overrule Roe and Casey. But, in the course of Alito’s argument that our legal tradition prior to Roe did not respect a right to abortion, what is striking is how far he goes to try to establish something more: that there is a strong legal tradition in our nation that has condemned abortion as the destruction of unborn life. By devoting so much of this draft to the view that the criminalization of abortion <em>is</em> deeply rooted in the nation’s history and traditions, Alito is setting up anti-abortion litigants to argue relatively soon that a fetus has a fundamental right to life that <em>is</em> protected by the Fourteenth Amendment’s guarantee that no state shall “deprive any person of life” without due process of law.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 2286px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:184px; left: 86px; top: 2304px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The Court has repeatedly said, in prior substantive due-process cases, that a fundamental right is one that is “deeply rooted in this Nation’s history and tradition” and “fundamental to our scheme of ordered liberty.” It is particularly telling that, rather than rejecting substantive due process, which conservatives have long reviled as a liberal invention untethered from the Constitution, Alito’s draft purports to scrap the abortion right as “not deeply rooted” while embracing a version of substantive due process that leaves room for anti-abortion advocates to claim a fetal right to life as “deeply rooted.” Alito also states that the overruling of Roe and Casey does not threaten “precedents that do not concern abortion,” including <a href="https://www.newyorker.com/magazine/2022/04/25/if-roe-v-wade-is-overturned-whats-next" rel="noopener noreferrer" target="_blank">precedents</a> establishing the right to gay sex and to same-sex marriage. But it is impossible to see how the regressive method he uses, framing “history and tradition” at such a low level of generality, would not have the effect of casting doubt on them.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 2489px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:129px; left: 86px; top: 2507px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+If four other Justices end up joining this opinion, it will indicate change on the horizon that is far more radical than the overruling of Roe and Casey. Simply getting rid of those precedents would mean that roughly half the states would ban abortion, while the rest of the states would remain free to permit it. But an eventual finding of a constitutional right to fetal life would disallow abortion in every state. Alito’s leaked draft leaves no doubt that an expedited attempt to render abortion illegal throughout the entire nation as the vindication of fundamental—if fundamentalist—constitutional rights can be expected to arrive much sooner than we thought.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 2636px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:27px; left: 86px; top: 2655px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+New Yorker Favorites</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 2683px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:36px; left: 86px; top: 2701px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The book that inspired Disney’s “Bambi” is even darker than the cartoon—and has <a href="https://www.newyorker.com/magazine/2022/01/24/bambi-is-even-bleaker-than-you-thought" rel="noopener noreferrer" target="_blank">an unsettling message about humanity</a>.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 2738px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+A Cambridge classicist <a href="https://www.newyorker.com/magazine/2014/09/01/troll-slayer" rel="noopener noreferrer" target="_blank">takes on her sexist detractors</a>.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 2756px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Does wisdom really <a href="https://www.newyorker.com/magazine/2022/01/03/does-wisdom-really-come-from-experience" rel="noopener noreferrer" target="_blank">come from experience</a>?</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 2775px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The trans swimmer who <a href="https://www.newyorker.com/sports/sporting-scene/how-one-swimmer-became-the-focus-of-a-debate-about-trans-athletes" rel="noopener noreferrer" target="_blank">won too much</a>.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 2793px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The mind <a href="https://www.newyorker.com/magazine/1966/01/22/among-the-wild-things" rel="noopener noreferrer" target="_blank">behind “Where the Wild Things Are.”</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 2812px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+From 1938: <a href="https://www.newyorker.com/magazine/1938/09/10/what-happens-after-that" rel="noopener noreferrer" target="_blank">Alfred Hitchcock’s many plans</a>.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 2830px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/newsletter/daily" rel="noopener noreferrer" target="_blank">Sign up for our daily newsletter</a> to receive the best stories from <em>The New Yorker</em>.</p>
+<img style='position:absolute; width:119px; height:119px; left: 71px; top: 2867px' src="3.jpeg" alt="">
+<p style='margin:0px; position:absolute; width:569px; height:36px; left: 206px; top: 2879px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/contributors/jeannie-suk" rel="noopener noreferrer" target="_blank">Jeannie Suk Gersen</a> is a contributing writer to The New Yorker and a professor at Harvard Law School.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 3007px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+More:<a href="https://www.newyorker.com/tag/us-supreme-court" rel="noopener noreferrer" target="_blank">U.S. Supreme Court</a> <a href="https://www.newyorker.com/tag/us-constitution" rel="noopener noreferrer" target="_blank">U.S. Constitution</a> <a href="https://www.newyorker.com/tag/womens-rights" rel="noopener noreferrer" target="_blank">Women’s Rights</a> <a href="https://www.newyorker.com/tag/abortion-rights" rel="noopener noreferrer" target="_blank">Abortion Rights</a> <a href="https://www.newyorker.com/tag/roe-v-wade" rel="noopener noreferrer" target="_blank">Roe v. Wade</a> <a href="https://www.newyorker.com/tag/samuel-alito" rel="noopener noreferrer" target="_blank">Samuel Alito</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:27px; left: 566px; top: 3071px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+Read More</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3295px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Culture</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3313px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/video/watch/the-new-yorker-shorts-the-bus-ride-from-hell#intcid=_cne-interlude-newyorker_a54b9d61-f75e-4af1-8493-6d2603dfabb5_text2vec1" rel="noopener noreferrer" target="_blank">The Bus Ride from Hell</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:110px; left: 86px; top: 3331px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+In Joe Hsieh’s “Night Bus,” a bus waylaid in the middle of the night becomes the backdrop for a violent outburst of hatred, love, and vengeance.</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3442px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+By The New Yorker</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3295px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Culture</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3313px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/video/watch/the-new-yorker-documentary-grasshopper-catching-a-ugandan-hustle#intcid=_cne-interlude-newyorker_a54b9d61-f75e-4af1-8493-6d2603dfabb5_text2vec1" rel="noopener noreferrer" target="_blank">Grasshopper-Catching, a </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3331px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/video/watch/the-new-yorker-documentary-grasshopper-catching-a-ugandan-hustle#intcid=_cne-interlude-newyorker_a54b9d61-f75e-4af1-8493-6d2603dfabb5_text2vec1" rel="noopener noreferrer" target="_blank">Ugandan Hustle</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:147px; left: 326px; top: 3350px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Michelle Coomber’s “Nsenene” stunningly captures the practice of grasshopper-catching in Uganda, and shows how the seemingly ethereal creatures form a part of the country’s diet and economy.</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3497px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+By The New Yorker</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 3295px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+News</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 3313px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/video/watch/the-new-yorker-documentary-american-scar-the-environmental-tragedy-of-the-border-wall#intcid=_cne-interlude-newyorker_a54b9d61-f75e-4af1-8493-6d2603dfabb5_text2vec1" rel="noopener noreferrer" target="_blank">“American Scar”: The </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 3331px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/video/watch/the-new-yorker-documentary-american-scar-the-environmental-tragedy-of-the-border-wall#intcid=_cne-interlude-newyorker_a54b9d61-f75e-4af1-8493-6d2603dfabb5_text2vec1" rel="noopener noreferrer" target="_blank">Environmental Tragedy of the </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 3350px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/video/watch/the-new-yorker-documentary-american-scar-the-environmental-tragedy-of-the-border-wall#intcid=_cne-interlude-newyorker_a54b9d61-f75e-4af1-8493-6d2603dfabb5_text2vec1" rel="noopener noreferrer" target="_blank">Border Wall</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:110px; left: 566px; top: 3368px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+In Daniel Lombroso’s documentary, activists expose an ecocide at the U.S.-Mexico border that could alter the evolutionary future of North America.</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 3479px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+By The New Yorker</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 805px; top: 3295px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Culture</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 805px; top: 3313px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/video/watch/a-boyhood-lost-to-chinese-reeducation#intcid=_cne-interlude-newyorker_a54b9d61-f75e-4af1-8493-6d2603dfabb5_text2vec1" rel="noopener noreferrer" target="_blank">A Boyhood Lost to Chinese </a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 805px; top: 3331px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/video/watch/a-boyhood-lost-to-chinese-reeducation#intcid=_cne-interlude-newyorker_a54b9d61-f75e-4af1-8493-6d2603dfabb5_text2vec1" rel="noopener noreferrer" target="_blank">Reëducation</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:147px; left: 805px; top: 3350px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+In “The Reëducation of Ji Zhihao,” the filmmaker Tian Macleod Ji follows his uncle to China’s countryside, on a journey to explore both the tender bonds and the painful memories of the nation’s Maoist past.</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 805px; top: 3497px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+By The New Yorker</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3551px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Sections</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3569px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3587px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/news" rel="noopener noreferrer" target="_blank">News</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3606px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/culture" rel="noopener noreferrer" target="_blank">Books &amp; Culture</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3624px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/fiction-and-poetry" rel="noopener noreferrer" target="_blank">Fiction &amp; Poetry</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3643px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/humor" rel="noopener noreferrer" target="_blank">Humor &amp; Cartoons</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3661px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/magazine" rel="noopener noreferrer" target="_blank">Magazine</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3680px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/crossword-puzzles-and-games" rel="noopener noreferrer" target="_blank">Crossword</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3698px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://video.newyorker.com" rel="noopener noreferrer" target="_blank">Video</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3717px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/podcast" rel="noopener noreferrer" target="_blank">Podcasts</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3735px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/archive" rel="noopener noreferrer" target="_blank">Archive</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3753px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/goings-on-about-town" rel="noopener noreferrer" target="_blank">Goings On</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3772px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3790px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3551px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+More</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3569px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3587px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="http://w1.buysub.com/servlet/CSGateway?cds_mag_code=NYR" rel="noopener noreferrer" target="_blank">Customer Care</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3606px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://store.newyorker.com/" rel="noopener noreferrer" target="_blank">Shop The New Yorker</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3624px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://condenaststore.com/art/new+yorker+covers" rel="noopener noreferrer" target="_blank">Buy Covers and Cartoons</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3643px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://condenaststore.com/conde-nast-brand/thenewyorker" rel="noopener noreferrer" target="_blank">Condé Nast Store</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3661px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/digital-editions" rel="noopener noreferrer" target="_blank">Digital Access</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3680px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/newsletter" rel="noopener noreferrer" target="_blank">Newsletters</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3698px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/jigsaw" rel="noopener noreferrer" target="_blank">Jigsaw Puzzle</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3717px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/about/feeds" rel="noopener noreferrer" target="_blank">RSS</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3735px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/sitemap" rel="noopener noreferrer" target="_blank">Site Map</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 3753px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3855px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/about/us" rel="noopener noreferrer" target="_blank">About</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3873px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/about/careers" rel="noopener noreferrer" target="_blank">Careers</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3891px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/about/contact" rel="noopener noreferrer" target="_blank">Contact</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3910px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/about/faq" rel="noopener noreferrer" target="_blank">F.A.Q.</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3928px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="http://www.condenast.com/brands/the-new-yorker" rel="noopener noreferrer" target="_blank">Media Kit</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3947px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/about/press" rel="noopener noreferrer" target="_blank">Press</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3965px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.newyorker.com/about/accessibility-help" rel="noopener noreferrer" target="_blank">Accessibility Help</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 3984px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.cnspotlight.com/" rel="noopener noreferrer" target="_blank">Condé Nast Spotlight</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 4002px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:1168px; height:73px; left: 86px; top: 4111px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+© 2022 Condé Nast. All rights reserved. Use of this site constitutes acceptance of our <a href="https://www.condenast.com/user-agreement/" rel="noopener noreferrer" target="_blank">User Agreement</a> and <a href="http://www.condenast.com/privacy-policy#privacypolicy" rel="noopener noreferrer" target="_blank">Privacy Policy and Cookie Statement</a> and <a href="http://www.condenast.com/privacy-policy#privacypolicy-california" rel="noopener noreferrer" target="_blank">Your California Privacy Rights.</a><em>The New Yorker</em> may earn a portion of sales from products that are purchased through our site as part of our Affiliate Partnerships with retailers. The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of Condé Nast. <a href="http://www.condenast.com/privacy-policy#privacypolicy-optout" rel="noopener noreferrer" target="_blank">Ad Choices</a></p>
+<img style='position:absolute; width:239px; height:177px; left: 71px; top: 3107px' src="15.png" alt="">
+<img style='position:absolute; width:239px; height:179px; left: 311px; top: 3107px' src="16.png" alt="">
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 86px; top: 3071px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<img style='position:absolute; width:239px; height:177px; left: 551px; top: 3107px' src="18.png" alt="">
+<img style='position:absolute; width:239px; height:179px; left: 790px; top: 3107px' src="19.png" alt="">
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 63px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+New Yorker Favorites   <a href="http://www.newyorker.com/magazine/2006/07/03/the-deepest-cut" rel="noopener noreferrer" target="_blank">Life with Half a Brain</a>   <a href="http://www.newyorker.com/tech/elements/the-glossary-of-happiness" rel="noopener noreferrer" target="_blank">The Glossary of Happiness</a>   <a href="https://www.newyorker.com/magazine/2017/09/18/the-case-against-civilization" rel="noopener noreferrer" target="_blank">The Case Against Civilization</a>   <a href="https://www.newyorker.com/culture/photo-booth/what-vivian-maier-saw-in-color" rel="noopener noreferrer" target="_blank">What Vivian Maier Saw</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 81px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+</body>
+</html>

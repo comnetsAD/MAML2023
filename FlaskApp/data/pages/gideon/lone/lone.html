@@ -1,0 +1,268 @@
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<style>
+            /* Dropdown Button */
+    .dropbtn {
+      background-color: rgba(239,239,239);
+      color: black;
+      font-size: 16px;
+      border: none;
+      width: 100%;
+      height: 100%
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {background-color: rgba(200,200,200);}
+
+    .carousel-inner {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .carousel-open:checked + .carousel-item {
+        position: static;
+        opacity: 100;
+    }
+
+    .carousel-item {
+        position: absolute;
+        opacity: 0;
+        -webkit-transition: opacity 0.6s ease-out;
+        transition: opacity 0.6s ease-out;
+    }
+
+    .carousel-item img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .carousel-control {
+        background: rgba(0, 0, 0, 0.28);
+        border-radius: 50%;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+        font-size: 40px;
+        height: 40px;
+        line-height: 35px;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        cursor: pointer;
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        text-align: center;
+        width: 40px;
+        z-index: 10;
+    }
+
+    .carousel-control.prev {
+        left: 2%;
+    }
+
+    .carousel-control.next {
+        right: 2%;
+    }
+
+    .carousel-control:hover {
+        background: rgba(0, 0, 0, 0.8);
+        color: #aaaaaa;
+    }
+
+    #carousel-1:checked ~ .control-1,
+    #carousel-2:checked ~ .control-2,
+    #carousel-3:checked ~ .control-3 {
+        display: block;
+    }
+
+    .carousel-indicators {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 2%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 10;
+    }
+
+    .carousel-indicators li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    .carousel-bullet {
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        font-size: 35px;
+    }
+
+    .carousel-bullet:hover {
+        color: #aaaaaa;
+    }
+
+    #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+    #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+    #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+        color: #428bca;
+    }
+
+        </style>
+</head>
+<body>
+<div style='position:absolute; width:1200px; height:50px; left: 70px; top: 0px; background-color:#ffffff'>
+</div>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 80px; top: 10px'>
+Destinations</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 199px; top: 10px'>
+Stories</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 318px; top: 10px'>
+Shop</button>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 63px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/south-america" rel="noopener noreferrer" target="_blank">South America</a> &gt; <a href="https://www.lonelyplanet.com/colombia" rel="noopener noreferrer" target="_blank">Colombia</a> &gt; <a href="https://www.lonelyplanet.com/colombia/caribbean-coast/cartagena" rel="noopener noreferrer" target="_blank">Cartagena</a> &gt; <a href="https://www.lonelyplanet.com/colombia/caribbean-coast/cartagena/attractions" rel="noopener noreferrer" target="_blank">Attractions</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 81px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:36px; left: 86px; top: 99px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:26px'>
+Old Town</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 136px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 155px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<em>Top choice</em> Old Town</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 173px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+in Cartagena</p>
+<img style='position:absolute; width:718px; height:458px; left: 71px; top: 211px' src="1.jpg" alt="">
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 687px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Nuzhat Aziz</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 705px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:73px; left: 86px; top: 723px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Cartagena's old city is its principal attraction, particularly the inner walled town, consisting of the historical districts of El Centro and San Diego. It's one of finest examples of preserved colonial architecture in the Americas, packed with churches, monasteries, plazas, palaces and mansions with their famous overhanging balconies and shady patios.</p>
+<p style='margin:0px; position:absolute; width:688px; height:36px; left: 86px; top: 797px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+The best way to experience the Old Town is to wander in leisurely fashion, savoring the architectural details, street life and local snacks along the way. Nighttime adds a whole different dimension.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 834px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 853px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://support.lonelyplanet.com/hc/en-us/requests/new?custom_fields=%7B%22360021232134%22%3A%22454795%22%2C%22360011638893%22%3A%22Old%20Town%22%2C%22360010953273%22%3A%22Cartagena%2C%20Colombia%22%2C%22360011715614%22%3A%22business_type_sights%22%2C%22360011716114%22%3A%22%22%2C%22360011639833%22%3Anull%2C%22360011639653%22%3Anull%2C%22360011035574%22%3Anull%2C%22360011035534%22%3Anull%7D&amp;ticket_form_id=808748" rel="noopener noreferrer" target="_blank">Suggest an Edit</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 871px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 889px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 86px; top: 908px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 943px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/places" rel="noopener noreferrer" target="_blank">Destinations</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 961px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/africa" rel="noopener noreferrer" target="_blank">Africa</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 979px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/antarctica" rel="noopener noreferrer" target="_blank">Antarctica</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 998px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/asia" rel="noopener noreferrer" target="_blank">Asia</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1016px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/caribbean" rel="noopener noreferrer" target="_blank">Caribbean Islands</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1035px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/central-america" rel="noopener noreferrer" target="_blank">Central America</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1053px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/europe" rel="noopener noreferrer" target="_blank">Europe</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1072px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/middle-east" rel="noopener noreferrer" target="_blank">Middle East</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1090px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/north-america" rel="noopener noreferrer" target="_blank">North America</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1109px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/pacific" rel="noopener noreferrer" target="_blank">Pacific</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1127px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/south-america" rel="noopener noreferrer" target="_blank">South America</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 86px; top: 1145px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 943px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://shop.lonelyplanet.com/" rel="noopener noreferrer" target="_blank">Shop</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 961px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://shop.lonelyplanet.com/pages/guide-books" rel="noopener noreferrer" target="_blank">Destination guides</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 979px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://shop.lonelyplanet.com/categories/pictorials-reference" rel="noopener noreferrer" target="_blank">Pictorial &amp; gifts</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 998px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://shop.lonelyplanet.com/categories/phrasebooks" rel="noopener noreferrer" target="_blank">Phrasebooks</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1016px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://shop.lonelyplanet.com/pages/lonely-planet-kids" rel="noopener noreferrer" target="_blank">Lonely Planet Kids</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1035px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://support.lonelyplanet.com/hc/en-us/articles/218157937-General-guidebook-information-#product3" rel="noopener noreferrer" target="_blank">Non-English guides</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1053px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 943px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/" rel="noopener noreferrer" target="_blank">Interests</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 961px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/articles/category/adventure-travel" rel="noopener noreferrer" target="_blank">Adventure travel</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 979px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/articles/category/art-and-culture" rel="noopener noreferrer" target="_blank">Art and culture</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:36px; left: 566px; top: 998px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/articles/category/beaches-coasts-and-islands" rel="noopener noreferrer" target="_blank">Beaches, coasts and islands</a><a href="https://www.lonelyplanet.com/articles/category/sustainable-travel" rel="noopener noreferrer" target="_blank">Sustainable Travel</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1035px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/articles/category/family-holidays" rel="noopener noreferrer" target="_blank">Family holidays</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1053px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/articles/category/festivals" rel="noopener noreferrer" target="_blank">Festivals</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1072px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/articles/category/food-and-drink" rel="noopener noreferrer" target="_blank">Food and drink</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1090px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/articles/category/honeymoon-and-romance" rel="noopener noreferrer" target="_blank">Honeymoon and romance</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1109px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/articles/category/road-trips" rel="noopener noreferrer" target="_blank">Road trips</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1127px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/articles/category/travel-gear-and-tech" rel="noopener noreferrer" target="_blank">Travel gear and tech</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1145px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/articles/category/travel-on-a-budget" rel="noopener noreferrer" target="_blank">Travel on a budget</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1164px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/articles/category/wildlife-and-nature" rel="noopener noreferrer" target="_blank">Wildlife and nature</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 566px; top: 1182px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 1247px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/about/" rel="noopener noreferrer" target="_blank">About us</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 1265px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.redventures.com/careers/brands/lonely-planet" rel="noopener noreferrer" target="_blank">Work for Us</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 1283px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/contact" rel="noopener noreferrer" target="_blank">Contact us</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 1302px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/press-trade-advertising/" rel="noopener noreferrer" target="_blank">Press, trade and advertising</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 1320px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/legal/website-terms/" rel="noopener noreferrer" target="_blank">Terms &amp; conditions</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 1339px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.lonelyplanet.com/legal/privacy-policy/" rel="noopener noreferrer" target="_blank">Privacy policy</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 1357px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+© 2022 Lonely Planet. All rights reserved. No part of this site may be reproduced without our written permission.</p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 1376px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+</body>
+</html>

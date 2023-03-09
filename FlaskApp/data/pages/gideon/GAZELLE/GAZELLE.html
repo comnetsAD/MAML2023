@@ -1,0 +1,269 @@
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<style>
+            /* Dropdown Button */
+    .dropbtn {
+      background-color: rgba(239,239,239);
+      color: black;
+      font-size: 16px;
+      border: none;
+      width: 100%;
+      height: 100%
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #ddd;}
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {background-color: rgba(200,200,200);}
+
+    .carousel-inner {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .carousel-open:checked + .carousel-item {
+        position: static;
+        opacity: 100;
+    }
+
+    .carousel-item {
+        position: absolute;
+        opacity: 0;
+        -webkit-transition: opacity 0.6s ease-out;
+        transition: opacity 0.6s ease-out;
+    }
+
+    .carousel-item img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .carousel-control {
+        background: rgba(0, 0, 0, 0.28);
+        border-radius: 50%;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+        font-size: 40px;
+        height: 40px;
+        line-height: 35px;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        cursor: pointer;
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        text-align: center;
+        width: 40px;
+        z-index: 10;
+    }
+
+    .carousel-control.prev {
+        left: 2%;
+    }
+
+    .carousel-control.next {
+        right: 2%;
+    }
+
+    .carousel-control:hover {
+        background: rgba(0, 0, 0, 0.8);
+        color: #aaaaaa;
+    }
+
+    #carousel-1:checked ~ .control-1,
+    #carousel-2:checked ~ .control-2,
+    #carousel-3:checked ~ .control-3 {
+        display: block;
+    }
+
+    .carousel-indicators {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 2%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 10;
+    }
+
+    .carousel-indicators li {
+        display: inline-block;
+        margin: 0 5px;
+    }
+
+    .carousel-bullet {
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        font-size: 35px;
+    }
+
+    .carousel-bullet:hover {
+        color: #aaaaaa;
+    }
+
+    #carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+    #carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+    #carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+        color: #428bca;
+    }
+
+        </style>
+</head>
+<body>
+<div style='position:absolute; width:1200px; height:50px; left: 70px; top: 0px; background-color:#ffffff'>
+</div>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 80px; top: 10px'>
+NEWS</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 199px; top: 10px'>
+FEATURES</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 437px; top: 10px'>
+MULTIMEDIA</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 318px; top: 10px'>
+OPINION</button>
+<button class="dropbtn" style='position:absolute; width:109px; height:30px; left: 556px; top: 10px'>
+TEAM</button>
+<p style='margin:0px; position:absolute; width:688px; height:36px; left: 326px; top: 63px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:26px'>
+Andrew Hamilton Leaves Behind a Divisive Legacy</p>
+<p style='margin:0px; position:absolute; width:688px; height:36px; left: 326px; top: 99px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Hamilton led NYU through an eventful tenure, but his legacy as NYU President will forever be tainted with his inability to stand with Palestine.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 136px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.thegazelle.org/staff-member/abhyudaya-tyagi" rel="noopener noreferrer" target="_blank">Abhyudaya Tyagi</a>, <a href="https://www.thegazelle.org/staff-member/huma-umar" rel="noopener noreferrer" target="_blank">Huma Umar</a>, <a href="https://www.thegazelle.org/staff-member/grace-bechdol" rel="noopener noreferrer" target="_blank">Grace Bechdol</a></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 155px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Apr 18, 2022</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 847px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<em>Illustration by Tom Abi Samra.</em></p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 865px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:92px; left: 326px; top: 883px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+On April 13 2022, Andrew Hamilton, the 16th president of New York University, announced his resignation in an email to the entire NYU community. Hamilton, who has been at NYU since 2016, helped steer the university through the Covid-19 crisis. As he was keen to state in his email, Hamilton’s tenure coincided with an improvement in research rankings, number of undergraduate applicants and racial and socioeconomic diversity.</p>
+<p style='margin:0px; position:absolute; width:688px; height:73px; left: 326px; top: 976px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+But what NYU may have gained in rankings under Hamilton, it has lost in the quest for justice, particularly in relation to the Israeli occupation of Palestine. In his presidency, Hamilton has consistently used his bully pulpit to undermine Palestinian causes and deepen NYU’s complicity in Israel’s crimes.</p>
+<p style='margin:0px; position:absolute; width:688px; height:73px; left: 326px; top: 1049px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+48 hours after Hamilton’s email reached the inboxes of NYU students, Israeli soldiers <a href="https://www.bbc.com/news/world-middle-east-61105497" rel="noopener noreferrer" target="_blank">raided the Al Aqsa mosque</a> – one of the holiest sites in Islam – injuring more than 150 Palestinians. It goes without saying that Hamilton chose to maintain his silence on the atrocity. This would perhaps be for the best, because Hamilton’s voice on the issue has always been a counterproductive one.</p>
+<p style='margin:0px; position:absolute; width:688px; height:129px; left: 326px; top: 1123px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Within six months of his presidency, Hamilton chose to invalidate Palestinian experiences. When NYU’s Graduate Student Organizing Committee chose to endorse the <a href="https://bdsmovement.net/" rel="noopener noreferrer" target="_blank">Boycott, Disinvestment and Sanctions movement</a>, Hamilton provided an <a href="https://www.nyu.edu/about/news-publications/news/2016/april/statement-by-nyu-president-andrew-hamilton-on-grad-union-boycott-vote.html" rel="noopener noreferrer" target="_blank">unsolicited statement</a> defending NYU’s involvement in Israel. The statement was also coupled with a threat against union members who participated in the boycott, suggesting that “whatever 'pledges' union members may or may not have taken does not free them from their responsibilities as employees of NYU, which rejects this boycott."</p>
+<p style='margin:0px; position:absolute; width:688px; height:239px; left: 326px; top: 1252px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+In April 2018, Hamilton went a step further, <a href="https://nyunews.com/2018/04/19/4-20-news-townhall/" rel="noopener noreferrer" target="_blank">denouncing BDS in a NYU town hall</a>, only a week after 50 student groups, led by the Jewish Voice for Peace and NYU Students for Justice in Palestine joined together to support the movement. But the NYU President’s magnum opus in Palestinian erasure would come the following year. When Students for Justice in Palestine was awarded NYU’s President’s Service Award, Hamilton chose to be shamefully absent from the conferring of an award that bore his office’s name. When that award attracted criticism from right-wing and Zionist media, Hamilton penned a <a href="https://www.wsj.com/articles/nyu-is-committed-to-its-jewish-community-11556563244" rel="noopener noreferrer" target="_blank">disgraceful op-ed</a> in the Wall Street Journal. With rhetoric more fitting of a right-wing politician than the president of a university that prides itself on its progressiveness, Hamilton had the audacity to <a href="https://nyunews.com/news/2019/04/30/president-hamilton-calls-sjp-divisive/" rel="noopener noreferrer" target="_blank">describe the NYU chapter of Students for Justice in Palestine as a divisive organization</a>. Notably, he did not use the same words to describe pro-Israel groups that <a href="https://www.nyunews.com/2018/04/16/04-17-news-bds/" rel="noopener noreferrer" target="_blank">allegedly harrassed people of color</a>. With a self-righteousness unbecoming of an individual defending apartheid, NYU’s President suggested that, if it was up to him, SJP would not have received the award.</p>
+<p style='margin:0px; position:absolute; width:688px; height:202px; left: 326px; top: 1492px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+When it comes to injustice, silence is complicity. But let us not pretend that Hamilton’s only blunder was silence. As the above examples show, Hamilton went beyond silence to actively undermine Palestinian resistance. Instead of listening to Palestinian voices on the issue, Hamilton chose to patronize them and suggest that he knew what was best for the resolution to the conflict. Anti-Palestinian sentiment and the erasure of Palestinian voices and experiences is a university-wide, even global, phenomena, and Hamilton is not isolated from this. He may be an outcome of these circumstances, yet, for a man wielding the influence and power that Hamilton does, it is especially unfortunate that he chose to actively disparage and demonize the Palestinian cause. He may have valid reservations about the BDS movement, but to interject himself into the debate by erasing Palestinian voices was the hallmark of a man grossly unfit to lead a university like NYU to live up to its ideals of inclusion, justice and equity.</p>
+<p style='margin:0px; position:absolute; width:688px; height:73px; left: 326px; top: 1695px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Hamilton’s prejudice extended throughout the Global Network and was particularly echoed in NYUAD Vice Chancellor Mariet Westermann’s shameless silence last year in the face of countless pleas by the student body, especially Palestinians, as Israel <a href="https://www.independent.co.uk/news/world/middle-east/israel-palestine-killings-demolitions-2021-b1986684.html" rel="noopener noreferrer" target="_blank">killed more than 300 Palestinian civilians</a> across 2021 and <a href="https://www.middleeasteye.net/opinion/israel-palestine-sheikh-jarrah-judaise-jerusalem" rel="noopener noreferrer" target="_blank">forcibly evicicted thousands from the neighborhood</a> of <a href="https://www.bbc.com/news/world-middle-east-57243631" rel="noopener noreferrer" target="_blank">Sheikh Jarrah</a>.</p>
+<p style='margin:0px; position:absolute; width:688px; height:92px; left: 326px; top: 1769px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Hamilton’s other achievements may or may not have been considerable. But they mean very little, if the university consistently stands with the forces of injustice. Claiming to stand against racism is meaningless if you do not stand in solidarity with ordinary Palestinians. To stand against the Russian invasion of Ukraine means very little if the university does not stand against the Israeli occupation of Palestine.</p>
+<p style='margin:0px; position:absolute; width:688px; height:36px; left: 326px; top: 1861px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+To stand with Palestine is to stand with humanity. And in that very basic human mission, Andrew Hamilton was a miserable failure.</p>
+<p style='margin:0px; position:absolute; width:688px; height:18px; left: 326px; top: 1898px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:688px; height:36px; left: 326px; top: 1917px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<em>Abhyudaya Tyagi and Grace Bechdol are Editors-in-Chief. Huma Umar is Managing Editor. Email them at feedback@thegazelle.org</em></p>
+<img style='position:absolute; width:1198px; height:665px; left: 71px; top: 179px' src="2.png" alt="">
+<img style='position:absolute; width:119px; height:119px; left: 551px; top: 1955px' src="3.png" alt="">
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 206px; top: 2079px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+related</p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 326px; top: 1967px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<img style='position:absolute; width:239px; height:132px; left: 191px; top: 2115px' src="6.png" alt="">
+<p style='margin:0px; position:absolute; width:329px; height:21px; left: 446px; top: 2111px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+<a href="https://www.thegazelle.org/issue/226/opinion/macron-french-elections" rel="noopener noreferrer" target="_blank">Macron and the rise of the French far </a></p>
+<p style='margin:0px; position:absolute; width:329px; height:21px; left: 446px; top: 2132px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+<a href="https://www.thegazelle.org/issue/226/opinion/macron-french-elections" rel="noopener noreferrer" target="_blank">right</a></p>
+<p style='margin:0px; position:absolute; width:329px; height:18px; left: 446px; top: 2154px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.thegazelle.org/staff-member/karim-boudlal" rel="noopener noreferrer" target="_blank">Karim Boudlal</a></p>
+<p style='margin:0px; position:absolute; width:329px; height:73px; left: 446px; top: 2172px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Last Sunday’s elections cemented the far right as a prominent player in French politics. How did Macron, the supposed progressive, contribute to its rise?&nbsp;</p>
+<img style='position:absolute; width:239px; height:179px; left: 191px; top: 2259px' src="8.jpg" alt="">
+<p style='margin:0px; position:absolute; width:329px; height:21px; left: 446px; top: 2271px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+<a href="https://www.thegazelle.org/issue/226/opinion/western-mediia-srilanka" rel="noopener noreferrer" target="_blank">“Clashing”: What Western Media </a></p>
+<p style='margin:0px; position:absolute; width:329px; height:21px; left: 446px; top: 2292px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+<a href="https://www.thegazelle.org/issue/226/opinion/western-mediia-srilanka" rel="noopener noreferrer" target="_blank">Narratives Surrounding Sri Lanka Miss</a></p>
+<p style='margin:0px; position:absolute; width:329px; height:18px; left: 446px; top: 2314px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.thegazelle.org/staff-member/githmi-rabel" rel="noopener noreferrer" target="_blank">Githmi Rabel</a></p>
+<p style='margin:0px; position:absolute; width:329px; height:92px; left: 446px; top: 2332px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+Sri Lanka is hurting — but it faces a revolutionary movement with great potential for change. Leading media organizations need to more accurately chronicle the struggles against a repressive regime.&nbsp;</p>
+<p style='margin:0px; position:absolute; width:449px; height:27px; left: 805px; top: 2079px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:19.5px'>
+trending</p>
+<p style='margin:0px; position:absolute; width:449px; height:21px; left: 805px; top: 2106px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+<a href="https://www.thegazelle.org/issue/226/opinion/hamilton-legacy" rel="noopener noreferrer" target="_blank">Andrew Hamilton Leaves Behind a Divisive Legacy</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2128px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.thegazelle.org/staff-member/abhyudaya-tyagi" rel="noopener noreferrer" target="_blank">Abhyudaya Tyagi</a>, <a href="https://www.thegazelle.org/staff-member/huma-umar" rel="noopener noreferrer" target="_blank">Huma Umar</a>, <a href="https://www.thegazelle.org/staff-member/grace-bechdol" rel="noopener noreferrer" target="_blank">Grace Bechdol</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2146px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:21px; left: 805px; top: 2165px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+<a href="https://www.thegazelle.org/issue/226/news/justin-stearns-spotlight" rel="noopener noreferrer" target="_blank">Spotlight: Justin Stearns</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2186px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.thegazelle.org/staff-member/chloe-eoyang" rel="noopener noreferrer" target="_blank">Chloe Eoyang</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2205px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:21px; left: 805px; top: 2223px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+<a href="https://www.thegazelle.org/issue/226/features/features-our-internalized-male-gaze" rel="noopener noreferrer" target="_blank">Our Internalized Male Gaze (And the Problem with not </a></p>
+<p style='margin:0px; position:absolute; width:449px; height:21px; left: 805px; top: 2245px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+<a href="https://www.thegazelle.org/issue/226/features/features-our-internalized-male-gaze" rel="noopener noreferrer" target="_blank">Acknowledging It)</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2266px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.thegazelle.org/staff-member/laura-moncada" rel="noopener noreferrer" target="_blank">Laura Moncada</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2285px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:21px; left: 805px; top: 2303px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+<a href="https://www.thegazelle.org/issue/226/news/legacy-of-wellness-specialists" rel="noopener noreferrer" target="_blank">Thank you, We Will Miss You — Legacy of NYUAD </a></p>
+<p style='margin:0px; position:absolute; width:449px; height:21px; left: 805px; top: 2325px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+<a href="https://www.thegazelle.org/issue/226/news/legacy-of-wellness-specialists" rel="noopener noreferrer" target="_blank">Wellness Specialists</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2346px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.thegazelle.org/staff-member/aashraya-dutt" rel="noopener noreferrer" target="_blank">Aashraya Dutt</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2365px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:21px; left: 805px; top: 2383px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+<a href="https://www.thegazelle.org/issue/226/features/leaving-abudhabi-love" rel="noopener noreferrer" target="_blank">Leaving Abu Dhabi with More Questions Than Answers</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2405px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.thegazelle.org/staff-member/abhyudaya-tyagi" rel="noopener noreferrer" target="_blank">Abhyudaya Tyagi</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2423px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:449px; height:21px; left: 805px; top: 2442px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:15.21px'>
+<a href="https://www.thegazelle.org/issue/226/features/meet-the-candidates-2022" rel="noopener noreferrer" target="_blank">StuGov Elections — Meet the Candidates</a></p>
+<p style='margin:0px; position:absolute; width:449px; height:18px; left: 805px; top: 2463px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.thegazelle.org/staff-member/sara-vuksanovic" rel="noopener noreferrer" target="_blank">Sara Vuksanovic</a>, <a href="https://www.thegazelle.org/staff-member/charlie-fong" rel="noopener noreferrer" target="_blank">Charlie Fong</a>, <a href="https://www.thegazelle.org/staff-member/stefan-mitikj" rel="noopener noreferrer" target="_blank">Stefan Mitikj</a></p>
+<p style='margin:0px; position:absolute; width:209px; height:18px; left: 805px; top: 1967px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 2495px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.thegazelle.org/about" rel="noopener noreferrer" target="_blank">About</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 2513px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.thegazelle.org/ethics" rel="noopener noreferrer" target="_blank">Code of Ethics</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 2531px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<a href="https://www.thegazelle.org/archives" rel="noopener noreferrer" target="_blank">Previous Issues</a></p>
+<p style='margin:0px; position:absolute; width:1168px; height:18px; left: 86px; top: 2550px; color:rgb(51, 51, 51); font-family:"Helvetica, Arial, sans-serif"; font-size:13px'>
+<br></p>
+</body>
+</html>
