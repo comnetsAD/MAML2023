@@ -7,6 +7,12 @@ import Logger from "./logger";
 import AWS from "aws-sdk";
 
 export const processImage = async (file: Express.Multer.File) => {
+  // if (process.env.NODE_ENV === "dev") {
+  //   return Array(2).fill(
+  //     `http://localhost:${process.env.SERVER_PORT}/public/sample.jpg`
+  //   );
+  // }
+
   const sharpSource = sharp(file.path);
   const thumbnail = sharpSource.clone().resize(THUMBNAIL_WIDTH);
   const source = sharpSource.clone().resize(SOURCE_WIDTH);
@@ -29,38 +35,44 @@ export const processImage = async (file: Express.Multer.File) => {
 
   await Promise.all([
     source.jpeg({ quality: IMAGE_QUALITY }).toFile(sourceFilePath),
-    thumbnail.jpeg({ quality: IMAGE_QUALITY }).toFile(thumbnailFilePath),
+    thumbnail.jpeg({ quality: IMAGE_QUALITY }).toFile(thumbnailFilePath)
   ]);
 
-  const s3 = new AWS.S3({
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    region: process.env.AWS_REGION,
-  });
+  if (process.env.NODE_ENV === "prod") {
+    const s3 = new AWS.S3({
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+      region: process.env.AWS_REGION
+    });
 
-  const sourceBlob = fs.readFileSync(sourceFilePath);
-  const sourceImage = await s3
-    .upload({
-      Bucket: process.env.AWS_BUCKET_NAME || "nepalithings-images",
-      Key: `source/${sourceFilename}.jpg`,
-      Body: sourceBlob,
-    })
-    .promise();
+    const sourceBlob = fs.readFileSync(sourceFilePath);
+    const sourceImage = await s3
+      .upload({
+        Bucket: process.env.AWS_BUCKET_NAME || "maml-images",
+        Key: `source/${sourceFilename}.jpg`,
+        Body: sourceBlob
+      })
+      .promise();
 
-  const thumbnailBlob = fs.readFileSync(thumbnailFilePath);
-  const thumbnailImage = await s3
-    .upload({
-      Bucket: process.env.AWS_BUCKET_NAME || "nepalithings-images",
-      Key: `thumbnail/${thumbnailFilename}.jpg`,
-      Body: thumbnailBlob,
-    })
-    .promise();
+    const thumbnailBlob = fs.readFileSync(thumbnailFilePath);
+    const thumbnailImage = await s3
+      .upload({
+        Bucket: process.env.AWS_BUCKET_NAME || "maml-images",
+        Key: `thumbnail/${thumbnailFilename}.jpg`,
+        Body: thumbnailBlob
+      })
+      .promise();
 
-  clearTempFile(file.path);
-  clearTempFile(sourceFilePath);
-  clearTempFile(thumbnailFilePath);
+    clearTempFile(file.path);
+    clearTempFile(sourceFilePath);
+    clearTempFile(thumbnailFilePath);
+    return [sourceImage, thumbnailImage].map((image) => image.Location);
+  }
 
-  return [sourceImage, thumbnailImage].map((image) => image.Location);
+  return [
+    `http://localhost:${process.env.SERVER_PORT}/public/source/${sourceFilename}.jpg`,
+    `http://localhost:${process.env.SERVER_PORT}/public/thumbnail/${thumbnailFilename}.jpg`
+  ];
 };
 
 export const clearTempFile = (filepath: string) => {

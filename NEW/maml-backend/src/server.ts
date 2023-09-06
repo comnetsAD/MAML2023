@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import { config } from "./config/config";
 import Logger from "./utils/logger";
 import userRouter from "./routes/User";
+import uploadRouter from "./routes/Upload";
 import { errorMsg, successMsg } from "./utils/messages";
 
 const router = express();
@@ -52,6 +53,7 @@ const main = () => {
 
   /* Routes */
   router.use("/users", userRouter);
+  router.use("/upload", uploadRouter);
 
   router.use((_, res) => {
     Logger.error(new Error("Endpoint Not Found"));
