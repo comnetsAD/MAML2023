@@ -40,7 +40,11 @@ export default function DropdownModal(props: Props) {
             <FormLabel>Resulting Dropdown</FormLabel>
             <select style={{ border: "solid 1px #ccc", minWidth: "200px" }}>
               {options.map((option) => {
-                return <option>{option}</option>;
+                return (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                );
               })}
             </select>
           </FormControl>

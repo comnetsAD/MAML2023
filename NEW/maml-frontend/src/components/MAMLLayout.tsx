@@ -17,6 +17,7 @@ import OptionsModal from "./modals/OptionsModal";
 
 interface Props {
   enableOverlaps: boolean;
+  callback: (layout: GridLayout.Layout[], props: any[]) => void;
 }
 
 export default function MAMLLayout(props: Props) {
@@ -69,43 +70,57 @@ export default function MAMLLayout(props: Props) {
     onClose: onOptionsClose,
   } = useDisclosure();
 
+  useEffect(() => {
+    props.callback(layout, layoutProps);
+  }, [layoutProps, layout]);
+
   const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
 
     const { dataTransfer, clientX, clientY } = e;
     const component = dataTransfer.getData("component");
 
-    if (component.replace(/\d/g, "") === "shape") {
-      onShapeSelectorOpen();
-      return;
-    } else if (component.replace(/\d/g, "") === "image") {
-      setCarousel(false);
-      onImageUploaderOpen();
-      return;
-    } else if (component.replace(/\d/g, "") === "dropdown") {
-      onDropdownOpen();
-      return;
-    } else if (component.replace(/\d/g, "") === "timer") {
-      onTimerOpen();
-      return;
-    } else if (component.replace(/\d/g, "") === "video") {
-      onVideoUrlOpen();
-      return;
-    } else if (component.replace(/\d/g, "") === "carousel") {
-      setCarousel(true);
-      onImageUploaderOpen();
-      return;
-    } else if (component.replace(/\d/g, "") === "form") {
-      // onFormOpen();
-      return;
+    const componentType = component.replace(/\d/g, "");
+
+    switch (componentType) {
+      case "shape":
+        onShapeSelectorOpen();
+        break;
+
+      case "image":
+        setCarousel(false);
+        onImageUploaderOpen();
+        break;
+
+      case "dropdown":
+        onDropdownOpen();
+        break;
+
+      case "timer":
+        onTimerOpen();
+        break;
+
+      case "video":
+        onVideoUrlOpen();
+        break;
+
+      case "carousel":
+        setCarousel(true);
+        onImageUploaderOpen();
+        break;
+
+      case "form":
+        // onFormOpen();
+        return;
+
+      default:
+        setLayout([
+          ...layout,
+          { i: component, x: 0, y: 0, w: 100, h: 30, minW: 30, minH: 1 },
+        ]);
+        setLayoutProps([...layoutProps, { type: componentType }]);
+        break;
     }
-
-    setLayout([
-      ...layout,
-      { i: component, x: 0, y: 0, w: 100, h: 1, minW: 30, minH: 1 },
-    ]);
-
-    setLayoutProps([...layoutProps, {}]);
   };
 
   const onDragOver = (e: React.DragEvent<HTMLDivElement>) => {
@@ -126,7 +141,7 @@ export default function MAMLLayout(props: Props) {
     setLayoutProps(layoutProps.filter((_item, i) => i !== index));
   };
 
-  const generateComponent = (layoutItem: any) => {
+  const generateComponent = (layoutItem: GridLayout.Layout) => {
     let component: JSX.Element = <></>;
     const index = layout.indexOf(layoutItem);
 
@@ -143,7 +158,7 @@ export default function MAMLLayout(props: Props) {
       case "image":
         component = (
           <img
-            src={layoutProps[index][0].thumbnail}
+            src={layoutProps[index].img[0].thumbnail}
             alt="Image"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
@@ -162,14 +177,16 @@ export default function MAMLLayout(props: Props) {
             interval={3000}
             stopOnHover={true}
           >
-            {layoutProps[index].map((image: IUploadedImage, idx: number) => (
-              <img
-                key={idx}
-                src={image.thumbnail}
-                alt="Image"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
-              />
-            ))}
+            {layoutProps[index].img.map(
+              (image: IUploadedImage, idx: number) => (
+                <img
+                  key={idx}
+                  src={image.thumbnail}
+                  alt="Image"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              ),
+            )}
           </Carousel>
         );
         break;
@@ -225,6 +242,10 @@ export default function MAMLLayout(props: Props) {
           <input
             type="text"
             placeholder="Edit Placeholder"
+            onChange={(e) => {
+              layoutProps[index].placeholder = e.target.value;
+              setLayoutProps([...layoutProps]);
+            }}
             style={{ width: "100%", height: "100%" }}
           />
         );
@@ -256,7 +277,7 @@ export default function MAMLLayout(props: Props) {
               }}
             >
               {layoutProps[index].options.map((_option: string) => (
-                <option>{_option}</option>
+                <option key={_option}>{_option}</option>
               ))}
             </select>
           </div>
@@ -348,7 +369,7 @@ export default function MAMLLayout(props: Props) {
       <Flex direction="row" alignItems={"center"} justifyContent={"center"}>
         <Box
           width="1200px"
-          height="800px"
+          minHeight="800px"
           bg="white"
           margin="1rem"
           onDrop={onDrop}
@@ -358,9 +379,11 @@ export default function MAMLLayout(props: Props) {
             className="layout"
             layout={layout as GridLayout.Layout[]}
             cols={1200}
-            rowHeight={30}
+            rowHeight={1}
             useCSSTransforms={false}
             width={1200}
+            autoSize={true}
+            margin={[0, 0]}
             compactType={null}
             allowOverlap={props.enableOverlaps}
             onLayoutChange={(layout: any) => {
@@ -368,6 +391,7 @@ export default function MAMLLayout(props: Props) {
             }}
           >
             {layout.map((item) => {
+              console.log(item);
               return generateComponent(item);
             })}
           </GridLayout>
@@ -385,12 +409,15 @@ export default function MAMLLayout(props: Props) {
               x: 0,
               y: 0,
               w: 100,
-              h: 2,
+              h: 30,
               minW: 2,
               minH: 1,
             },
           ]);
-          setLayoutProps([...layoutProps, { backgroundColor: color }]);
+          setLayoutProps([
+            ...layoutProps,
+            { backgroundColor: color, type: "shape" },
+          ]);
         }}
       />
 
@@ -408,13 +435,19 @@ export default function MAMLLayout(props: Props) {
               x: 0,
               y: 0,
               w: 100,
-              h: 2,
+              h: 100,
               minW: 2,
               minH: 1,
             },
           ]);
 
-          setLayoutProps([...layoutProps, value]);
+          setLayoutProps([
+            ...layoutProps,
+            {
+              img: value.length > 0 ? value : [value[0]],
+              type: value.length > 0 ? "carousel" : "image",
+            },
+          ]);
         }}
       />
 
@@ -429,13 +462,16 @@ export default function MAMLLayout(props: Props) {
               x: 0,
               y: 0,
               w: 100,
-              h: 2,
+              h: 30,
               minW: 2,
               minH: 1,
             },
           ]);
 
-          setLayoutProps([...layoutProps, { options: options }]);
+          setLayoutProps([
+            ...layoutProps,
+            { options: options, type: "dropdown" },
+          ]);
         }}
       />
       <TimerModal
@@ -449,13 +485,16 @@ export default function MAMLLayout(props: Props) {
               x: 0,
               y: 0,
               w: 100,
-              h: 2,
+              h: 30,
               minW: 2,
               minH: 1,
             },
           ]);
 
-          setLayoutProps([...layoutProps, { start: start, end: end }]);
+          setLayoutProps([
+            ...layoutProps,
+            { start: start, end: end, type: "timer" },
+          ]);
         }}
       />
 
@@ -470,17 +509,20 @@ export default function MAMLLayout(props: Props) {
               x: 0,
               y: 0,
               w: 100,
-              h: 3,
+              h: 100,
               minW: 2,
               minH: 1,
             },
           ]);
 
-          setLayoutProps([...layoutProps, { url: url, autoplay: autoplay }]);
+          setLayoutProps([
+            ...layoutProps,
+            { url: url, autoplay: autoplay, type: "video" },
+          ]);
         }}
       />
 
-      <FormModal
+      {/* <FormModal
         onClose={onFormClose}
         isOpen={isFormOpen}
         callback={(formID: string, method: string, action: string) => {
@@ -502,7 +544,7 @@ export default function MAMLLayout(props: Props) {
             { id: formID, action: action, method: method },
           ]);
         }}
-      />
+      /> */}
 
       <OptionsModal
         onClose={onOptionsClose}

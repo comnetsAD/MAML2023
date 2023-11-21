@@ -17,7 +17,7 @@ a {
 }
 
 .react-resizable-handle {
-  z-index: 9999 !important;
+  z-index: 200 !important;
 }
 
 .layout-item:hover .options {

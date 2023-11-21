@@ -106,7 +106,7 @@ export default function Sidebar() {
           <AiFillVideoCamera size={"20px"} />
         </div>
 
-        <div
+        {/* <div
           title="Form"
           draggable={true}
           onDragStart={(e) => {
@@ -118,7 +118,7 @@ export default function Sidebar() {
           }}
         >
           <FaWpforms size={"20px"} />
-        </div>
+        </div> */}
 
         <div
           title="Text Field"

@@ -1,12 +1,21 @@
 import Head from "next/head";
 import { Button, Flex, HStack, Switch } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBomb, faDatabase, faEye } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBomb,
+  faDatabase,
+  faEye,
+  faFileExport,
+} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import GridLayout from "react-grid-layout";
+import ExportToMAML from "@/utils/exportToMAML";
 
 interface Props {
   enableOverlaps: boolean;
   setEnableOverlaps: Function;
+  data: { layout: GridLayout.Layout[]; props: any[] };
+  mamlCode: string;
 }
 
 export default function Header(props: Props) {
@@ -52,9 +61,15 @@ export default function Header(props: Props) {
               color={"white"}
               _hover={{ bg: "secondary" }}
               borderRadius={"30px"}
-              leftIcon={<FontAwesomeIcon icon={faEye} width={"14px"} />}
+              leftIcon={<FontAwesomeIcon icon={faFileExport} width={"14px"} />}
+              onClick={() => {
+                ExportToMAML(
+                  JSON.parse(JSON.stringify(props.data)),
+                  props.mamlCode,
+                );
+              }}
             >
-              Live Preview
+              Export to MAML File
             </Button>
           </div>
         </Flex>
