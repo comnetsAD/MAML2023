@@ -28,6 +28,8 @@ export default function ItemOptions(props: Props) {
         transform: "translate(0, -120%)",
         padding: "5px 5px",
         fontFamily: "serif",
+        fontSize: "16px",
+        zIndex: 9999,
       }}
     >
       <select
@@ -45,7 +47,11 @@ export default function ItemOptions(props: Props) {
         }}
       >
         {FontList.map((font) => (
-          <option value={font.value} style={{ fontFamily: font.value }}>
+          <option
+            key={font.value}
+            value={font.value}
+            style={{ fontFamily: font.value }}
+          >
             {font.name}
           </option>
         ))}

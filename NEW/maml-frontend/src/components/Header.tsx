@@ -24,37 +24,42 @@ export default function Header(props: Props) {
         justify="space-between"
         borderBottom="solid 2px #E9E9E9"
       >
-        <Flex direction="row" alignItems="center">
-          <FontAwesomeIcon icon={faBomb} width="25px" color="#4A8CCE" />
-          <HStack spacing="30px" paddingLeft={"2rem"}>
+        <Flex direction="row" alignItems="center" gap={"2rem"}>
+          <img
+            src="/maml-logo.svg"
+            alt="MAML Logo"
+            style={{ height: "40px", width: "auto" }}
+          />
+          {/* <HStack spacing="30px" paddingLeft={"2rem"}>
             <span>File</span>
             <span>View</span>
             <span>Help</span>
-          </HStack>
+          </HStack> */}
+          <div>
+            <span style={{ marginRight: ".8rem" }}>Allow Overlaps</span>
+            <Switch
+              isChecked={props.enableOverlaps}
+              onChange={() => {
+                props.setEnableOverlaps(!props.enableOverlaps);
+              }}
+              style={{ marginRight: "1rem" }}
+            />
+            <Button
+              size={"sm"}
+              padding={"0 1.2rem"}
+              marginLeft={".5rem"}
+              bg={"primary"}
+              color={"white"}
+              _hover={{ bg: "secondary" }}
+              borderRadius={"30px"}
+              leftIcon={<FontAwesomeIcon icon={faEye} width={"14px"} />}
+            >
+              Live Preview
+            </Button>
+          </div>
         </Flex>
 
         <Flex direction="row" alignItems="center">
-          <span style={{ marginRight: ".8rem" }}>Allow Overlaps</span>
-          <Switch
-            isChecked={props.enableOverlaps}
-            onChange={() => {
-              props.setEnableOverlaps(!props.enableOverlaps);
-            }}
-            style={{ marginRight: "1rem" }}
-          />
-          <Button
-            size={"sm"}
-            padding={"0 1.2rem"}
-            marginLeft={".5rem"}
-            bg={"primary"}
-            color={"white"}
-            _hover={{ bg: "secondary" }}
-            borderRadius={"30px"}
-            leftIcon={<FontAwesomeIcon icon={faEye} width={"14px"} />}
-          >
-            Live Preview
-          </Button>
-
           <Image
             src="/ayush.jpg"
             alt="User Avatar"

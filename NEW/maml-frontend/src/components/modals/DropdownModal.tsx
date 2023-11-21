@@ -12,7 +12,7 @@ import {
   ModalOverlay,
 } from "@chakra-ui/react";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SketchPicker } from "react-color";
 
 interface Props {
@@ -24,6 +24,10 @@ interface Props {
 export default function DropdownModal(props: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [options, setOptions] = useState<string[]>([]);
+
+  useEffect(() => {
+    setOptions([]);
+  }, [props.callback]);
 
   return (
     <Modal onClose={props.onClose} isOpen={props.isOpen} isCentered>

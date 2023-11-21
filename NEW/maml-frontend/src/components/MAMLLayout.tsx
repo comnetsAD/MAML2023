@@ -11,6 +11,9 @@ import TimerModal from "./modals/TimerModal";
 import VideoURLModal from "./modals/VideoURLModal";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import FormModal from "./modals/FormModal";
+import { CgOptions } from "react-icons/cg";
+import OptionsModal from "./modals/OptionsModal";
 
 interface Props {
   enableOverlaps: boolean;
@@ -21,6 +24,8 @@ export default function MAMLLayout(props: Props) {
   const [layoutProps, setLayoutProps] = useState<any[]>([]);
 
   const [carousel, setCarousel] = useState<boolean>(false);
+
+  const [selectedElement, setSelectedElement] = useState<number>();
 
   const {
     isOpen: isShapeSelectorOpen,
@@ -52,6 +57,18 @@ export default function MAMLLayout(props: Props) {
     onClose: onVideoUrlClose,
   } = useDisclosure();
 
+  const {
+    isOpen: isFormOpen,
+    onOpen: onFormOpen,
+    onClose: onFormClose,
+  } = useDisclosure();
+
+  const {
+    isOpen: isOptionsOpen,
+    onOpen: onOptionsOpen,
+    onClose: onOptionsClose,
+  } = useDisclosure();
+
   const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
 
@@ -78,11 +95,14 @@ export default function MAMLLayout(props: Props) {
       setCarousel(true);
       onImageUploaderOpen();
       return;
+    } else if (component.replace(/\d/g, "") === "form") {
+      // onFormOpen();
+      return;
     }
 
     setLayout([
       ...layout,
-      { i: component, x: 0, y: 0, w: 5, h: 2, minW: 2, minH: 1 },
+      { i: component, x: 0, y: 0, w: 100, h: 1, minW: 30, minH: 1 },
     ]);
 
     setLayoutProps([...layoutProps, {}]);
@@ -212,13 +232,34 @@ export default function MAMLLayout(props: Props) {
 
       case "dropdown":
         component = (
-          <select
-            style={{ border: "solid 1px #ccc", width: "100%", height: "100%" }}
-          >
-            {layoutProps[index].options.map((_option: string) => (
-              <option>{_option}</option>
-            ))}
-          </select>
+          <div>
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                backgroundColor: "transparent",
+                zIndex: 1,
+              }}
+            ></div>
+            <select
+              style={{
+                zIndex: 0,
+                border: "solid 1px #ccc",
+                width: "100%",
+                height: "100%",
+                position: "absolute",
+                top: 0,
+                left: 0,
+              }}
+            >
+              {layoutProps[index].options.map((_option: string) => (
+                <option>{_option}</option>
+              ))}
+            </select>
+          </div>
         );
         break;
 
@@ -241,10 +282,20 @@ export default function MAMLLayout(props: Props) {
           ></video>
         );
         break;
+
+      case "form":
+        component = (
+          <form
+            action={layoutProps[index].action}
+            method={layoutProps[index].method}
+          ></form>
+        );
+        break;
     }
 
     return (
       <div
+        className="layout-item"
         key={layoutItem.i}
         style={{
           border: "1px solid #ccc",
@@ -258,11 +309,34 @@ export default function MAMLLayout(props: Props) {
             right: 0,
             lineHeight: "16px",
             cursor: "pointer",
-            zIndex: 1,
+            zIndex: 200,
           }}
           onClick={deleteItem(layoutItem.i)}
         >
           &times;
+        </div>
+
+        <div
+          className="options"
+          style={{
+            display: "none",
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            zIndex: 200,
+            backgroundColor: "black",
+            border: "solid 1px white",
+            borderRadius: "5px",
+            color: "white",
+            padding: "5px 10px",
+            cursor: "pointer",
+          }}
+          onClick={() => {
+            setSelectedElement(index);
+            onOptionsOpen();
+          }}
+        >
+          <CgOptions />
         </div>
         {component}
       </div>
@@ -283,8 +357,9 @@ export default function MAMLLayout(props: Props) {
           <GridLayout
             className="layout"
             layout={layout as GridLayout.Layout[]}
-            cols={60}
+            cols={1200}
             rowHeight={30}
+            useCSSTransforms={false}
             width={1200}
             compactType={null}
             allowOverlap={props.enableOverlaps}
@@ -298,6 +373,7 @@ export default function MAMLLayout(props: Props) {
           </GridLayout>
         </Box>
       </Flex>
+
       <ShapeSelectorModal
         onClose={onShapeSelectorClose}
         isOpen={isShapeSelectorOpen}
@@ -308,7 +384,7 @@ export default function MAMLLayout(props: Props) {
               i: value + sessionStorage.getItem("count"),
               x: 0,
               y: 0,
-              w: 5,
+              w: 100,
               h: 2,
               minW: 2,
               minH: 1,
@@ -331,7 +407,7 @@ export default function MAMLLayout(props: Props) {
                 sessionStorage.getItem("count"),
               x: 0,
               y: 0,
-              w: 5,
+              w: 100,
               h: 2,
               minW: 2,
               minH: 1,
@@ -352,7 +428,7 @@ export default function MAMLLayout(props: Props) {
               i: "dropdown" + sessionStorage.getItem("count"),
               x: 0,
               y: 0,
-              w: 5,
+              w: 100,
               h: 2,
               minW: 2,
               minH: 1,
@@ -372,7 +448,7 @@ export default function MAMLLayout(props: Props) {
               i: "timer" + sessionStorage.getItem("count"),
               x: 0,
               y: 0,
-              w: 5,
+              w: 100,
               h: 2,
               minW: 2,
               minH: 1,
@@ -393,7 +469,7 @@ export default function MAMLLayout(props: Props) {
               i: "video" + sessionStorage.getItem("count"),
               x: 0,
               y: 0,
-              w: 10,
+              w: 100,
               h: 3,
               minW: 2,
               minH: 1,
@@ -401,6 +477,43 @@ export default function MAMLLayout(props: Props) {
           ]);
 
           setLayoutProps([...layoutProps, { url: url, autoplay: autoplay }]);
+        }}
+      />
+
+      <FormModal
+        onClose={onFormClose}
+        isOpen={isFormOpen}
+        callback={(formID: string, method: string, action: string) => {
+          setLayout([
+            ...layout,
+            {
+              i: "timer" + sessionStorage.getItem("count"),
+              x: 0,
+              y: 0,
+              w: 100,
+              h: 2,
+              minW: 2,
+              minH: 1,
+            },
+          ]);
+
+          setLayoutProps([
+            ...layoutProps,
+            { id: formID, action: action, method: method },
+          ]);
+        }}
+      />
+
+      <OptionsModal
+        onClose={onOptionsClose}
+        elementID={layoutProps[selectedElement as number]?.id || ""}
+        link={layoutProps[selectedElement as number]?.link || ""}
+        isOpen={isOptionsOpen}
+        callback={(elementID: string, link: string) => {
+          layoutProps[selectedElement as number].id = elementID;
+          layoutProps[selectedElement as number].link = link;
+
+          setLayoutProps([...layoutProps]);
         }}
       />
     </>

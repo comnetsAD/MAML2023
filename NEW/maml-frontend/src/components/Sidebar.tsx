@@ -5,6 +5,7 @@ import { MdShapeLine, MdOutlineViewCarousel } from "react-icons/md";
 import { LuTimer } from "react-icons/lu";
 import { BsInputCursorText } from "react-icons/bs";
 import { AiFillVideoCamera } from "react-icons/ai";
+import { FaWpforms } from "react-icons/fa";
 
 import { useState, useEffect } from "react";
 
@@ -106,6 +107,20 @@ export default function Sidebar() {
         </div>
 
         <div
+          title="Form"
+          draggable={true}
+          onDragStart={(e) => {
+            onDragStart(e, "form" + count);
+            setCount(count + 1);
+          }}
+          style={{
+            cursor: "pointer",
+          }}
+        >
+          <FaWpforms size={"20px"} />
+        </div>
+
+        <div
           title="Text Field"
           draggable={true}
           onDragStart={(e) => {
@@ -147,7 +162,7 @@ export default function Sidebar() {
           <RxDropdownMenu size={"20px"} />
         </div>
 
-        <div
+        {/* <div
           title="Timer"
           draggable={true}
           onDragStart={(e) => {
@@ -159,7 +174,7 @@ export default function Sidebar() {
           }}
         >
           <LuTimer size={"20px"} />
-        </div>
+        </div> */}
       </Flex>
     </>
   );

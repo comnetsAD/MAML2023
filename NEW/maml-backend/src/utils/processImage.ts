@@ -7,11 +7,11 @@ import Logger from "./logger";
 import AWS from "aws-sdk";
 
 export const processImage = async (file: Express.Multer.File) => {
-  // if (process.env.NODE_ENV === "dev") {
-  //   return Array(2).fill(
-  //     `http://localhost:${process.env.SERVER_PORT}/public/sample.jpg`
-  //   );
-  // }
+  if (process.env.NODE_ENV === "dev") {
+    return Array(2).fill(
+      `http://localhost:${process.env.SERVER_PORT}/public/sample.jpg`
+    );
+  }
 
   const sharpSource = sharp(file.path);
   const thumbnail = sharpSource.clone().resize(THUMBNAIL_WIDTH);
