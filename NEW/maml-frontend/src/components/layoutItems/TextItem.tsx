@@ -1,5 +1,5 @@
 import ItemOptions from "../ItemOptions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
   layoutProps: any[];
@@ -38,9 +38,16 @@ export default function TextItem(props: Props) {
     return styles;
   };
 
+  useEffect(() => {
+    if (props.initialText) {
+      props.layoutProps[props.index].text = props.initialText;
+      props.setLayoutProps([...props.layoutProps]);
+    }
+  }, []);
+
   return (
     <div
-      style={{ position: "relative" }}
+      style={{ position: "relative", width: "100%", height: "100%" }}
       onMouseOver={() => {
         setOptionsVisible(true);
         clearTimeout(tout);
@@ -57,16 +64,21 @@ export default function TextItem(props: Props) {
         clearTimeout(tout);
       }}
     >
-      <input
-        type="text"
-        placeholder={props.initialText ?? "Text..."}
+      <textarea
+        placeholder={"Text..."}
         style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
           outline: 0,
           border: "none",
           width: "100%",
+          height: "100%",
           backgroundColor: "transparent",
+          resize: "none",
           ...textStyles(),
         }}
+        value={props.layoutProps[props.index].text || ""}
         onChange={(e) => {
           props.layoutProps[props.index].text = e.target.value;
           props.setLayoutProps([...props.layoutProps]);

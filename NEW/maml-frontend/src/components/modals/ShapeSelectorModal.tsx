@@ -59,7 +59,7 @@ export default function ShapeSelectorModal(props: Props) {
             _hover={{ bg: "secondary" }}
             bg={"primary"}
             onClick={() => {
-              props.callback(shapeRef.current?.value || "rectangle", color);
+              props.callback(shapeRef.current?.value || "rect", color);
               props.onClose();
             }}
           >

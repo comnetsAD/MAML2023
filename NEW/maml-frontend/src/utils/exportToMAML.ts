@@ -1,14 +1,29 @@
 import GridLayout from "react-grid-layout";
+import JSZip from "jszip";
+import { saveAs } from "file-saver";
+import { API } from "./requests";
+import TokenManager from "./store/UserManager";
+
+function downloadZIP(htmlContent: string, mamlContent: string) {
+  const zip = new JSZip();
+
+  zip.file("index.html", htmlContent);
+  zip.file("index.maml", mamlContent);
+
+  zip.generateAsync({ type: "blob" }).then((content) => {
+    saveAs(content, "export.zip");
+  });
+}
+
 export default function ExportToMAML(
   data: {
     layout: GridLayout.Layout[];
     props: any[];
   },
   mamlCode: string,
-) {
-  let a = { a: "a" };
-
-  typeof a;
+  url: string,
+): Promise<any> {
+  // properties to omit
   let omit = [
     "i",
     "isBounded",
@@ -60,9 +75,18 @@ export default function ExportToMAML(
           value = value ? "underline" : "none";
         }
 
+        if (key === "visibility") {
+          newKey = "display";
+          delete data.props[index][key];
+        }
+
         if (value === "") {
           delete data.props[index][key];
         } else {
+          // check if value is a number
+          if (typeof value === "number") {
+            value = value.toString() + "px";
+          }
           data.props[index][newKey] = value;
         }
       });
@@ -86,16 +110,19 @@ export default function ExportToMAML(
     );
   }
 
-  // prompt file download save as .maml
-  const element = document.createElement("a");
-  const file = new Blob([layout.join("\n")], {
-    type: "text/plain;charset=utf-8",
-  });
-  element.href = URL.createObjectURL(file);
-  element.download = "export.maml";
-  document.body.appendChild(element);
-  element.click();
+  const finalMAML = layout.join("\n");
+  return API.saveMAML(TokenManager.getToken(), url, finalMAML);
 
-  // remove element
-  document.body.removeChild(element);
+  // // prompt file download save as .maml
+  // const element = document.createElement("a");
+  // const file = new Blob([layout.join("\n")], {
+  //   type: "text/plain;charset=utf-8",
+  // });
+  // element.href = URL.createObjectURL(file);
+  // element.download = "export.maml";
+  // document.body.appendChild(element);
+  // element.click();
+
+  // // remove element
+  // document.body.removeChild(element);
 }

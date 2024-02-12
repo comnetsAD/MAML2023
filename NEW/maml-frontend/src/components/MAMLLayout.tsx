@@ -14,18 +14,21 @@ import { Carousel } from "react-responsive-carousel";
 import FormModal from "./modals/FormModal";
 import { CgOptions } from "react-icons/cg";
 import OptionsModal from "./modals/OptionsModal";
+import IDManager from "@/utils/store/IDManager";
 
 interface Props {
   enableOverlaps: boolean;
   callback: (layout: GridLayout.Layout[], props: any[]) => void;
+  importedData?: any;
 }
 
 export default function MAMLLayout(props: Props) {
+  // Layuot
   const [layout, setLayout] = useState<GridLayout.Layout[]>([]);
   const [layoutProps, setLayoutProps] = useState<any[]>([]);
 
+  // Minor Flags
   const [carousel, setCarousel] = useState<boolean>(false);
-
   const [selectedElement, setSelectedElement] = useState<number>();
 
   const {
@@ -74,6 +77,46 @@ export default function MAMLLayout(props: Props) {
     props.callback(layout, layoutProps);
   }, [layoutProps, layout]);
 
+  useEffect(() => {
+    if (props.importedData) {
+      const layout: GridLayout.Layout[] = [];
+      const layoutProps: any[] = [];
+
+      if (window) {
+        let count = parseInt(sessionStorage.getItem("count") || "0");
+        props.importedData.forEach((item: any) => {
+          if (item.type === "shape") {
+            item.type = item.borderRadius === "50%" ? "ellipse" : "rect";
+          }
+
+          const l = {
+            w: item.w,
+            h: item.h,
+            x: item.x,
+            y: item.y,
+            i: item.type + count,
+          };
+
+          count++;
+          layout.push(l);
+
+          delete item.x;
+          delete item.y;
+          delete item.w;
+          delete item.h;
+          delete item.i;
+
+          layoutProps.push(item);
+        });
+
+        setLayout(layout);
+        setLayoutProps(layoutProps);
+
+        sessionStorage.setItem("count", count.toString());
+      }
+    }
+  }, [props.importedData]);
+
   const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
 
@@ -118,7 +161,17 @@ export default function MAMLLayout(props: Props) {
           ...layout,
           { i: component, x: 0, y: 0, w: 100, h: 30, minW: 30, minH: 1 },
         ]);
-        setLayoutProps([...layoutProps, { type: componentType }]);
+
+        let additionalProps: any = {};
+        if (componentType === "text") {
+          additionalProps = { fontFamily: "Helvetica, sans-serif" };
+        } else if (componentType === "button") {
+          additionalProps = { text: "Button" };
+        }
+        setLayoutProps([
+          ...layoutProps,
+          { type: componentType, ...additionalProps },
+        ]);
         break;
     }
   };
@@ -139,6 +192,8 @@ export default function MAMLLayout(props: Props) {
     );
 
     setLayoutProps(layoutProps.filter((_item, i) => i !== index));
+
+    IDManager.removeID(i);
   };
 
   const generateComponent = (layoutItem: GridLayout.Layout) => {
@@ -146,15 +201,17 @@ export default function MAMLLayout(props: Props) {
     const index = layout.indexOf(layoutItem);
 
     switch (layoutItem.i.replace(/\d/g, "")) {
-      case "text":
+      case "text": {
         component = (
           <TextItem
+            initialText={layoutProps[index].text}
             layoutProps={layoutProps}
             index={index}
             setLayoutProps={setLayoutProps}
           ></TextItem>
         );
         break;
+      }
       case "image":
         component = (
           <img
@@ -391,7 +448,6 @@ export default function MAMLLayout(props: Props) {
             }}
           >
             {layout.map((item) => {
-              console.log(item);
               return generateComponent(item);
             })}
           </GridLayout>
@@ -416,7 +472,11 @@ export default function MAMLLayout(props: Props) {
           ]);
           setLayoutProps([
             ...layoutProps,
-            { backgroundColor: color, type: "shape" },
+            {
+              backgroundColor: color,
+              type: "shape",
+              borderRadius: value === "rect" ? "0px" : "50%",
+            },
           ]);
         }}
       />
@@ -444,8 +504,8 @@ export default function MAMLLayout(props: Props) {
           setLayoutProps([
             ...layoutProps,
             {
-              img: value.length > 0 ? value : [value[0]],
-              type: value.length > 0 ? "carousel" : "image",
+              img: value,
+              type: value.length > 1 ? "carousel" : "image",
             },
           ]);
         }}
@@ -550,12 +610,18 @@ export default function MAMLLayout(props: Props) {
         onClose={onOptionsClose}
         elementID={layoutProps[selectedElement as number]?.id || ""}
         link={layoutProps[selectedElement as number]?.link || ""}
+        visibility={
+          layoutProps[selectedElement as number]?.visibility || "block"
+        }
         isOpen={isOptionsOpen}
-        callback={(elementID: string, link: string) => {
-          layoutProps[selectedElement as number].id = elementID;
-          layoutProps[selectedElement as number].link = link;
+        callback={(elementID: string, link: string, visibility: string) => {
+          const s = selectedElement as number;
+          layoutProps[s].id = elementID;
+          layoutProps[s].link = link;
+          layoutProps[s].visibility = visibility;
 
           setLayoutProps([...layoutProps]);
+          IDManager.addID(layout[s].i, elementID);
         }}
       />
     </>

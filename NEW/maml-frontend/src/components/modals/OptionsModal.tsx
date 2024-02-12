@@ -17,14 +17,16 @@ import { useEffect, useRef, useState } from "react";
 interface Props {
   isOpen: boolean;
   onClose: () => void;
-  callback: (elementID: string, link: string) => void;
+  callback: (elementID: string, link: string, visibility: string) => void;
   elementID: string;
   link: string;
+  visibility: string;
 }
 
 export default function OptionsModal(props: Props) {
   const [elementID, setElementID] = useState<string>("");
   const [link, setLink] = useState<string>("");
+  const [display, setDisplay] = useState<string>("block");
 
   useEffect(() => {
     setElementID(props.elementID);
@@ -33,6 +35,10 @@ export default function OptionsModal(props: Props) {
   useEffect(() => {
     setLink(props.link);
   }, [props.link]);
+
+  useEffect(() => {
+    setDisplay(props.visibility);
+  }, [props.visibility]);
 
   return (
     <Modal onClose={props.onClose} isOpen={props.isOpen} isCentered>
@@ -46,7 +52,10 @@ export default function OptionsModal(props: Props) {
               type="text"
               placeholder="Element ID"
               value={elementID}
-              onChange={(e) => setElementID(e.target.value)}
+              onChange={(e) => {
+                const id = e.target.value;
+                setElementID(id);
+              }}
               style={{ border: "solid 1px #ccc" }}
             />
             <br /> <br />
@@ -57,6 +66,20 @@ export default function OptionsModal(props: Props) {
               onChange={(e) => setLink(e.target.value)}
               style={{ border: "solid 1px #ccc" }}
             />
+            <br /> <br /> <br />
+            <FormLabel>Initial Visibility</FormLabel>
+            <input
+              type="checkbox"
+              checked={display === "block"}
+              onClick={(e) => {
+                if (display === "block") {
+                  setDisplay("none");
+                } else {
+                  setDisplay("block");
+                }
+              }}
+              onChange={() => {}}
+            />
           </FormControl>
         </ModalBody>
         <ModalFooter>
@@ -65,7 +88,7 @@ export default function OptionsModal(props: Props) {
             _hover={{ bg: "secondary" }}
             bg={"primary"}
             onClick={() => {
-              props.callback(elementID, link);
+              props.callback(elementID, link, display);
               props.onClose();
             }}
           >

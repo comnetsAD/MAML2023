@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import { config } from "./config/config";
 import Logger from "./utils/logger";
 import userRouter from "./routes/User";
+import pageRouter from "./routes/Page";
+import systemRouter from "./routes/System";
 import uploadRouter from "./routes/Upload";
 import { errorMsg, successMsg } from "./utils/messages";
 
@@ -53,6 +55,8 @@ const main = () => {
 
   /* Routes */
   router.use("/users", userRouter);
+  router.use("/pages", pageRouter);
+  router.use("/system/", systemRouter);
   router.use("/upload", uploadRouter);
 
   router.use((_, res) => {

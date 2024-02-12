@@ -12,6 +12,8 @@ import { useState } from "react";
 import { colors } from "./_app";
 import GridLayout from "react-grid-layout";
 
+import DraggableList from "@/components/DraggableList";
+
 export default function Home() {
   const [enableOverlaps, setEnableOverlaps] = useState<boolean>(false);
   const [isCodeEditorOpen, setIsCodeEditorOpen] = useState<boolean>(false);
@@ -23,10 +25,17 @@ export default function Home() {
     setData({ layout, props });
   };
 
+  const [importedData, setImportedData] = useState<Object[]>([]);
+
+  const handleImport = (data: Object[]) => {
+    setImportedData(data);
+  };
+
   return (
     <>
       {/* Header */}
       <Header
+        handleImport={handleImport}
         data={data}
         mamlCode={mamlCode}
         enableOverlaps={enableOverlaps}
@@ -46,7 +55,11 @@ export default function Home() {
 
         {/* Editor Layout */}
         <GridItem>
-          <MAMLLayout enableOverlaps={enableOverlaps} callback={handleData} />
+          <MAMLLayout
+            importedData={importedData}
+            enableOverlaps={enableOverlaps}
+            callback={handleData}
+          />
         </GridItem>
 
         {/* Right Menu Bar */}
@@ -62,30 +75,37 @@ export default function Home() {
           />
 
           {isCodeEditorOpen && (
-            <div style={{ overflowY: "auto" }}>
-              <Text fontSize={"20px"} fontWeight={"bold"} marginTop={"2rem"}>
-                Interactivity Code Editor
-              </Text>
-              <Text>
-                Use this editor to write code for interactivity.
-                <br />
-                <a
-                  href="#"
-                  style={{ textDecoration: "underline", color: colors.primary }}
-                >
-                  See documentation
-                </a>
-              </Text>
-              <Textarea
-                placeholder="Write Code"
-                size="sm"
-                value={mamlCode}
-                onChange={(e) => setMAMLCode(e.target.value)}
-                resize={"vertical"}
-                minWidth={"400px"}
-                marginTop={"1rem"}
-              />
-            </div>
+            <>
+              <DraggableList />
+              <div style={{ overflowY: "auto" }}>
+                <Text fontSize={"20px"} fontWeight={"bold"} marginTop={"2rem"}>
+                  MAMLScript Editor
+                </Text>
+                <Text>
+                  Use this editor to write MAMLScript for interactivity.
+                  <br />
+                  <a
+                    href="#"
+                    style={{
+                      textDecoration: "underline",
+                      color: colors.primary,
+                    }}
+                  >
+                    See documentation
+                  </a>
+                </Text>
+                <Textarea
+                  placeholder="Write Code"
+                  size="sm"
+                  value={mamlCode}
+                  onChange={(e) => setMAMLCode(e.target.value)}
+                  resize={"vertical"}
+                  minWidth={"400px"}
+                  minHeight={"200px"}
+                  marginTop={"1rem"}
+                />
+              </div>
+            </>
           )}
         </GridItem>
       </Grid>

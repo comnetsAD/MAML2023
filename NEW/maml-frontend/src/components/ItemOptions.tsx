@@ -1,7 +1,6 @@
 import { FontList } from "@/utils/fontList";
 import { MdTextIncrease, MdTextDecrease } from "react-icons/md";
 import { TbAlignCenter, TbAlignRight, TbAlignLeft } from "react-icons/tb";
-import { SketchPicker } from "react-color";
 import { useState } from "react";
 
 interface Props {

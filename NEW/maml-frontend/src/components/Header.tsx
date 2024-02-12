@@ -1,24 +1,75 @@
 import Head from "next/head";
-import { Button, Flex, HStack, Switch } from "@chakra-ui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faBomb,
-  faDatabase,
-  faEye,
-  faFileExport,
-} from "@fortawesome/free-solid-svg-icons";
-import Image from "next/image";
+  Avatar,
+  Button,
+  Flex,
+  Switch,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuDivider,
+} from "@chakra-ui/react";
+import { FaRegUserCircle } from "react-icons/fa";
+import { IoIosSave } from "react-icons/io";
+import { FaRegEye } from "react-icons/fa";
+
 import GridLayout from "react-grid-layout";
 import ExportToMAML from "@/utils/exportToMAML";
+import TokenManager from "@/utils/store/UserManager";
+import { useEffect, useState } from "react";
+import ImportManager from "@/utils/store/ImportManager";
+import SaveURLModal from "./modals/SaveURLModal";
+import LoginModal from "./modals/LoginModal";
+import ImportFromURLModal from "./modals/ImportFromURLModal";
+import { API } from "@/utils/requests";
+import { ChevronDownIcon } from "@chakra-ui/icons";
+import { useRouter } from "next/router";
 
 interface Props {
   enableOverlaps: boolean;
   setEnableOverlaps: Function;
   data: { layout: GridLayout.Layout[]; props: any[] };
   mamlCode: string;
+  handleImport: Function;
 }
 
 export default function Header(props: Props) {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [isImportLoading, setIsImportLoading] = useState(false);
+  const router = useRouter();
+
+  const [urlForPreview, setUrlForPreview] = useState("");
+
+  const {
+    isOpen: isLoginOpen,
+    onOpen: onLoginOpen,
+    onClose: onLoginClose,
+  } = useDisclosure();
+
+  const {
+    isOpen: isSaveURLModalOpen,
+    onOpen: onSaveURLModalOpen,
+    onClose: onSaveURLModalClose,
+  } = useDisclosure();
+
+  const {
+    isOpen: isImportURLOpen,
+    onOpen: onImportURLOpen,
+    onClose: onImportURLClose,
+  } = useDisclosure();
+
+  useEffect(() => {
+    setLoggedIn(TokenManager.isLoggedIn());
+  }, []);
+
   return (
     <>
       <Head>
@@ -53,6 +104,54 @@ export default function Header(props: Props) {
               }}
               style={{ marginRight: "1rem" }}
             />
+
+            <Menu>
+              <MenuButton
+                as={Button}
+                rightIcon={<ChevronDownIcon />}
+                size={"sm"}
+              >
+                Import
+              </MenuButton>
+              <MenuList>
+                <MenuItem
+                  onClick={() => {
+                    ImportManager.chooseFile().then((data) => {
+                      if (data)
+                        ImportManager.importData(data, props.handleImport);
+                    });
+                  }}
+                >
+                  Import from File
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    onImportURLOpen();
+                  }}
+                >
+                  Import from URL
+                </MenuItem>
+              </MenuList>
+            </Menu>
+
+            <ImportFromURLModal
+              isLoading={isImportLoading}
+              isOpen={isImportURLOpen}
+              onClose={onImportURLClose}
+              callback={(url: string) => {
+                setIsImportLoading(true);
+                API.getMAML(TokenManager.getToken(), url)
+                  .then((res) => {
+                    ImportManager.importData(res.maml, props.handleImport);
+                    setIsImportLoading(false);
+                    onImportURLClose();
+                  })
+                  .catch((err) => {
+                    alert(err.response.data.message);
+                  });
+              }}
+            />
+
             <Button
               size={"sm"}
               padding={"0 1.2rem"}
@@ -61,29 +160,105 @@ export default function Header(props: Props) {
               color={"white"}
               _hover={{ bg: "secondary" }}
               borderRadius={"30px"}
-              leftIcon={<FontAwesomeIcon icon={faFileExport} width={"14px"} />}
+              leftIcon={<IoIosSave width={"14px"} />}
               onClick={() => {
+                onSaveURLModalOpen();
+              }}
+            >
+              Save
+            </Button>
+
+            <SaveURLModal
+              isOpen={isSaveURLModalOpen}
+              onClose={onSaveURLModalClose}
+              callback={(url: string) => {
+                setUrlForPreview(url);
                 ExportToMAML(
                   JSON.parse(JSON.stringify(props.data)),
                   props.mamlCode,
-                );
+                  url,
+                )
+                  .then((res) => {
+                    if (res.success) {
+                      alert(
+                        "MAML saved successfully. You may now exit/reload the MAML Editor.",
+                      );
+                      onSaveURLModalClose();
+                    }
+                  })
+                  .catch((err) => {
+                    alert(err.response.data.message);
+                    onSaveURLModalClose();
+                  });
               }}
-            >
-              Export to MAML File
-            </Button>
+            />
           </div>
         </Flex>
 
-        <Flex direction="row" alignItems="center">
-          <Image
-            src="/ayush.jpg"
-            alt="User Avatar"
-            width={30}
-            height={30}
-            style={{ borderRadius: "50%", marginLeft: ".5rem" }}
-          />
+        <Flex gap={"1rem"}>
+          <Button
+            isDisabled={!urlForPreview}
+            title="You need to save the MAML file before you can preview it."
+            size={"sm"}
+            padding={"0 1.2rem"}
+            marginLeft={".5rem"}
+            bg={"primary"}
+            color={"white"}
+            _hover={{ bg: "secondary" }}
+            borderRadius={"30px"}
+            leftIcon={<FaRegEye width={"14px"} />}
+            onClick={() => {
+              API.getHTML(TokenManager.getToken(), urlForPreview)
+                .then((res) => {
+                  if (res.success) {
+                    // open to new tab
+                    window.open(
+                      `/compare?previewURL=${urlForPreview}&htmlContent=${res.html}`,
+                      "_blank",
+                    );
+                  }
+                })
+                .catch((err) => {
+                  alert(err.response?.data?.message);
+                });
+            }}
+          >
+            Preview
+          </Button>
+          {loggedIn && (
+            <Flex direction="row" alignItems="center">
+              <Avatar
+                size={"sm"}
+                name={TokenManager.getEmail()}
+                fontWeight={"bold"}
+                backgroundColor={"#57068c"}
+                marginRight={".5rem"}
+              ></Avatar>
+              <Text fontSize={"14px"}>{TokenManager.getEmail()}</Text>
+            </Flex>
+          )}
+
+          {!loggedIn && (
+            <Button
+              size={"sm"}
+              padding={"0 1.2rem"}
+              color={"black"}
+              leftIcon={<FaRegUserCircle />}
+              onClick={() => {
+                onLoginOpen();
+              }}
+            >
+              Login
+            </Button>
+          )}
         </Flex>
       </Flex>
+
+      <LoginModal
+        isOpen={isLoginOpen}
+        onClose={onLoginClose}
+        setLoggedIn={setLoggedIn}
+      />
     </>
   );
 }

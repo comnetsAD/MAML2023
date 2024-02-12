@@ -7,6 +7,7 @@ import styles from "@/styles/components/Uploader.module.css";
 import { API } from "../utils/requests";
 import { IUploadedImage } from "../utils/types";
 import { useEffect } from "react";
+import TokenManager from "@/utils/store/UserManager";
 
 interface Props {
   style?: CSSProperties;
@@ -56,7 +57,7 @@ export default function Uploader(props: Props) {
       const file = target.files[0];
       onAlertClose();
 
-      const token = sessionStorage.getItem("token") || "";
+      const token = TokenManager.getToken();
 
       API.uploadImage(token, file)
         .then(async (res) => {

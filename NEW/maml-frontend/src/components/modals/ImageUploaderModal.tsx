@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import Uploader from "../Uploader";
 import { IUploadedImage } from "@/utils/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
   isOpen: boolean;
@@ -29,6 +29,10 @@ export default function ImageUploaderModal(props: Props) {
     if (!props.carousel) setImages([image]);
     else setImages([...images, image]);
   };
+
+  useEffect(() => {
+    setImages([]);
+  }, [props.callback]);
 
   return (
     <Modal onClose={props.onClose} isOpen={props.isOpen} isCentered>

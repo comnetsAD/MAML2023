@@ -13,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 
 import { useEffect, useRef, useState } from "react";
-import { SketchPicker } from "react-color";
 
 interface Props {
   isOpen: boolean;

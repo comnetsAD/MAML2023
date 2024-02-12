@@ -13,8 +13,7 @@ const uploadImage = async (req: Request, res: Response) => {
 
   const file = req.file;
 
-  // const authorized = isGAuthenticated(req);
-  const authorized = true; // todo
+  const authorized = isGAuthenticated(req);
 
   if (!authorized) {
     Logger.error("Unauthorized");

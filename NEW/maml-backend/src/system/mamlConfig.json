@@ -1,0 +1,49 @@
+{
+  "text": {
+    "tag": "div",
+    "attr": ["align"],
+    "style": [
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  },
+  "image": {
+    "tag": "img",
+    "attr": ["src"],
+    "style": ["objectFit"]
+  },
+  "rect": {
+    "tag": "div",
+    "attr": [],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontSize",
+      "borderRadius",
+      "padding"
+    ]
+  },
+  "link": {
+    "tag": "a",
+    "attr": ["href"],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  }
+}
