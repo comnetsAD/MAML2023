@@ -1,0 +1,250 @@
+{
+  "div": {
+    "type": "rect",
+    "attr": [],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontSize",
+      "borderRadius",
+      "padding"
+    ]
+  },
+
+  "header": {
+    "type": "rect",
+    "attr": [],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontSize",
+      "borderRadius",
+      "padding"
+    ]
+  },
+
+  "footer": {
+    "type": "rect",
+    "attr": [],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontSize",
+      "borderRadius",
+      "padding"
+    ]
+  },
+
+  "nav": {
+    "type": "rect",
+    "attr": [],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontSize",
+      "borderRadius",
+      "padding"
+    ]
+  },
+
+  "section": {
+    "type": "rect",
+    "attr": [],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontSize",
+      "borderRadius",
+      "padding"
+    ]
+  },
+
+  "img": {
+    "type": "image",
+    "attr": ["src"],
+    "style": ["objectFit"]
+  },
+
+  "font": {
+    "type": "text",
+    "attr": [],
+    "style": [
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  },
+  "span": {
+    "type": "text",
+    "attr": [],
+    "style": [
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  },
+  "p": {
+    "type": "text",
+    "attr": [],
+    "style": [
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  },
+  "b": {
+    "type": "text",
+    "attr": [],
+    "style": [
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  },
+  "i": {
+    "type": "text",
+    "attr": [],
+    "style": [
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  },
+  "u": {
+    "type": "text",
+    "attr": [],
+    "style": [
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  },
+  "h1": {
+    "type": "text",
+    "attr": [],
+    "style": [
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  },
+  "h2": {
+    "type": "text",
+    "attr": [],
+    "style": [
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  },
+  "h3": {
+    "type": "text",
+    "attr": [],
+    "style": [
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  },
+  "h4": {
+    "type": "text",
+    "attr": [],
+    "style": [
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  },
+  "h5": {
+    "type": "text",
+    "attr": [],
+    "style": [
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  },
+  "h6": {
+    "type": "text",
+    "attr": [],
+    "style": [
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  },
+  "a": {
+    "type": "link",
+    "attr": ["href"],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  }
+}

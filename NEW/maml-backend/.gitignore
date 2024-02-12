@@ -1,0 +1,8 @@
+node_modules
+.env.prod
+uploads
+public
+build
+temp
+logs.log
+.DS_Store
