@@ -5,9 +5,11 @@
     "style": [
       "color",
       "fontFamily",
+      "fontWeight",
       "fontSize",
       "padding",
       "textDecoration",
+      "fontStyle",
       "lineHeight",
       "textAlign"
     ]

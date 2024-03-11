@@ -1,18 +1,4 @@
 {
-  "div": {
-    "type": "rect",
-    "attr": [],
-    "style": [
-      "backgroundColor",
-      "backgroundImage",
-      "backgroundSize",
-      "color",
-      "fontSize",
-      "borderRadius",
-      "padding"
-    ]
-  },
-
   "header": {
     "type": "rect",
     "attr": [],

@@ -6,6 +6,7 @@ export interface IPage {
   userID: Types.ObjectId;
   url: string;
   mamlFileContent: string;
+  translateDuration: number;
 }
 
 const PageSchema = new Schema<IPage>(
@@ -23,6 +24,10 @@ const PageSchema = new Schema<IPage>(
       type: String,
       required: true,
       minLength: 1
+    },
+    translateDuration: {
+      type: Number,
+      required: true
     }
   },
   {

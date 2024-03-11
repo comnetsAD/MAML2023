@@ -89,6 +89,10 @@ export default function MAMLLayout(props: Props) {
             item.type = item.borderRadius === "50%" ? "ellipse" : "rect";
           }
 
+          if (item.type === "image") {
+            item.src = [{ source: item.src, thumbnail: item.src }];
+          }
+
           const l = {
             w: item.w,
             h: item.h,
@@ -170,7 +174,7 @@ export default function MAMLLayout(props: Props) {
         }
         setLayoutProps([
           ...layoutProps,
-          { type: componentType, ...additionalProps },
+          { type: componentType, level: 1, ...additionalProps },
         ]);
         break;
     }
@@ -200,7 +204,7 @@ export default function MAMLLayout(props: Props) {
     let component: JSX.Element = <></>;
     const index = layout.indexOf(layoutItem);
 
-    switch (layoutItem.i.replace(/\d/g, "")) {
+    switch (layoutItem.i?.replace(/\d/g, "")) {
       case "text": {
         component = (
           <TextItem
@@ -215,7 +219,7 @@ export default function MAMLLayout(props: Props) {
       case "image":
         component = (
           <img
-            src={layoutProps[index].img[0].thumbnail}
+            src={layoutProps[index].src[0].thumbnail}
             alt="Image"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
@@ -234,7 +238,7 @@ export default function MAMLLayout(props: Props) {
             interval={3000}
             stopOnHover={true}
           >
-            {layoutProps[index].img.map(
+            {layoutProps[index].src.map(
               (image: IUploadedImage, idx: number) => (
                 <img
                   key={idx}
@@ -473,6 +477,7 @@ export default function MAMLLayout(props: Props) {
           setLayoutProps([
             ...layoutProps,
             {
+              level: 1,
               backgroundColor: color,
               type: "shape",
               borderRadius: value === "rect" ? "0px" : "50%",
@@ -504,7 +509,9 @@ export default function MAMLLayout(props: Props) {
           setLayoutProps([
             ...layoutProps,
             {
-              img: value,
+              level: 1,
+              src: value,
+              objectFit: "cover",
               type: value.length > 1 ? "carousel" : "image",
             },
           ]);
@@ -530,7 +537,7 @@ export default function MAMLLayout(props: Props) {
 
           setLayoutProps([
             ...layoutProps,
-            { options: options, type: "dropdown" },
+            { options: options, level: 1, type: "dropdown" },
           ]);
         }}
       />
@@ -553,7 +560,7 @@ export default function MAMLLayout(props: Props) {
 
           setLayoutProps([
             ...layoutProps,
-            { start: start, end: end, type: "timer" },
+            { start: start, end: end, level: 1, type: "timer" },
           ]);
         }}
       />
@@ -577,7 +584,7 @@ export default function MAMLLayout(props: Props) {
 
           setLayoutProps([
             ...layoutProps,
-            { url: url, autoplay: autoplay, type: "video" },
+            { url: url, autoplay: autoplay, level: 1, type: "video" },
           ]);
         }}
       />
@@ -616,9 +623,17 @@ export default function MAMLLayout(props: Props) {
         isOpen={isOptionsOpen}
         callback={(elementID: string, link: string, visibility: string) => {
           const s = selectedElement as number;
-          layoutProps[s].id = elementID;
-          layoutProps[s].link = link;
-          layoutProps[s].visibility = visibility;
+          if (elementID !== undefined) {
+            layoutProps[s].id = elementID;
+          }
+
+          if (link !== undefined) {
+            layoutProps[s].link = link;
+          }
+
+          if (visibility !== undefined) {
+            layoutProps[s].visibility = visibility;
+          }
 
           setLayoutProps([...layoutProps]);
           IDManager.addID(layout[s].i, elementID);

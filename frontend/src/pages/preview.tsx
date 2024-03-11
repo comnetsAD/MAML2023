@@ -11,10 +11,10 @@ const Compare = ({ previewURL, htmlContent }: Props) => {
   return (
     <>
       <Head>
-        <title>Compare</title>
+        <title>Preview</title>
       </Head>
-      <Flex justifyContent={"stretch"} height={"100vh"}>
-        <Box flex="1" overflow="hidden" display="flex" flexDirection="column">
+      <Flex flexDirection={"column"} alignItems={"center"} justifyContent={"stretch"} height={"100vh"} backgroundColor={"gray.400"}>
+        {/* <Box flex="1" overflow="hidden" display="flex" flexDirection="column">
           <Heading
             as="h2"
             size="md"
@@ -32,8 +32,8 @@ const Compare = ({ previewURL, htmlContent }: Props) => {
             style={{ border: "none" }}
           ></iframe>
         </Box>
-        <Divider orientation="vertical" />
-        <Box flex="1" overflow="hidden" display="flex" flexDirection="column">
+        <Divider orientation="vertical" /> */}
+        <Box flex="1" overflow="hidden" display="flex" flexDirection="column" width={1200} backgroundColor="white">
           <Heading
             as="h2"
             size="md"
@@ -41,7 +41,7 @@ const Compare = ({ previewURL, htmlContent }: Props) => {
             p="4"
             background={"gray.300"}
           >
-            Your Design
+            Preview
           </Heading>
           <iframe
             src={htmlContent}

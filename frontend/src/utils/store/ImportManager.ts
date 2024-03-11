@@ -12,6 +12,12 @@ class ImportManager {
             return;
           }
 
+          // extension should be .maml
+          if (fileList[0].name.split(".").pop() !== "maml") {
+            reject(new Error("Invalid file type"));
+            return;
+          }
+
           const file = fileList[0];
           const reader = new FileReader();
           reader.onload = () => {
@@ -36,9 +42,33 @@ class ImportManager {
     }
   }
 
-  static importData(data: string, callback: Function): void {
+  static importDataFromFile(data: string, callback: Function): void {
     if (data) {
-      const lines = data.split("\n");
+      const received = data.split("\n");
+
+      const importedData = [];
+      for (let line of received) {
+        try {
+          importedData.push(JSON.parse(line));
+        } catch (e) {
+          console.log("Invalid JSON");
+          break;
+        }
+      }
+      callback(importedData);
+    }
+  }
+
+  static importDataFromURL(data: string, callback: Function): void {
+    if (data) {
+      const received = data.split("\n");
+      const lines = received.slice(0, -2);
+
+      sessionStorage.setItem(
+        "translateDuration",
+        received[received.length - 1],
+      );
+
       const importedData = [];
       for (let line of lines) {
         try {

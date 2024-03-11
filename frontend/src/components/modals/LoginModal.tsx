@@ -33,7 +33,6 @@ export default function VideoURLModal(props: Props) {
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>Login or Signup with Google</ModalHeader>
-        <ModalCloseButton />
         <ModalBody style={{ marginBottom: "2rem" }}>
           <p style={{ paddingBottom: "2rem" }}>
             You will need to sign in with Google to submit your work for

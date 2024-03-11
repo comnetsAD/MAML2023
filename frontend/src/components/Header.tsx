@@ -68,7 +68,28 @@ export default function Header(props: Props) {
 
   useEffect(() => {
     setLoggedIn(TokenManager.isLoggedIn());
+
+    if (window && !TokenManager.isLoggedIn()) {
+      onLoginOpen();
+    }
   }, []);
+
+  const saveToCloud = (url: string) => {
+    ExportToMAML(JSON.parse(JSON.stringify(props.data)), props.mamlCode, url)
+      .then((res) => {
+        if (res.success) {
+          setUrlForPreview(url);
+          alert(
+            "MAML saved successfully. You may now exit/reload the MAML Editor.",
+          );
+          onSaveURLModalClose();
+        }
+      })
+      .catch((err) => {
+        alert(err.response.data.message);
+        onSaveURLModalClose();
+      });
+  };
 
   return (
     <>
@@ -116,10 +137,17 @@ export default function Header(props: Props) {
               <MenuList>
                 <MenuItem
                   onClick={() => {
-                    ImportManager.chooseFile().then((data) => {
-                      if (data)
-                        ImportManager.importData(data, props.handleImport);
-                    });
+                    ImportManager.chooseFile()
+                      .then((data) => {
+                        if (data)
+                          ImportManager.importDataFromFile(
+                            data,
+                            props.handleImport,
+                          );
+                      })
+                      .catch((err) => {
+                        alert(err);
+                      });
                   }}
                 >
                   Import from File
@@ -142,12 +170,17 @@ export default function Header(props: Props) {
                 setIsImportLoading(true);
                 API.getMAML(TokenManager.getToken(), url)
                   .then((res) => {
-                    ImportManager.importData(res.maml, props.handleImport);
+                    ImportManager.importDataFromURL(
+                      res.maml,
+                      props.handleImport,
+                    );
                     setIsImportLoading(false);
                     onImportURLClose();
+                    setUrlForPreview(url);
                   })
                   .catch((err) => {
                     alert(err.response.data.message);
+                    setIsImportLoading(false);
                   });
               }}
             />
@@ -162,7 +195,11 @@ export default function Header(props: Props) {
               borderRadius={"30px"}
               leftIcon={<IoIosSave width={"14px"} />}
               onClick={() => {
-                onSaveURLModalOpen();
+                if (!urlForPreview) {
+                  onSaveURLModalOpen();
+                } else {
+                  saveToCloud(urlForPreview);
+                }
               }}
             >
               Save
@@ -172,24 +209,7 @@ export default function Header(props: Props) {
               isOpen={isSaveURLModalOpen}
               onClose={onSaveURLModalClose}
               callback={(url: string) => {
-                setUrlForPreview(url);
-                ExportToMAML(
-                  JSON.parse(JSON.stringify(props.data)),
-                  props.mamlCode,
-                  url,
-                )
-                  .then((res) => {
-                    if (res.success) {
-                      alert(
-                        "MAML saved successfully. You may now exit/reload the MAML Editor.",
-                      );
-                      onSaveURLModalClose();
-                    }
-                  })
-                  .catch((err) => {
-                    alert(err.response.data.message);
-                    onSaveURLModalClose();
-                  });
+                saveToCloud(url);
               }}
             />
           </div>
@@ -213,7 +233,7 @@ export default function Header(props: Props) {
                   if (res.success) {
                     // open to new tab
                     window.open(
-                      `/compare?previewURL=${urlForPreview}&htmlContent=${res.html}`,
+                      `/preview?previewURL=${urlForPreview}&htmlContent=${res.html}`,
                       "_blank",
                     );
                   }
@@ -256,7 +276,9 @@ export default function Header(props: Props) {
 
       <LoginModal
         isOpen={isLoginOpen}
-        onClose={onLoginClose}
+        onClose={() => {
+          router.reload();
+        }}
         setLoggedIn={setLoggedIn}
       />
     </>

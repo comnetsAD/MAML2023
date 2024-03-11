@@ -15,7 +15,7 @@ import GridLayout from "react-grid-layout";
 import DraggableList from "@/components/DraggableList";
 
 export default function Home() {
-  const [enableOverlaps, setEnableOverlaps] = useState<boolean>(false);
+  const [enableOverlaps, setEnableOverlaps] = useState<boolean>(true);
   const [isCodeEditorOpen, setIsCodeEditorOpen] = useState<boolean>(false);
 
   const [mamlCode, setMAMLCode] = useState<string>("");
@@ -77,7 +77,7 @@ export default function Home() {
           {isCodeEditorOpen && (
             <>
               <DraggableList />
-              <div style={{ overflowY: "auto" }}>
+              {/* <div style={{ overflowY: "auto" }}>
                 <Text fontSize={"20px"} fontWeight={"bold"} marginTop={"2rem"}>
                   MAMLScript Editor
                 </Text>
@@ -104,7 +104,7 @@ export default function Home() {
                   minHeight={"200px"}
                   marginTop={"1rem"}
                 />
-              </div>
+              </div> */}
             </>
           )}
         </GridItem>

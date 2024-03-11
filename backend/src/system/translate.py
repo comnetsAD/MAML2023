@@ -88,8 +88,10 @@ def getText(driver: webdriver.Chrome, element: webdriver.Chrome) -> str:
 				return result;
                 """, element)
 
+
 def num(attr):
     return int(attr) if attr else 0
+
 
 def traverse_elements(element: webdriver.Chrome, config: dict, driver: webdriver.Chrome, mamlContent, level: int = 1) -> None:
     for child_element in element.find_elements(By.XPATH, "*"):
@@ -141,8 +143,11 @@ def traverse_elements(element: webdriver.Chrome, config: dict, driver: webdriver
                         continue
 
                     # write in utf-8 encoding
-                    mamlContent.write(json.dumps(elementMAML,
-                                                  ensure_ascii=False) + "\n")
+                    content = json.dumps(elementMAML,
+                                         ensure_ascii=False)
+                    mamlContent.write(content)
+                    print(content)
+
             except StaleElementReferenceException as e:
                 logger.debug("Stale Element", child_element.tag_name)
 
@@ -151,8 +156,10 @@ def traverse_elements(element: webdriver.Chrome, config: dict, driver: webdriver
 
 
 def main(url) -> None:
+    startTime = time.time()
+    
     # set up the browser
-    driver = setup(True)
+    driver = setup(False)
 
     with open(os.path.join(os.getcwd(), "tagsConfig.json")) as f:
         config = json.load(f)
@@ -175,9 +182,10 @@ def main(url) -> None:
             traverse_elements(body_element, config, driver, f)
 
     driver.quit()
-
-    # mamlFile = f"output/{filename}"
-    # generateHTML(mamlFile)
+    
+    endTime = time.time()
+    logger.debug(f"Time taken: {endTime - startTime} seconds")
+    print(endTime-startTime)
 
 
 if __name__ == "__main__":

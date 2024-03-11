@@ -29,17 +29,21 @@ export class API {
   public static saveMAML = async (
     token: string,
     url: string,
-    mamlFileContent: string,
+    mamlFile: File,
+    translateDuration: number,
   ) => {
+    const formData = new FormData();
+    formData.append('url', url);
+    formData.append('mamlFileContent', mamlFile);
+    formData.append('translateDuration', translateDuration.toString());
+
     return await axios({
       method: "POST",
       url: `${process.env.NEXT_PUBLIC_API_URL}/pages/save`,
-      data: {
-        url,
-        mamlFileContent,
-      },
+      data: formData,
       headers: {
         Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data',
       },
     }).then((res) => res.data);
   };

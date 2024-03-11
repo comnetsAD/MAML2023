@@ -74,8 +74,7 @@ const DragAndDropList = () => {
             marginBottom: "15px",
           }}
         >
-          Drop the listeners you want to use in your MAML code and add triggers
-          to execute.
+          Use a combination of listeners and triggers to add interactivity to your web page.
         </div>
 
         <div style={{ marginBottom: "8px", fontWeight: "700" }}>Listeners</div>
@@ -125,6 +124,7 @@ const DragAndDropList = () => {
           color: "black",
           border: "1px solid black",
           minHeight: "100px",
+          width: "400px"
         }}
         onDrop={(r) => {
           let data = "";

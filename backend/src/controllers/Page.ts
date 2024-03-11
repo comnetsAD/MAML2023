@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import Logger from "../utils/logger";
-import { errorMsg } from "../utils/messages";
+import { errorMsg, successMsg } from "../utils/messages";
 import { OAuth2Client } from "google-auth-library/build/src/auth/oauth2client";
 import User, { IUser } from "../models/User";
 import Page from "../models/Page";
@@ -22,7 +22,8 @@ const save = async (req: Request, res: Response) => {
     return;
   }
 
-  const { url, mamlFileContent } = req.body;
+  const { url, translateDuration } = req.body;
+  const mamlFileContent = req.file?.buffer.toString("utf8");
 
   if (!url || !mamlFileContent) {
     Logger.error("Invalid request");
@@ -36,12 +37,13 @@ const save = async (req: Request, res: Response) => {
   });
 
   if (existingPage) {
-    existingPage.updateOne({ mamlFileContent });
+    await existingPage.updateOne({ $set: { mamlFileContent, translateDuration } });
+
     Logger.error("Page already exists");
     res
-      .status(400)
+      .status(200)
       .json(
-        errorMsg(
+        successMsg(
           "You have already submitted this page. New submission was overridden. You may now close/reload the MAML Editor."
         )
       );
@@ -51,7 +53,8 @@ const save = async (req: Request, res: Response) => {
   const page = new Page({
     userID: user._id,
     url,
-    mamlFileContent
+    mamlFileContent,
+    translateDuration
   });
 
   try {

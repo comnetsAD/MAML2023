@@ -15,6 +15,12 @@ function downloadZIP(htmlContent: string, mamlContent: string) {
   });
 }
 
+function stringToFileObject(str: string, filename: string, mimeType: string) {
+  const blob = new Blob([str], { type: mimeType });
+  const file = new File([blob], filename, { type: mimeType });
+  return file;
+}
+
 export default function ExportToMAML(
   data: {
     layout: GridLayout.Layout[];
@@ -84,7 +90,7 @@ export default function ExportToMAML(
           delete data.props[index][key];
         } else {
           // check if value is a number
-          if (typeof value === "number") {
+          if (typeof value === "number" && key !== "level") {
             value = value.toString() + "px";
           }
           data.props[index][newKey] = value;
@@ -111,7 +117,18 @@ export default function ExportToMAML(
   }
 
   const finalMAML = layout.join("\n");
-  return API.saveMAML(TokenManager.getToken(), url, finalMAML);
+  const translateDuration = parseInt(
+    sessionStorage.getItem("translateDuration") || "-1",
+  );
+
+  const mamlFile = stringToFileObject(finalMAML, "export.maml", "text/plain");
+
+  return API.saveMAML(
+    TokenManager.getToken(),
+    url,
+    mamlFile,
+    translateDuration,
+  );
 
   // // prompt file download save as .maml
   // const element = document.createElement("a");

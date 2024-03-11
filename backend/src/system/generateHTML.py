@@ -18,7 +18,6 @@ def generateHTML(filepath: str) -> None:
         for line in mamlFile:
             mamlData.append(json.loads(line))
 
-        # sort by level
         mamlData.sort(key=lambda x: x["level"])
 
         for i, data in enumerate(mamlData):
@@ -38,13 +37,16 @@ def generateHTML(filepath: str) -> None:
                     continue
 
                 if key in tagConfig["attr"]:
-                    attrs += f"{key}='{value}'"
+                    if key == "src":
+                        attrs += f"{key}='{value[0]['thumbnail']}'"
+                    else:
+                        attrs += f"{key}='{value}'"
                     continue
 
                 for r, t in enumerate(tagConfig["style"]):
                     if t == key:
                         k = re.sub(r'(?<!^)(?=[A-Z])', '-', key).lower()
-                        style += f"{k}: {value};"
+                        style += f"{k}:{value};"
                         stylePresence = True
                         continue
 
@@ -57,12 +59,15 @@ def generateHTML(filepath: str) -> None:
 
             if tag == "div" and not stylePresence:
                 continue
+            
+            style += f"z-index:{data['level'] if (tag != 'a' and tag != 'img') else 99999};"
 
-            style += f"z-index: {i if (tag != 'a' and tag != 'img') else 99999};"
-            html.add(
-                f"<{tag} {attrs}style='position:absolute;{style}'>{text}</{tag}>\n")
+            h = f"<{tag} {attrs}style='position:absolute;{style}'>{text}</{tag}>"
+            if (data['link'] != ""):
+                h = f"<a href='{data['link']}' target='_blank'>{h}</a>"
+            html.add(h)
 
-        html = ["""<!DOCTYPE html><html><head><meta charset="utf-8" /><link rel="stylesheet" href="style.css"></head><body>"""] + \
+        html = ["""<!DOCTYPE html><html><head><meta charset="utf-8" /><style>a,a:hover,a:visited,a:active{color:inherit;text-decoration:none;}</style></head><body>"""] + \
             list(html) + ["""</body></html>"""]
         
         # write to file
