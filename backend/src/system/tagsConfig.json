@@ -232,5 +232,26 @@
       "lineHeight",
       "textAlign"
     ]
+  },
+  "select": {
+    "type": "select",
+    "attr": [],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "textDecoration",
+      "lineHeight",
+      "textAlign"
+    ]
+  },
+  "video": {
+    "type": "video",
+    "attr": ["src"],
+    "style": ["objectFit"]
   }
 }

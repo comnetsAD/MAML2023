@@ -1,7 +1,7 @@
 import { FontList } from "@/utils/fontList";
 import { MdTextIncrease, MdTextDecrease } from "react-icons/md";
 import { TbAlignCenter, TbAlignRight, TbAlignLeft } from "react-icons/tb";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Box } from "@chakra-ui/react";
 import { SketchPicker } from "react-color";
 
@@ -15,7 +15,10 @@ interface Props {
 export default function ItemOptions(props: Props) {
   const defaultIconStyles = { cursor: "pointer", margin: "0 .5rem" };
   const [colorPickerVisible, setColorPickerVisible] = useState<boolean>(false);
-  const [color, setColor] = useState<string>("black");
+
+  useEffect(() => {
+    setColorPickerVisible(false);
+  }, [props.visible]);
 
   return (
     <div
@@ -139,12 +142,13 @@ export default function ItemOptions(props: Props) {
       />
 
       <Box
-        backgroundColor={color}
+        backgroundColor={props.layoutProps[props.index].color}
         width={"20px"}
         height={"20px"}
         marginLeft={2}
         borderRadius={2}
         border={"solid 1px white"}
+        cursor={"pointer"}
         onClick={() => {
           setColorPickerVisible(!colorPickerVisible);
         }}
@@ -153,8 +157,13 @@ export default function ItemOptions(props: Props) {
       {colorPickerVisible && (
         <div style={{ position: "absolute", right: 0, top: 40 }}>
           <SketchPicker
-            color={color}
-            onChange={(color: { hex: string }) => setColor(color.hex)}
+            color={props.layoutProps[props.index].color}
+            onChange={(color: { hex: string }) => {
+              props.layoutProps[props.index].color =
+                color.hex || props.layoutProps[props.index].color;
+
+              props.setLayoutProps([...props.layoutProps]);
+            }}
           />
         </div>
       )}

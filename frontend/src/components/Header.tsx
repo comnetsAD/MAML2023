@@ -36,7 +36,10 @@ import { useRouter } from "next/router";
 interface Props {
   enableOverlaps: boolean;
   setEnableOverlaps: Function;
-  data: { layout: GridLayout.Layout[]; props: any[] };
+  data: {
+    layout: GridLayout.Layout[];
+    props: any[];
+  };
   mamlCode: string;
   handleImport: Function;
 }
@@ -79,9 +82,19 @@ export default function Header(props: Props) {
       .then((res) => {
         if (res.success) {
           setUrlForPreview(url);
-          alert(
-            "MAML saved successfully. You may now exit/reload the MAML Editor.",
-          );
+          API.getHTML(TokenManager.getToken(), url)
+            .then((res) => {
+              if (res.success) {
+                // open to new tab
+                window.open(
+                  `/preview?previewURL=${url}&htmlContent=${res.html}`,
+                  "_blank",
+                );
+              }
+            })
+            .catch((err) => {
+              alert(err.response?.data?.message);
+            });
           onSaveURLModalClose();
         }
       })
@@ -117,14 +130,14 @@ export default function Header(props: Props) {
             <span>Help</span>
           </HStack> */}
           <div>
-            <span style={{ marginRight: ".8rem" }}>Allow Overlaps</span>
+            {/* <span style={{ marginRight: ".8rem" }}>Allow Overlaps</span>
             <Switch
               isChecked={props.enableOverlaps}
               onChange={() => {
                 props.setEnableOverlaps(!props.enableOverlaps);
               }}
               style={{ marginRight: "1rem" }}
-            />
+            /> */}
 
             <Menu>
               <MenuButton
@@ -184,41 +197,39 @@ export default function Header(props: Props) {
                   });
               }}
             />
-
-            <Button
-              size={"sm"}
-              padding={"0 1.2rem"}
-              marginLeft={".5rem"}
-              bg={"primary"}
-              color={"white"}
-              _hover={{ bg: "secondary" }}
-              borderRadius={"30px"}
-              leftIcon={<IoIosSave width={"14px"} />}
-              onClick={() => {
-                if (!urlForPreview) {
-                  onSaveURLModalOpen();
-                } else {
-                  saveToCloud(urlForPreview);
-                }
-              }}
-            >
-              Save
-            </Button>
-
-            <SaveURLModal
-              isOpen={isSaveURLModalOpen}
-              onClose={onSaveURLModalClose}
-              callback={(url: string) => {
-                saveToCloud(url);
-              }}
-            />
           </div>
         </Flex>
 
         <Flex gap={"1rem"}>
           <Button
+            size={"sm"}
+            padding={"0 1.2rem"}
+            marginLeft={".5rem"}
+            bg={"primary"}
+            color={"white"}
+            _hover={{ bg: "secondary" }}
+            borderRadius={"30px"}
+            leftIcon={<IoIosSave width={"14px"} />}
+            onClick={() => {
+              if (!urlForPreview) {
+                onSaveURLModalOpen();
+              } else {
+                saveToCloud(urlForPreview);
+              }
+            }}
+          >
+            Save & Preview
+          </Button>
+
+          <SaveURLModal
+            isOpen={isSaveURLModalOpen}
+            onClose={onSaveURLModalClose}
+            callback={(url: string) => {
+              saveToCloud(url);
+            }}
+          />
+          {/* <Button
             isDisabled={!urlForPreview}
-            title="You need to save the MAML file before you can preview it."
             size={"sm"}
             padding={"0 1.2rem"}
             marginLeft={".5rem"}
@@ -244,7 +255,7 @@ export default function Header(props: Props) {
             }}
           >
             Preview
-          </Button>
+          </Button> */}
           {loggedIn && (
             <Flex direction="row" alignItems="center">
               <Avatar

@@ -73,4 +73,11 @@ export class API {
       },
     }).then((res) => res.data);
   };
+
+  public static test = async () => {
+    return await axios({
+      method: "GET",
+      url: `http://20.46.146.110:3000`,
+    }).then((res) => res.data);
+  }
 }

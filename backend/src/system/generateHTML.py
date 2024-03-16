@@ -3,8 +3,122 @@ import re
 import os
 import argparse
 
+lastListener = None
+lastParams = None
+lastKey = None
+
+appendEIV = False
+
+scriptToAdd = ""
+stylesToAdd = ""
+
+
+def map_listener_to_js(listener, id_):
+    global appendEIV, lastKey
+
+    if listener == "reach":
+        appendEIV = True
+        id_ = id_[0]
+        return f"window.addEventListener('scroll', () => {{ if(eiv(document.getElementById(\"{id_}\"))) {{"
+    elif listener == "timer":
+        return f"setTimeout(() => {{"
+    elif listener == "change":
+        id_ = id_[0]
+        return f"document.getElementById(\"{id_}\").addEventListener('change', () => {{"
+    elif listener == "click":
+        id_ = id_[0]
+        return f"document.getElementById(\"{id_}\").addEventListener('click', () => {{"
+    elif listener == "keydown":
+        key = id_[1]
+        lastKey = key
+
+        id_ = id_[0]
+        return f"document.getElementById(\"{id_}\").addEventListener('keydown', (e) => {{ if (e.key === \"{key}\") {{"
+
+
+def map_trigger_to_js(trigger):
+    splitted = trigger.split("(")
+    action, params = splitted[0], "(".join(splitted[1:])
+
+    params = params[:-1]  # Remove closing parenthesis
+
+    val_param = None
+    if "val(" in params:
+        val_start_index = params.index("val(")
+        val_end_index = params[val_start_index:].index(")")
+        val_param = params[val_start_index + 4: val_start_index +
+                           val_end_index]
+
+        params = params[val_start_index + val_end_index + 2:]
+
+    if action == "val":
+        return f"document.getElementById({params}).value"
+    elif action == "swap":
+        if val_param:
+            id_ = params
+            content = f"document.getElementById({val_param}).value"
+        else:
+            content, id_ = params.split(",")
+        return f"document.getElementById({id_.strip()}).innerHTML = {content};"
+    elif action == "show":
+        return f"document.getElementById({params.strip()}).style.display = 'block';"
+    elif action == "hide":
+        return f"document.getElementById({params.strip()}).style.display = 'none';"
+
+
+def isElementInViewport():
+    # JavaScript implementation to check if element is in viewport
+    return "function eiv(el) {\n" \
+           "    var rect = el.getBoundingClientRect();\n" \
+           "    return (\n" \
+           "        rect.top >= 0 &&\n" \
+           "        rect.left >= 0 &&\n" \
+           "        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&\n" \
+           "        rect.right <= (window.innerWidth || document.documentElement.clientWidth)\n" \
+           "    );\n" \
+           "}"
+
+
+def convert_to_javascript(script):
+    global lastListener, lastParams, appendEIV
+
+    lines = script.split('\n')
+    js_code = []
+
+    for line in lines:
+        line = line.strip()
+
+        if line.startswith("on("):
+            pattern = re.compile(r"[ \"\']")
+            l = pattern.sub("", line)
+
+            splitted = l[3:-2].split(",")
+            listener, id_ = splitted[0], splitted[1:]
+
+            lastListener = listener
+            lastParams = id_[0]
+
+            js_code.append(map_listener_to_js(listener, id_))
+        elif line.strip().endswith(");"):
+            trigger = line[:-1]
+            js_code.append(map_trigger_to_js(trigger))
+        elif line.strip() == "}":
+            if lastListener == "timer":
+                js_code.append(f"}}, {int(lastParams)});")
+            else:
+                endingBrackets = ""
+                if lastListener == "reach":
+                    endingBrackets = "}"
+                elif lastListener == "keydown":
+                    endingBrackets = "}"
+                js_code.append(f"}}{endingBrackets});")
+
+    return "\n".join(js_code) + "\n" + (isElementInViewport() if appendEIV else "")
+
+
 # set working directory to current file
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 
 def generateHTML(filepath: str) -> None:
     with open(filepath, "r") as mamlFile:
@@ -14,9 +128,15 @@ def generateHTML(filepath: str) -> None:
         config: list[dict] = json.load(configFile)
         commonProps = {"w": "width", "h": "height", "x": "left", "y": "top"}
 
+        script = ""
+
         mamlData = []
         for line in mamlFile:
-            mamlData.append(json.loads(line))
+            l = json.loads(line)
+            if l["type"] != "script":
+                mamlData.append(json.loads(line))
+            else:
+                script = l["code"]
 
         mamlData.sort(key=lambda x: x["level"])
 
@@ -37,7 +157,7 @@ def generateHTML(filepath: str) -> None:
                     continue
 
                 if key in tagConfig["attr"]:
-                    if key == "src":
+                    if tag == "img" and key == "src":
                         attrs += f"{key}='{value[0]['thumbnail']}'"
                     else:
                         attrs += f"{key}='{value}'"
@@ -56,20 +176,23 @@ def generateHTML(filepath: str) -> None:
 
                 if key == "text":
                     text = "<br />".join(value.splitlines())
+                
+                if key == "options":
+                    for option in value:
+                        text += f"<option value='{option}'>{option}</option>"
 
             if tag == "div" and not stylePresence:
                 continue
-            
-            style += f"z-index:{data['level'] if (tag != 'a' and tag != 'img') else 99999};"
+
+            style += f"z-index:{data['level'] if (tag != 'a') else 99999};"
 
             h = f"<{tag} {attrs}style='position:absolute;{style}'>{text}</{tag}>"
-            if (data['link'] != ""):
+            if ("link" in data and data['link'] != ""):
                 h = f"<a href='{data['link']}' target='_blank'>{h}</a>"
             html.add(h)
 
-        html = ["""<!DOCTYPE html><html><head><meta charset="utf-8" /><style>a,a:hover,a:visited,a:active{color:inherit;text-decoration:none;}</style></head><body>"""] + \
-            list(html) + ["""</body></html>"""]
-        
+        html = ["""<!DOCTYPE html><html><head><meta charset="utf-8" /><style>a,a:hover,a:visited,a:active{color:inherit;text-decoration:none;}</style></head><body>"""] + list(html) + ["""<script>"""] + [convert_to_javascript(script)] + ["""</script></body></html>"""]
+
         # write to file
         with open(f"output/{os.path.basename(filepath).replace('.maml', '.html')}", "w") as f:
             f.writelines(html)

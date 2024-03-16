@@ -1,4 +1,8 @@
 class IDManager {
+  static resetIDs() {
+    sessionStorage.removeItem("ids");
+  }
+  
   static setIDs(ids: Record<string, string>) {
     sessionStorage.setItem("ids", JSON.stringify(ids));
   }

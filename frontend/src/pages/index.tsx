@@ -8,7 +8,7 @@ import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import MAMLLayout from "@/components/MAMLLayout";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { colors } from "./_app";
 import GridLayout from "react-grid-layout";
 
@@ -23,6 +23,10 @@ export default function Home() {
 
   const handleData = (layout: GridLayout.Layout[], props: any[]) => {
     setData({ layout, props });
+  };
+
+  const handleMAMLCode = (code: string) => {
+    setMAMLCode(code);
   };
 
   const [importedData, setImportedData] = useState<Object[]>([]);
@@ -76,7 +80,7 @@ export default function Home() {
 
           {isCodeEditorOpen && (
             <>
-              <DraggableList />
+              <DraggableList callback={handleMAMLCode} />
               {/* <div style={{ overflowY: "auto" }}>
                 <Text fontSize={"20px"} fontWeight={"bold"} marginTop={"2rem"}>
                   MAMLScript Editor

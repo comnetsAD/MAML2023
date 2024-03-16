@@ -1,7 +1,7 @@
 {
   "text": {
     "tag": "div",
-    "attr": ["align"],
+    "attr": ["align", "id"],
     "style": [
       "color",
       "fontFamily",
@@ -16,12 +16,12 @@
   },
   "image": {
     "tag": "img",
-    "attr": ["src"],
-    "style": ["objectFit"]
+    "attr": ["src", "id"],
+    "style": ["objectFit", "display"]
   },
-  "rect": {
+  "shape": {
     "tag": "div",
-    "attr": [],
+    "attr": ["id"],
     "style": [
       "backgroundColor",
       "backgroundImage",
@@ -29,12 +29,13 @@
       "color",
       "fontSize",
       "borderRadius",
-      "padding"
+      "padding",
+      "display"
     ]
   },
   "link": {
     "tag": "a",
-    "attr": ["href"],
+    "attr": ["href", "id"],
     "style": [
       "backgroundColor",
       "backgroundImage",
@@ -47,5 +48,52 @@
       "lineHeight",
       "textAlign"
     ]
+  },
+  "text-field": {
+    "tag": "input",
+    "attr": ["type", "id", "placeholder"],
+    "style": [
+      "backgroundColor",
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "borderRadius",
+      "border",
+      "display"
+    ]
+  },
+  "button": {
+    "tag": "button",
+    "attr": ["id"],
+    "style": [
+      "backgroundColor",
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "borderRadius",
+      "border",
+      "display"
+    ]
+  },
+  "dropdown": {
+    "tag": "select",
+    "attr": ["id"],
+    "style": [
+      "backgroundColor",
+      "color",
+      "fontFamily",
+      "fontSize",
+      "padding",
+      "borderRadius",
+      "border",
+      "display"
+    ]
+  },
+  "video": {
+    "tag": "video",
+    "attr": ["src", "id"],
+    "style": ["objectFit", "display"]
   }
 }

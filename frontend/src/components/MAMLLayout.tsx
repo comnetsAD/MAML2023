@@ -1,11 +1,10 @@
 import { Box, Flex, Button, Text } from "@chakra-ui/react";
 import GridLayout from "react-grid-layout";
-import { useEffect, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import TextItem from "./layoutItems/TextItem";
 import { useDisclosure } from "@chakra-ui/react";
 import ShapeSelectorModal from "./modals/ShapeSelectorModal";
 import ImageUploaderModal from "./modals/ImageUploaderModal";
-import { IUploadedImage } from "@/utils/types";
 import DropdownModal from "./modals/DropdownModal";
 import TimerModal from "./modals/TimerModal";
 import VideoURLModal from "./modals/VideoURLModal";
@@ -16,10 +15,17 @@ import { CgOptions } from "react-icons/cg";
 import OptionsModal from "./modals/OptionsModal";
 import IDManager from "@/utils/store/IDManager";
 
+import { IoMdArrowRoundUp, IoMdArrowRoundDown } from "react-icons/io";
+
 interface Props {
   enableOverlaps: boolean;
   callback: (layout: GridLayout.Layout[], props: any[]) => void;
   importedData?: any;
+}
+
+interface IUploadedImage {
+  source: string;
+  thumbnail: string;
 }
 
 export default function MAMLLayout(props: Props) {
@@ -30,6 +36,21 @@ export default function MAMLLayout(props: Props) {
   // Minor Flags
   const [carousel, setCarousel] = useState<boolean>(false);
   const [selectedElement, setSelectedElement] = useState<number>();
+
+  // temp -- find a better way
+  const optionsStyle: CSSProperties = {
+    display: "none",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    zIndex: 200,
+    backgroundColor: "black",
+    border: "solid 1px white",
+    borderRadius: "5px",
+    color: "white",
+    padding: "5px 10px",
+    cursor: "pointer",
+  };
 
   const {
     isOpen: isShapeSelectorOpen,
@@ -62,12 +83,6 @@ export default function MAMLLayout(props: Props) {
   } = useDisclosure();
 
   const {
-    isOpen: isFormOpen,
-    onOpen: onFormOpen,
-    onClose: onFormClose,
-  } = useDisclosure();
-
-  const {
     isOpen: isOptionsOpen,
     onOpen: onOptionsOpen,
     onClose: onOptionsClose,
@@ -76,6 +91,10 @@ export default function MAMLLayout(props: Props) {
   useEffect(() => {
     props.callback(layout, layoutProps);
   }, [layoutProps, layout]);
+
+  useEffect(() => {
+    IDManager.resetIDs();
+  }, []);
 
   useEffect(() => {
     if (props.importedData) {
@@ -163,7 +182,7 @@ export default function MAMLLayout(props: Props) {
       default:
         setLayout([
           ...layout,
-          { i: component, x: 0, y: 0, w: 100, h: 30, minW: 30, minH: 1 },
+          { i: component, x: 0, y: 0, w: 200, h: 70, minW: 30, minH: 1 },
         ]);
 
         let additionalProps: any = {};
@@ -288,12 +307,21 @@ export default function MAMLLayout(props: Props) {
               bg: "primary",
             }}
           >
-            <TextItem
-              initialText="Button"
-              layoutProps={layoutProps}
-              index={index}
-              setLayoutProps={setLayoutProps}
-            ></TextItem>
+            <input
+              type="text"
+              style={{
+                border: "none",
+                backgroundColor: "transparent",
+                textAlign: "center",
+                color: "black",
+                outline: 0,
+              }}
+              placeholder="Edit Button Text"
+              onChange={(e) => {
+                layoutProps[index].text = e.currentTarget.value;
+                setLayoutProps([...layoutProps]);
+              }}
+            />
           </Button>
         );
         break;
@@ -356,7 +384,7 @@ export default function MAMLLayout(props: Props) {
       case "video":
         component = (
           <video
-            src={layoutProps[index].url}
+            src={layoutProps[index].src}
             width="100%"
             height="100%"
             controls
@@ -382,6 +410,7 @@ export default function MAMLLayout(props: Props) {
         style={{
           border: "1px solid #ccc",
           position: "relative",
+          zIndex: layoutProps[index].level,
         }}
       >
         <div
@@ -400,25 +429,34 @@ export default function MAMLLayout(props: Props) {
 
         <div
           className="options"
-          style={{
-            display: "none",
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            zIndex: 200,
-            backgroundColor: "black",
-            border: "solid 1px white",
-            borderRadius: "5px",
-            color: "white",
-            padding: "5px 10px",
-            cursor: "pointer",
-          }}
+          style={optionsStyle}
           onClick={() => {
             setSelectedElement(index);
             onOptionsOpen();
           }}
         >
           <CgOptions />
+        </div>
+
+        <div
+          className="options"
+          style={{ ...optionsStyle, left: 40 }}
+          onClick={() => {
+            layoutProps[index].level += 1;
+            setLayoutProps([...layoutProps]);
+          }}
+        >
+          <IoMdArrowRoundUp />
+        </div>
+        <div
+          className="options"
+          style={{ ...optionsStyle, left: 80 }}
+          onClick={() => {
+            layoutProps[index].level -= 1;
+            setLayoutProps([...layoutProps]);
+          }}
+        >
+          <IoMdArrowRoundDown />
         </div>
         {component}
       </div>
@@ -448,7 +486,10 @@ export default function MAMLLayout(props: Props) {
             compactType={null}
             allowOverlap={props.enableOverlaps}
             onLayoutChange={(layout: any) => {
-              setLayout(layout);
+              setLayout([...layout]);
+            }}
+            onDragStop={(layout: any) => {
+              setLayout([...layout]);
             }}
           >
             {layout.map((item) => {
@@ -499,8 +540,8 @@ export default function MAMLLayout(props: Props) {
                 sessionStorage.getItem("count"),
               x: 0,
               y: 0,
-              w: 100,
-              h: 100,
+              w: 200,
+              h: 200,
               minW: 2,
               minH: 1,
             },
@@ -584,7 +625,7 @@ export default function MAMLLayout(props: Props) {
 
           setLayoutProps([
             ...layoutProps,
-            { url: url, autoplay: autoplay, level: 1, type: "video" },
+            { src: url, autoplay: autoplay, level: 1, type: "video" },
           ]);
         }}
       />

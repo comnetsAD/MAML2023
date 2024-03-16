@@ -1,19 +1,22 @@
 // @ts-nocheck
 
+import {
+  GenericListener,
+  GenericTrigger,
+  KeydownListener,
+  SwapTrigger,
+  TimerListener,
+} from "@/utils/interactivityTypes";
 import IDManager from "@/utils/store/IDManager";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 
-const DragAndDropList = () => {
-  const [listeners, setListeners] = useState([
-    "click",
-    "keydown",
-    "change",
-    "reach",
-    "timer",
-  ]);
-
-  const targets = ["show", "hide", "swap", "val"];
+interface Props {
+  callback: Function;
+}
+const DragAndDropList = ({ callback }: Props) => {
+  const listeners = ["click", "keydown", "change", "reach", "timer"];
+  const targets = ["show", "hide", "swap"];
   const [droppedItems, setDroppedItems] = useState([]);
   const [droppedItemsID, setDroppedItemsID] = useState([]);
 
@@ -53,6 +56,91 @@ const DragAndDropList = () => {
     e.preventDefault();
   };
 
+  // mamlCode Tree
+  const [MAMLTree, setMAMLTree] = useState<(Listener | Trigger)[]>([]);
+
+  const getMAMLCode = (tree: (Listener | Trigger)[]) => {
+    let res = "";
+    let bCount = 0;
+    let listenerStart = false;
+    tree.forEach((item) => {
+      switch (item.type) {
+        case "click": {
+          if (listenerStart) {
+            res += "}\n";
+            listenerStart = false;
+          }
+          res += `on("click", "${item.id}") {\n`;
+          listenerStart = true;
+          bCount++;
+          break;
+        }
+        case "keydown": {
+          if (listenerStart) {
+            res += "}\n";
+            listenerStart = false;
+          }
+          res += `on("keydown", "${item.id}", "${item.key}") {\n`;
+          listenerStart = true;
+          bCount++;
+          break;
+        }
+        case "change": {
+          if (listenerStart) {
+            res += "}\n";
+            listenerStart = false;
+          }
+          res += `on("change", "${item.id}") {\n`;
+          listenerStart = true;
+          bCount++;
+          break;
+        }
+        case "reach": {
+          if (listenerStart) {
+            res += "}\n";
+            listenerStart = false;
+          }
+          res += `on("reach", "${item.id}") {\n`;
+          listenerStart = true;
+          bCount++;
+          break;
+        }
+        case "timer": {
+          if (listenerStart) {
+            res += "}\n";
+            listenerStart = false;
+          }
+          res += `on("timer", ${item.interval * 1000}) {\n`;
+          listenerStart = true;
+          bCount++;
+          break;
+        }
+        case "show": {
+          res += `show("${item.id}");\n`;
+          break;
+        }
+        case "hide": {
+          res += `hide("${item.id}");\n`;
+          break;
+        }
+        case "swap": {
+          res += `swap("${item.value}", "${item.id}");\n`;
+          break;
+        }
+      }
+    });
+
+    if (listenerStart) {
+      res += "}\n";
+      listenerStart = false;
+    }
+    return res;
+  };
+
+  useEffect(() => {
+    callback(getMAMLCode(MAMLTree));
+  }, [MAMLTree]);
+
   return (
     <div>
       <div>
@@ -61,9 +149,6 @@ const DragAndDropList = () => {
             fontSize: "20px",
             paddingTop: "1.4rem",
             fontWeight: "600",
-          }}
-          onClick={() => {
-            console.log(droppedItems, droppedItemsID);
           }}
         >
           Interactivity Designer
@@ -74,7 +159,8 @@ const DragAndDropList = () => {
             marginBottom: "15px",
           }}
         >
-          Use a combination of listeners and triggers to add interactivity to your web page.
+          Use a combination of listeners and triggers to add interactivity to
+          your web page.
         </div>
 
         <div style={{ marginBottom: "8px", fontWeight: "700" }}>Listeners</div>
@@ -95,7 +181,9 @@ const DragAndDropList = () => {
           </div>
         ))}
 
-        <div style={{ margin: "14px 0 8px 0", fontWeight: "700" }}>Triggers</div>
+        <div style={{ margin: "14px 0 8px 0", fontWeight: "700" }}>
+          Triggers
+        </div>
         {targets.map((item, index) => (
           <div
             key={index}
@@ -124,7 +212,7 @@ const DragAndDropList = () => {
           color: "black",
           border: "1px solid black",
           minHeight: "100px",
-          width: "400px"
+          width: "400px",
         }}
         onDrop={(r) => {
           let data = "";
@@ -137,35 +225,72 @@ const DragAndDropList = () => {
           }
 
           switch (data) {
-            case "click":
-              console.log("click");
+            case "click": {
+              const click: GenericListener = {
+                id: "",
+                type: "click",
+              };
+              setMAMLTree([...MAMLTree, click]);
               break;
-            case "keydown":
-              console.log("keydown");
+            }
+            case "keydown": {
+              const keydown: KeydownListener = {
+                id: "",
+                key: "",
+                type: "keydown",
+              };
+              setMAMLTree([...MAMLTree, keydown]);
               break;
-            case "change":
-              console.log("change");
+            }
+            case "change": {
+              const change: GenericListener = {
+                id: "",
+                type: "change",
+              };
+              setMAMLTree([...MAMLTree, change]);
               break;
-            case "reach":
-              console.log("reach");
+            }
+            case "reach": {
+              const reach: GenericListener = {
+                id: "",
+                type: "reach",
+              };
+              setMAMLTree([...MAMLTree, reach]);
               break;
-            case "timer":
-              console.log("timer");
+            }
+            case "timer": {
+              const timer: TimerListener = {
+                type: "timer",
+                interval: 0,
+              };
+              setMAMLTree([...MAMLTree, timer]);
               break;
-            case "show":
-              console.log("show");
+            }
+            case "show": {
+              const show: GenericTrigger = {
+                id: "",
+                type: "show",
+              };
+              setMAMLTree([...MAMLTree, show]);
               break;
-            case "hide":
-              console.log("hide");
+            }
+            case "hide": {
+              const hide: GenericTrigger = {
+                id: "",
+                type: "hide",
+              };
+              setMAMLTree([...MAMLTree, hide]);
               break;
-            case "swap":
-              console.log("swap");
+            }
+            case "swap": {
+              const swap: SwapTrigger = {
+                id: "",
+                type: "swap",
+                value: "",
+              };
+              setMAMLTree([...MAMLTree, swap]);
               break;
-            case "val":
-              console.log("val");
-              break;
-            default:
-              console.log("default");
+            }
           }
         }}
         onDragOver={handleDragOver}
@@ -200,24 +325,89 @@ const DragAndDropList = () => {
                   gap: "8px",
                 }}
               >
-                <select
-                  style={{
-                    fontSize: "12px",
-                    border: "solid 1px rgba(0, 0, 0, .2)",
-                  }}
-                  defaultValue={"none"}
-                  onChange={(e) => {
-                    droppedItemsID[index] = e.target.value;
-                    setDroppedItemsID([...droppedItemsID]);
-                  }}
-                >
-                  <option disabled value={"none"}>
-                    Select ID
-                  </option>
-                  {Object.values(IDManager.getIDs()).map((id) => (
-                    <option key={id}>{id}</option>
-                  ))}
-                </select>
+                {Object.keys(MAMLTree[index]).map((key, idx) => {
+                  let res: HTMLElement = <div></div>;
+                  switch (key) {
+                    case "id":
+                      res = (
+                        <select
+                          style={{
+                            fontSize: "12px",
+                            border: "solid 1px rgba(0, 0, 0, .2)",
+                          }}
+                          defaultValue={"none"}
+                          onChange={(e) => {
+                            droppedItemsID[index] = e.target.value;
+                            setDroppedItemsID([...droppedItemsID]);
+
+                            MAMLTree[index].id = e.target.value;
+                            setMAMLTree([...MAMLTree]);
+                          }}
+                        >
+                          <option disabled value={"none"}>
+                            Select ID
+                          </option>
+                          {Object.values(IDManager.getIDs()).map((id) => (
+                            <option key={id}>{id}</option>
+                          ))}
+                        </select>
+                      );
+                      break;
+                    case "key":
+                      res = (
+                        <input
+                          type="text"
+                          style={{
+                            fontSize: "12px",
+                            border: "solid 1px rgba(0, 0, 0, .2)",
+                          }}
+                          placeholder={"Key"}
+                          maxLength={1}
+                          onChange={(e) => {
+                            MAMLTree[index].key = e.target.value;
+                            setMAMLTree([...MAMLTree]);
+                          }}
+                        />
+                      );
+                      break;
+
+                    case "interval":
+                      res = (
+                        <input
+                          type="number"
+                          style={{
+                            fontSize: "12px",
+                            border: "solid 1px rgba(0, 0, 0, .2)",
+                          }}
+                          placeholder={"Seconds"}
+                          onChange={(e) => {
+                            MAMLTree[index].interval = parseInt(e.target.value);
+                            setMAMLTree([...MAMLTree]);
+                          }}
+                        />
+                      );
+                      break;
+
+                    case "value":
+                      res = (
+                        <input
+                          type="text"
+                          style={{
+                            fontSize: "12px",
+                            border: "solid 1px rgba(0, 0, 0, .2)",
+                          }}
+                          placeholder={"Text"}
+                          onChange={(e) => {
+                            MAMLTree[index].value = e.target.value;
+                            setMAMLTree([...MAMLTree]);
+                          }}
+                        />
+                      );
+                      break;
+                  }
+
+                  return <div key={idx}>{res}</div>;
+                })}
 
                 <IoMdClose
                   style={{ cursor: "pointer" }}
@@ -228,10 +418,13 @@ const DragAndDropList = () => {
                     let newDroppedItems = [...droppedItems];
                     let newDroppedItemsID = [...droppedItemsID];
 
+                    let newMAMLTree = [...MAMLTree];
+
                     if (isListener) {
                       while (targets.includes(newDroppedItems[index + 1])) {
                         newDroppedItems.splice(index + 1, 1);
                         newDroppedItemsID.splice(index + 1, 1);
+                        newMAMLTree.splice(index + 1, 1);
                       }
                     }
 
@@ -240,6 +433,9 @@ const DragAndDropList = () => {
 
                     newDroppedItemsID.splice(index, 1);
                     setDroppedItemsID(newDroppedItems);
+
+                    newMAMLTree.splice(index, 1);
+                    setMAMLTree(newMAMLTree);
                   }}
                 />
               </div>
