@@ -4,9 +4,10 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
-    "build": "rm -rf build/ && tsc",
+    "build": "rm -rf build/ && tsc && npm run copy-system",
     "start": "node build/server.js",
-    "dev": "NODE_ENV=dev nodemon src/server.ts"
+    "dev": "NODE_ENV=dev nodemon src/server.ts",
+    "copy-system": "ncp src/system build/system"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.1",
     "multer": "^1.4.5-lts.1",
+    "ncp": "^2.0.0",
     "sharp": "^0.31.3",
     "validator": "^13.9.0"
   },
