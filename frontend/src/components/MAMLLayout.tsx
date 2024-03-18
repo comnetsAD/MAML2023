@@ -406,7 +406,7 @@ export default function MAMLLayout(props: Props) {
         style={{
           border: "1px solid #ccc",
           position: "relative",
-          zIndex: layoutProps[index].level,
+          zIndex: layoutProps[index].level + 100,
         }}
       >
         <div
