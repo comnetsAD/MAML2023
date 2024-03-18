@@ -16,16 +16,12 @@ import OptionsModal from "./modals/OptionsModal";
 import IDManager from "@/utils/store/IDManager";
 
 import { IoMdArrowRoundUp, IoMdArrowRoundDown } from "react-icons/io";
+import { IUploadedImage } from "@/utils/types";
 
 interface Props {
   enableOverlaps: boolean;
   callback: (layout: GridLayout.Layout[], props: any[]) => void;
   importedData?: any;
-}
-
-interface IUploadedImage {
-  source: string;
-  thumbnail: string;
 }
 
 export default function MAMLLayout(props: Props) {
