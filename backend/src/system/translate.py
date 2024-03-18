@@ -20,7 +20,7 @@ defaults = ["0px", "none", "auto", "rgba(0, 0, 0, 0)"]
 
 
 def setup(adblocker=False) -> webdriver.Chrome:
-    driver_path = os.path.join(os.getcwd(), "chromedriver")
+    driver_path = os.path.join(os.getcwd(), "chromedriver.exe")
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--window-size=1200,800")

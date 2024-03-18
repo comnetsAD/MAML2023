@@ -39,6 +39,7 @@ export default function VideoURLModal(props: Props) {
             evaluation.
           </p>
           <GoogleLogin
+            useOneTap={false}
             onSuccess={(data: any) => {
               const credential = data.credential;
               API.login(credential)

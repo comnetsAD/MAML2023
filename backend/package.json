@@ -5,7 +5,7 @@
   "main": "src/server.ts",
   "scripts": {
     "build": "tsc && npm run copy-system",
-    "start": "node -e \"process.env.NODE_ENV = process.platform.toLowerCase().includes('win') ? 'prod' : 'dev'\" && node build/server.js",
+    "start": "SET NODE_ENV=prod && node build/server.js",
     "dev": "node -e \"process.env.NODE_ENV = process.platform.toLowerCase().includes('win') ? 'dev' : 'dev'\" && nodemon src/server.ts",
     "copy-system": "ncp src/system build/system"
   },

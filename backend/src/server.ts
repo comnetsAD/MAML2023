@@ -13,8 +13,8 @@ import fs from "fs";
 
 const router = express();
 const options: https.ServerOptions = {
-  key: fs.readFileSync("../certificate/key.pem"),
-  cert: fs.readFileSync("../certificate/cert.pem")
+  key: fs.readFileSync("certificate/key.key"),
+  cert: fs.readFileSync("certificate/cert.cer")
 };
 
 mongoose
