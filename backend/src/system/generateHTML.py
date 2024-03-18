@@ -193,6 +193,9 @@ def generateHTML(filepath: str) -> None:
 
         html = ["""<!DOCTYPE html><html><head><meta charset="utf-8" /><style>a,a:hover,a:visited,a:active{color:inherit;text-decoration:none;}</style></head><body>"""] + list(html) + ["""<script>"""] + [convert_to_javascript(script)] + ["""</script></body></html>"""]
 
+        if not os.path.exists("output"):
+            os.mkdir("output")
+            
         # write to file
         with open(f"output/{os.path.basename(filepath).replace('.maml', '.html')}", "w") as f:
             f.writelines(html)
