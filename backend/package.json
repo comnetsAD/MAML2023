@@ -4,9 +4,9 @@
   "description": "",
   "main": "src/server.ts",
   "scripts": {
-    "build": "rm -rf build/ && tsc && npm run copy-system",
-    "start": "node build/server.js",
-    "dev": "NODE_ENV=dev nodemon src/server.ts",
+    "build": "tsc && npm run copy-system",
+    "start": "SET NODE_ENV=prod && node build/server.js",
+    "dev": "SET NODE_ENV=dev && nodemon src/server.ts",
     "copy-system": "ncp src/system build/system"
   },
   "keywords": [],

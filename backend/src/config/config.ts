@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 
 dotenv.config(
-  process.env.NODE_ENV === "prod" ? { path: ".env.prod" } : { path: ".env.dev" }
+  process.env.NODE_ENV?.trim() === "prod" ? { path: ".env.prod" } : { path: ".env.dev" }
 );
 
 const MONGO_URL = process.env.MONGO_URL || "";

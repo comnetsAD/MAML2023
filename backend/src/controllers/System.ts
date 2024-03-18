@@ -10,6 +10,8 @@ import Page from "../models/Page";
 import fs from "fs";
 import { randomString } from "../utils/randomString";
 
+const parent = process.env.NODE_ENV?.trim() === "prod" ? "build" : "src";
+
 const getMAML = async (req: Request, res: Response) => {
   const authorized = isGAuthenticated(req);
 
@@ -34,7 +36,7 @@ const getMAML = async (req: Request, res: Response) => {
     return;
   }
 
-  exec(`python3 src/system/translate.py ${url}`, (err, stdout, stderr) => {
+  exec(`python ${parent}/system/translate.py ${url}`, (err, stdout, stderr) => {
     if (err) {
       Logger.error(err);
       res.status(500).json(errorMsg("Internal server error"));
@@ -82,18 +84,18 @@ const getHTML = async (req: Request, res: Response) => {
   const maml = page.mamlFileContent;
   const fileName = `${randomString()}.maml`;
 
-  if (!fs.existsSync("src/system/temp")) {
-    fs.mkdirSync("src/system/temp");
+  if (!fs.existsSync(`${parent}/system/temp`)) {
+    fs.mkdirSync(`${parent}/system/temp`, { recursive: true });
   }
 
   if (!fs.existsSync("public/html")) {
-    fs.mkdirSync("public/html");
+    fs.mkdirSync("public/html", { recursive: true });
   }
 
-  fs.writeFileSync("src/system/temp/" + fileName, maml);
+  fs.writeFileSync(`${parent}/system/temp/` + fileName, maml);
 
   exec(
-    "python3 src/system/generateHTML.py temp/" + fileName,
+    `python ${parent}/system/generateHTML.py temp/` + fileName,
     (err, stdout, stderr) => {
       if (err) {
         Logger.error(err);
@@ -101,7 +103,7 @@ const getHTML = async (req: Request, res: Response) => {
         return;
       }
 
-      fs.unlinkSync("src/system/temp/" + fileName);
+      fs.unlinkSync(`${parent}/system/temp/` + fileName);
 
       const htmlFileName = fileName.replace(".maml", ".html");
       fs.writeFileSync("public/html/" + htmlFileName, stdout);
