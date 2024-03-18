@@ -8,8 +8,14 @@ import pageRouter from "./routes/Page";
 import systemRouter from "./routes/System";
 import uploadRouter from "./routes/Upload";
 import { errorMsg, successMsg } from "./utils/messages";
+import https from "https";
+import fs from "fs";
 
 const router = express();
+const options: https.ServerOptions = {
+  key: fs.readFileSync("../certificate/key.pem"),
+  cert: fs.readFileSync("../certificate/cert.pem")
+};
 
 mongoose
   .connect(config.mongo.url, { authMechanism: "DEFAULT" })
@@ -65,9 +71,15 @@ const main = () => {
     res.status(404).json(errorMsg("Endpoint Not Found"));
   });
 
-  const server = router.listen(config.server.port, () => {
-    Logger.info(`Server listening on port ${config.server.port}`);
-  });
+  // const server = router.listen(config.server.port, () => {
+  //   Logger.info(`Server listening on port ${config.server.port}`);
+  // });
+
+  const server = https
+    .createServer(options, router)
+    .listen(config.server.port, () => {
+      Logger.info(`Server listening on port ${config.server.port}`);
+    });
 
   process.on("SIGTERM", () => {
     console.info("SIGTERM received.");
