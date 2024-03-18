@@ -33,7 +33,7 @@ export const processImage = async (file: Express.Multer.File) => {
     thumbnail.jpeg({ quality: IMAGE_QUALITY }).toFile(thumbnailFilePath)
   ]);
 
-  if (process.env.NODE_ENV === "prod") {
+  if (process.env.NODE_ENV?.trim() === "prod") {
     const s3 = new AWS.S3({
       accessKeyId: process.env.AWS_ACCESS_KEY_ID,
       secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
@@ -65,8 +65,8 @@ export const processImage = async (file: Express.Multer.File) => {
   }
 
   return [
-    `http://localhost:${process.env.SERVER_PORT}/public/source/${sourceFilename}.jpg`,
-    `http://localhost:${process.env.SERVER_PORT}/public/thumbnail/${thumbnailFilename}.jpg`
+    `${process.env.WEBSITE_URL}public/source/${sourceFilename}.jpg`,
+    `${process.env.WEBSITE_URL}public/thumbnail/${thumbnailFilename}.jpg`
   ];
 };
 

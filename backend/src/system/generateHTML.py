@@ -195,7 +195,7 @@ def generateHTML(filepath: str) -> None:
 
         if not os.path.exists("output"):
             os.mkdir("output")
-            
+
         # write to file
         with open(f"output/{os.path.basename(filepath).replace('.maml', '.html')}", "w") as f:
             f.writelines(html)
