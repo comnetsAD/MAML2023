@@ -95,5 +95,10 @@
     "tag": "video",
     "attr": ["src", "id"],
     "style": ["objectFit", "display"]
+  },
+  "carousel": {
+    "tag": "div",
+    "attr": ["id"],
+    "style": ["display"]
   }
 }
