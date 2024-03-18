@@ -140,6 +140,7 @@ def generateHTML(filepath: str) -> None:
 
         mamlData.sort(key=lambda x: x["level"])
 
+        carouselPresence = False
         for i, data in enumerate(mamlData):
             tag, attrs, style, text = "", "", "", ""
 
@@ -176,13 +177,22 @@ def generateHTML(filepath: str) -> None:
 
                 if key == "text":
                     text = "<br />".join(value.splitlines())
-                
+
                 if key == "options":
                     for option in value:
                         text += f"<option value='{option}'>{option}</option>"
 
             if tag == "div" and not stylePresence:
                 continue
+
+            if data["type"] == "carousel":
+                carouselPresence = True
+                tag = "div"
+                attrs += f"id='{data['id']}' class='s-c'"
+
+                for i, img in enumerate(data["src"]):
+                    text += (
+                        f"<div class='s'><img src='{img['thumbnail']}'class='s'/></div>")
 
             style += f"z-index:{data['level'] if (tag != 'a') else 99999};"
 
@@ -191,7 +201,8 @@ def generateHTML(filepath: str) -> None:
                 h = f"<a href='{data['link']}' target='_blank'>{h}</a>"
             html.add(h)
 
-        html = ["""<!DOCTYPE html><html><head><meta charset="utf-8" /><style>a,a:hover,a:visited,a:active{color:inherit;text-decoration:none;}</style></head><body>"""] + list(html) + ["""<script>"""] + [convert_to_javascript(script)] + ["""</script></body></html>"""]
+        html = ["""<!DOCTYPE html><html><head><meta charset="utf-8" /><style>a,a:hover,a:visited,a:active{color:inherit;text-decoration:none;}"""] + [""".s,.s img{width:100%}.s-c{position:relative;max-width:100%;overflow:hidden}.s{display:none;animation:5s infinite fade;position:absolute;top:0;left:0}@keyframes fade{0%,100%{opacity:0}25%,75%{opacity:1}}.s:first-child{animation-delay:0s}.s:nth-child(2){animation-delay:5s}.s:nth-child(3){animation-delay:10s}.s img{height:100%;object-fit:cover}""" if carouselPresence else ""] + [
+            """</style></head><body>"""] + list(html) + ["""<script>"""] + [convert_to_javascript(script)] + ["""</script></body></html>"""]
 
         if not os.path.exists("output"):
             os.mkdir("output")
