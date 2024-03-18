@@ -27,7 +27,7 @@ const save = async (req: Request, res: Response) => {
 
   if (!url || !mamlFileContent) {
     Logger.error("Invalid request");
-    res.status(400).json(errorMsg("Invalid request"));
+    res.status(400).json(errorMsg("You can't save an empty document."));
     return;
   }
 
