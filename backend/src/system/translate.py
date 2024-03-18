@@ -20,7 +20,7 @@ defaults = ["0px", "none", "auto", "rgba(0, 0, 0, 0)"]
 
 
 def setup(adblocker=False) -> webdriver.Chrome:
-    driver_path = os.path.join(os.getcwd(), "chromedriver.exe")
+    driver_path = os.path.join(os.getcwd(), "chromedriver")
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--window-size=1200,800")
@@ -130,7 +130,8 @@ def traverse_elements(element: webdriver.Chrome, config: dict, driver: webdriver
                             elementMAML[style] = value
 
                     # get text if text is direct child of element
-                    has_children = child_element.find_elements(By.XPATH, "*")
+                    # has_children = child_element.find_elements(By.XPATH, "*")
+                    has_children = False
                     text = child_element.text if not has_children else ""
 
                     if text:
