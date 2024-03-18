@@ -51,6 +51,8 @@ export default function Header(props: Props) {
 
   const [urlForPreview, setUrlForPreview] = useState("");
 
+  const [saving, setSaving] = useState(false);
+
   const {
     isOpen: isLoginOpen,
     onOpen: onLoginOpen,
@@ -78,6 +80,7 @@ export default function Header(props: Props) {
   }, []);
 
   const saveToCloud = (url: string) => {
+    setSaving(true);
     ExportToMAML(JSON.parse(JSON.stringify(props.data)), props.mamlCode, url)
       .then((res) => {
         if (res.success) {
@@ -91,15 +94,19 @@ export default function Header(props: Props) {
                   "_blank",
                 );
               }
+              
+              setSaving(false);
             })
             .catch((err) => {
               alert(err.response?.data?.message);
+              setSaving(false);
             });
           onSaveURLModalClose();
         }
       })
       .catch((err) => {
         alert(err.response.data.message);
+        setSaving(false);
         onSaveURLModalClose();
       });
   };
@@ -202,6 +209,8 @@ export default function Header(props: Props) {
 
         <Flex gap={"1rem"}>
           <Button
+            isLoading={saving}
+            loadingText="Saving"
             size={"sm"}
             padding={"0 1.2rem"}
             marginLeft={".5rem"}

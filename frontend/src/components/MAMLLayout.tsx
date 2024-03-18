@@ -514,9 +514,10 @@ export default function MAMLLayout(props: Props) {
           setLayoutProps([
             ...layoutProps,
             {
+              type: "shape",
               level: 1,
               backgroundColor: color,
-              type: "shape",
+
               borderRadius: value === "rect" ? "0px" : "50%",
             },
           ]);
@@ -546,10 +547,10 @@ export default function MAMLLayout(props: Props) {
           setLayoutProps([
             ...layoutProps,
             {
+              type: value.length > 1 ? "carousel" : "image",
               level: 1,
               src: value,
               objectFit: "cover",
-              type: value.length > 1 ? "carousel" : "image",
             },
           ]);
         }}
@@ -574,7 +575,7 @@ export default function MAMLLayout(props: Props) {
 
           setLayoutProps([
             ...layoutProps,
-            { options: options, level: 1, type: "dropdown" },
+            { type: "dropdown", options: options, level: 1 },
           ]);
         }}
       />
@@ -597,7 +598,7 @@ export default function MAMLLayout(props: Props) {
 
           setLayoutProps([
             ...layoutProps,
-            { start: start, end: end, level: 1, type: "timer" },
+            { type: "timer", start: start, end: end, level: 1 },
           ]);
         }}
       />
@@ -621,7 +622,7 @@ export default function MAMLLayout(props: Props) {
 
           setLayoutProps([
             ...layoutProps,
-            { src: url, autoplay: autoplay, level: 1, type: "video" },
+            { type: "video", src: url, autoplay: autoplay, level: 1 },
           ]);
         }}
       />

@@ -253,5 +253,10 @@
     "type": "video",
     "attr": ["src"],
     "style": ["objectFit"]
+  },
+  "carousel": {
+    "type": "div",
+    "attr": [],
+    "style": []
   }
 }

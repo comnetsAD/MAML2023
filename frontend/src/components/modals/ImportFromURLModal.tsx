@@ -31,7 +31,7 @@ export default function ImportFromURLModal(props: Props) {
         <ModalBody>
           <span>
             Please make sure you add the full correct URL. After submitting it
-            will take a few minutes to convert the page and import.
+            will take a few minutes to convert the page and import into the editor. Please do not close this dialog.
           </span>
           <FormControl>
             <input
