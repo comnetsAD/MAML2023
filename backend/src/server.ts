@@ -9,6 +9,7 @@ import systemRouter from "./routes/System";
 import uploadRouter from "./routes/Upload";
 import { errorMsg, successMsg } from "./utils/messages";
 import https from "https";
+import http from "http";
 import fs from "fs";
 
 const router = express();
@@ -71,15 +72,19 @@ const main = () => {
     res.status(404).json(errorMsg("Endpoint Not Found"));
   });
 
-  // const server = router.listen(config.server.port, () => {
-  //   Logger.info(`Server listening on port ${config.server.port}`);
-  // });
+  let server: https.Server | http.Server;
 
-  const server = https
-    .createServer(options, router)
-    .listen(config.server.port, () => {
+  if (process.env.NODE_ENV?.trim() === "prod") {
+    server = https
+      .createServer(options, router)
+      .listen(config.server.port, () => {
+        Logger.info(`Server listening on port ${config.server.port}`);
+      });
+  } else {
+    server = http.createServer(router).listen(config.server.port, () => {
       Logger.info(`Server listening on port ${config.server.port}`);
     });
+  }
 
   process.on("SIGTERM", () => {
     console.info("SIGTERM received.");
