@@ -20,6 +20,7 @@ interface Props {
 
 export default function SaveURLModal(props: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
+  const [saving, setSaving] = useState(false);
 
   return (
     <Modal onClose={props.onClose} isOpen={props.isOpen} isCentered>
@@ -48,6 +49,8 @@ export default function SaveURLModal(props: Props) {
         </ModalBody>
         <ModalFooter>
           <Button
+            isLoading={saving}
+            loadingText="Saving"
             color="white"
             _hover={{ bg: "secondary" }}
             bg={"primary"}
@@ -57,6 +60,7 @@ export default function SaveURLModal(props: Props) {
                 return;
               }
 
+              setSaving(true);
               props.callback(inputRef.current?.value || "");
             }}
           >
