@@ -56,7 +56,7 @@ export default function TextItem(props: Props) {
       onMouseOut={() => {
         setTout(
           setTimeout(() => {
-            if (props.showOptions) setOptionsVisible(false);
+            setOptionsVisible(false);
           }, 2000),
         );
       }}
