@@ -59,15 +59,14 @@ class ImportManager {
     }
   }
 
-  static importDataFromURL(data: string, duration: string, callback: Function): void {
+  static importDataFromURL(
+    data: string,
+    duration: string,
+    callback: Function,
+  ): void {
     if (data) {
-      const received = data.split("\n");
-      const lines = received.slice(0, -2);
-
-      sessionStorage.setItem(
-        "translateDuration",
-        received[received.length - 1],
-      );
+      const lines = data.split("\n");
+      sessionStorage.setItem("translateDuration", duration);
 
       const importedData = [];
       for (let line of lines) {

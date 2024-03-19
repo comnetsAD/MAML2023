@@ -117,7 +117,7 @@ export default function ExportToMAML(
   }
 
   const finalMAML = layout.join("\n");
-  const translateDuration = parseInt(
+  const translateDuration = parseFloat(
     sessionStorage.getItem("translateDuration") || "-1",
   );
 
