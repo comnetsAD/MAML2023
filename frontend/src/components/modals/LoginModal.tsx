@@ -28,6 +28,8 @@ interface Props {
 export default function VideoURLModal(props: Props) {
   const router = useRouter();
 
+  const [loading, setLoading] = useState(false);
+
   return (
     <Modal isOpen={props.isOpen} onClose={props.onClose}>
       <ModalOverlay />
@@ -42,6 +44,7 @@ export default function VideoURLModal(props: Props) {
             useOneTap={false}
             onSuccess={(data: any) => {
               const credential = data.credential;
+              setLoading(true);
               API.login(credential)
                 .then((res) => {
                   if (res.success) {
@@ -55,9 +58,12 @@ export default function VideoURLModal(props: Props) {
                 })
                 .catch((err) => {
                   alert(err.response.data.message);
+                  setLoading(false);
                 });
             }}
           />
+
+          {loading && <p style={{ marginTop: "2rem" }}>Logging in...</p>}
         </ModalBody>
       </ModalContent>
     </Modal>
