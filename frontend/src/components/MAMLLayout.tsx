@@ -19,7 +19,7 @@ import { IoMdArrowRoundUp, IoMdArrowRoundDown } from "react-icons/io";
 import { IUploadedImage } from "@/utils/types";
 
 interface Props {
-  enableOverlaps: boolean;
+  showOptions: boolean;
   callback: (layout: GridLayout.Layout[], props: any[]) => void;
   importedData?: any;
 }
@@ -229,6 +229,7 @@ export default function MAMLLayout(props: Props) {
       case "text" || "link": {
         component = (
           <TextItem
+            showOptions={props.showOptions}
             initialText={layoutProps[index].text}
             layoutProps={layoutProps}
             index={index}
@@ -429,37 +430,41 @@ export default function MAMLLayout(props: Props) {
           &times;
         </div>
 
-        <div
-          className="options"
-          style={optionsStyle}
-          onClick={() => {
-            setSelectedElement(index);
-            onOptionsOpen();
-          }}
-        >
-          <CgOptions size={14} />
-        </div>
+        {props.showOptions && (
+          <>
+            <div
+              className="options"
+              style={optionsStyle}
+              onClick={() => {
+                setSelectedElement(index);
+                onOptionsOpen();
+              }}
+            >
+              <CgOptions size={14} />
+            </div>
 
-        <div
-          className="options"
-          style={{ ...optionsStyle, left: 30 }}
-          onClick={() => {
-            layoutProps[index].level += 1;
-            setLayoutProps([...layoutProps]);
-          }}
-        >
-          <IoMdArrowRoundUp size={14} />
-        </div>
-        <div
-          className="options"
-          style={{ ...optionsStyle, left: 60 }}
-          onClick={() => {
-            layoutProps[index].level -= 1;
-            setLayoutProps([...layoutProps]);
-          }}
-        >
-          <IoMdArrowRoundDown size={14} />
-        </div>
+            <div
+              className="options"
+              style={{ ...optionsStyle, left: 30 }}
+              onClick={() => {
+                layoutProps[index].level += 1;
+                setLayoutProps([...layoutProps]);
+              }}
+            >
+              <IoMdArrowRoundUp size={14} />
+            </div>
+            <div
+              className="options"
+              style={{ ...optionsStyle, left: 60 }}
+              onClick={() => {
+                layoutProps[index].level -= 1;
+                setLayoutProps([...layoutProps]);
+              }}
+            >
+              <IoMdArrowRoundDown size={14} />
+            </div>
+          </>
+        )}
         {component}
       </div>
     );
@@ -486,7 +491,7 @@ export default function MAMLLayout(props: Props) {
             autoSize={true}
             margin={[0, 0]}
             compactType={null}
-            allowOverlap={props.enableOverlaps}
+            allowOverlap={true}
             onLayoutChange={(layout: any) => {
               setLayout([...layout]);
             }}
