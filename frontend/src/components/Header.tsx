@@ -154,7 +154,7 @@ export default function Header(props: Props) {
               >
                 Import
               </MenuButton>
-              <MenuList>
+              <MenuList zIndex={9999}>
                 <MenuItem
                   onClick={() => {
                     ImportManager.chooseFile()
