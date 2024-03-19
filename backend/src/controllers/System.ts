@@ -36,7 +36,7 @@ const getMAML = async (req: Request, res: Response) => {
     return;
   }
 
-  exec(`${process.env.OS === "win"? "python": "python3"} ${parent}/system/translate.py ${url}`, (err, stdout, stderr) => {
+  exec(`${process.env.OS_NAME === "win" ? "python" : "python3"} ${parent}/system/translate.py ${url}`, (err, stdout, stderr) => {
     if (err) {
       Logger.error(err);
       res.status(500).json(errorMsg("Internal server error"));
@@ -95,7 +95,7 @@ const getHTML = async (req: Request, res: Response) => {
   fs.writeFileSync(`${parent}/system/temp/` + fileName, maml);
 
   exec(
-    `${process.env.OS === "win"? "python": "python3"} ${parent}/system/generateHTML.py temp/` + fileName,
+    `${process.env.OS_NAME === "win" ? "python" : "python3"} ${parent}/system/generateHTML.py temp/` + fileName,
     (err, stdout, stderr) => {
       if (err) {
         Logger.error(err);
