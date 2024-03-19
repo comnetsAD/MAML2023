@@ -39,12 +39,12 @@ export default function MAMLLayout(props: Props) {
     position: "absolute",
     bottom: 0,
     left: 0,
-    zIndex: 200,
+    zIndex: 9999,
     backgroundColor: "black",
     border: "solid 1px white",
     borderRadius: "5px",
     color: "white",
-    padding: "5px 10px",
+    padding: "2px 7px",
     cursor: "pointer",
   };
 
@@ -106,6 +106,12 @@ export default function MAMLLayout(props: Props) {
 
           if (item.type === "image") {
             item.src = [{ source: item.src, thumbnail: item.src }];
+          }
+
+          if (item.type === "link") {
+            item.type = "text";
+            item.link = item.href;
+            delete item.href;
           }
 
           const l = {
@@ -220,7 +226,7 @@ export default function MAMLLayout(props: Props) {
     const index = layout.indexOf(layoutItem);
 
     switch (layoutItem.i?.replace(/\d/g, "")) {
-      case "text": {
+      case "text" || "link": {
         component = (
           <TextItem
             initialText={layoutProps[index].text}
@@ -431,28 +437,28 @@ export default function MAMLLayout(props: Props) {
             onOptionsOpen();
           }}
         >
-          <CgOptions />
+          <CgOptions size={14} />
         </div>
 
         <div
           className="options"
-          style={{ ...optionsStyle, left: 40 }}
+          style={{ ...optionsStyle, left: 30 }}
           onClick={() => {
             layoutProps[index].level += 1;
             setLayoutProps([...layoutProps]);
           }}
         >
-          <IoMdArrowRoundUp />
+          <IoMdArrowRoundUp size={14} />
         </div>
         <div
           className="options"
-          style={{ ...optionsStyle, left: 80 }}
+          style={{ ...optionsStyle, left: 60 }}
           onClick={() => {
             layoutProps[index].level -= 1;
             setLayoutProps([...layoutProps]);
           }}
         >
-          <IoMdArrowRoundDown />
+          <IoMdArrowRoundDown size={14} />
         </div>
         {component}
       </div>

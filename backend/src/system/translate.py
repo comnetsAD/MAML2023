@@ -20,7 +20,10 @@ defaults = ["0px", "none", "auto", "rgba(0, 0, 0, 0)"]
 
 
 def setup(adblocker=False) -> webdriver.Chrome:
-    driver_path = os.path.join(os.getcwd(), "chromedriver")
+    if os.name == "nt":
+        driver_path = os.path.join(os.getcwd(), "chromedriver.exe")
+    else:
+        driver_path = os.path.join(os.getcwd(), "chromedriver")
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--window-size=1200,800")
@@ -147,7 +150,7 @@ def traverse_elements(element: webdriver.Chrome, config: dict, driver: webdriver
                     content = json.dumps(elementMAML,
                                          ensure_ascii=False)
                     mamlContent.write(content)
-                    print(content)
+                    mamlContent.write("\n")
 
             except StaleElementReferenceException as e:
                 logger.debug("Stale Element", child_element.tag_name)
@@ -158,7 +161,7 @@ def traverse_elements(element: webdriver.Chrome, config: dict, driver: webdriver
 
 def main(url) -> None:
     startTime = time.time()
-    
+
     # set up the browser
     driver = setup(False)
 
@@ -173,20 +176,21 @@ def main(url) -> None:
         scrollToBottom(driver)
 
         filename = re.sub(r"[^A-Za-z]", "", url) + ".maml"
+        folderpath = "../../public/output/"
 
-        if not os.path.exists("output"):
-            os.mkdir("output")
+        os.makedirs(folderpath, exist_ok=True)
 
-        with open(f"output/{filename}", "w") as f:
+        with open(os.path.join(folderpath, filename), "w") as f:
             body_element = driver.find_element(By.TAG_NAME, "body")
 
             traverse_elements(body_element, config, driver, f)
 
     driver.quit()
-    
+
     endTime = time.time()
     logger.debug(f"Time taken: {endTime - startTime} seconds")
-    print(endTime-startTime)
+    print(filename)
+    print(endTime-startTime, end="")
 
 
 if __name__ == "__main__":

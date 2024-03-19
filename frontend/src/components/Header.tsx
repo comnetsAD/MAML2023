@@ -94,7 +94,7 @@ export default function Header(props: Props) {
                   "_blank",
                 );
               }
-              
+
               setSaving(false);
             })
             .catch((err) => {
@@ -190,10 +190,23 @@ export default function Header(props: Props) {
                 setIsImportLoading(true);
                 API.getMAML(TokenManager.getToken(), url)
                   .then((res) => {
-                    ImportManager.importDataFromURL(
-                      res.maml,
-                      props.handleImport,
-                    );
+                    const data = res.data.split("\n");
+                    const duration = data[1];
+
+                    const fileURL =
+                      process.env.NEXT_PUBLIC_API_URL +
+                      "/public/output/" +
+                      data[0];
+
+                    API.downloadContent(fileURL).then((mamlData) => {
+                      console.log("mamlData", mamlData);
+                      ImportManager.importDataFromURL(
+                        mamlData.data,
+                        duration,
+                        props.handleImport,
+                      );
+                    });
+
                     setIsImportLoading(false);
                     onImportURLClose();
                     setUrlForPreview(url);

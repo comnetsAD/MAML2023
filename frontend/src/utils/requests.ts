@@ -33,9 +33,9 @@ export class API {
     translateDuration: number,
   ) => {
     const formData = new FormData();
-    formData.append('url', url);
-    formData.append('mamlFileContent', mamlFile);
-    formData.append('translateDuration', translateDuration.toString());
+    formData.append("url", url);
+    formData.append("mamlFileContent", mamlFile);
+    formData.append("translateDuration", translateDuration.toString());
 
     return await axios({
       method: "POST",
@@ -43,7 +43,7 @@ export class API {
       data: formData,
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'multipart/form-data',
+        "Content-Type": "multipart/form-data",
       },
     }).then((res) => res.data);
   };
@@ -74,10 +74,10 @@ export class API {
     }).then((res) => res.data);
   };
 
-  public static test = async () => {
+  public static downloadContent = async (url: string) => {
     return await axios({
       method: "GET",
-      url: `http://20.46.146.110:3000`,
-    }).then((res) => res.data);
-  }
+      url: url,
+    }).then((res) => res);
+  };
 }

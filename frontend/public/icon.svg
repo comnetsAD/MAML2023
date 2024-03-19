@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 102.72">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #194aa4;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <g id="maml-logo">
+    <path id="Path_1" data-name="Path 1" class="cls-1" d="M24.6,89.01v-31.3c0-11,19.9-19.9,19.9-19.9,0,0,19.9,8.9,19.9,19.9v31.3M64.3,72.81v-28c0-11-19.9-19.9-19.9-19.9,0,0-19.9,8.9-19.9,19.9v28M64.3,61.71v-28c0-11-19.9-19.9-19.9-19.9,0,0-19.9,8.9-19.9,19.9v28M2,75.91l42.5,24.5,42.5-24.5V26.81L44.5,2.31,2,26.81v49.1ZM75.9,20.51v61.8M13.1,20.51v61.8"/>
+  </g>
+</svg>
