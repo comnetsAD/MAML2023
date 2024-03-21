@@ -90,7 +90,7 @@ export default function Header(props: Props) {
               if (res.success) {
                 // open to new tab
                 window.open(
-                  `/preview?previewURL=${url}&htmlContent=${res.html}`,
+                  `/preview?htmlContent=${res.html}`,
                   "_blank",
                 );
               }
