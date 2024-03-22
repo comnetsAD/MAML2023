@@ -121,7 +121,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 
 def generateHTML(filepath: str) -> None:
-    with open(filepath, "r") as mamlFile:
+    with open(filepath, "r", encoding="utf-8") as mamlFile:
         html = set()
         configFile = open("mamlConfig.json", "r")
 
@@ -133,6 +133,8 @@ def generateHTML(filepath: str) -> None:
         mamlData = []
         for line in mamlFile:
             l = json.loads(line)
+            if "type" not in l:
+                continue
             if l["type"] != "script":
                 mamlData.append(json.loads(line))
             else:
@@ -216,7 +218,7 @@ def generateHTML(filepath: str) -> None:
             os.mkdir("output")
 
         # write to file
-        with open(f"output/{os.path.basename(filepath).replace('.maml', '.html')}", "w") as f:
+        with open(f"output/{os.path.basename(filepath).replace('.maml', '.html')}", "w", encoding="utf-8") as f:
             f.writelines(html)
 
         print("".join(html))

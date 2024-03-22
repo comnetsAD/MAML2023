@@ -119,7 +119,7 @@ def traverse_elements(element: webdriver.Chrome, config: dict, driver: webdriver
                 if elementMAML["x"] < 0 or elementMAML["x"] > driver.execute_script("return window.innerWidth;"):
                     continue
 
-                if child_element.is_displayed() and elementMAML["w"] > 5 and elementMAML["h"] > 5:
+                if elementMAML["w"] > 5 and elementMAML["h"] > 5:
                     for attr in attributes:
                         value = child_element.get_attribute(attr) or ""
                         if value:
@@ -180,7 +180,7 @@ def main(url) -> None:
 
         os.makedirs(folderpath, exist_ok=True)
 
-        with open(os.path.join(folderpath, filename), "w") as f:
+        with open(os.path.join(folderpath, filename), "w", encoding="utf-8") as f:
             body_element = driver.find_element(By.TAG_NAME, "body")
 
             traverse_elements(body_element, config, driver, f)

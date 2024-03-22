@@ -19,6 +19,34 @@
     "attr": ["src", "id"],
     "style": ["objectFit", "display"]
   },
+  "rect": {
+    "tag": "div",
+    "attr": ["id"],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontSize",
+      "borderRadius",
+      "padding",
+      "display"
+    ]
+  },
+  "ellipse": {
+    "tag": "div",
+    "attr": ["id"],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontSize",
+      "borderRadius",
+      "padding",
+      "display"
+    ]
+  },
   "shape": {
     "tag": "div",
     "attr": ["id"],
