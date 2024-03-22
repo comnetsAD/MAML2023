@@ -123,7 +123,10 @@ def traverse_elements(element: webdriver.Chrome, config: dict, driver: webdriver
                     for attr in attributes:
                         value = child_element.get_attribute(attr) or ""
                         if value:
-                            elementMAML[attr] = value
+                            if elementMAML["type"] == "image" and attr == "src":
+                                elementMAML[attr] = [{"source": value, "thumbnail": value}]
+                            else:
+                                elementMAML[attr] = value
 
                     for style in styles:
                         value = driver.execute_script(
