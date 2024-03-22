@@ -44,7 +44,7 @@ const Preview = ({ previewURL, htmlContent }: Props) => {
             Preview
           </Heading>
           <iframe
-            src={htmlContent}
+            src={decodeURIComponent(htmlContent)}
             title="Your Design"
             width="100%"
             height="100%"

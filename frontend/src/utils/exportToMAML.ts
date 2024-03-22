@@ -21,14 +21,28 @@ function stringToFileObject(str: string, filename: string, mimeType: string) {
   return file;
 }
 
-export default function ExportToMAML(
+export function downloadMAMLFile(mamlContent: string) {
+  // prompt file download save as .maml
+  const element = document.createElement("a");
+  const file = new Blob([mamlContent], {
+    type: "text/plain;charset=utf-8",
+  });
+  element.href = URL.createObjectURL(file);
+  element.download = "export.maml";
+  document.body.appendChild(element);
+  element.click();
+
+  // remove element
+  document.body.removeChild(element);
+}
+
+export function generateMAMLString(
   data: {
     layout: GridLayout.Layout[];
     props: any[];
   },
   mamlCode: string,
-  url: string,
-): Promise<any> {
+) {
   // properties to omit
   let omit = [
     "i",
@@ -117,9 +131,24 @@ export default function ExportToMAML(
   }
 
   const finalMAML = layout.join("\n");
+
+  return finalMAML;
+}
+
+export function ExportToMAML(
+  data: {
+    layout: GridLayout.Layout[];
+    props: any[];
+  },
+  mamlCode: string,
+  url: string,
+): Promise<any> {
+  
   const translateDuration = parseFloat(
     sessionStorage.getItem("translateDuration") || "-1",
   );
+
+  const finalMAML = generateMAMLString(data, mamlCode);
 
   const mamlFile = stringToFileObject(finalMAML, "export.maml", "text/plain");
 

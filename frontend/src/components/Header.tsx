@@ -18,11 +18,15 @@ import {
   MenuDivider,
 } from "@chakra-ui/react";
 import { FaRegUserCircle } from "react-icons/fa";
-import { IoIosSave } from "react-icons/io";
+import { IoIosSave, IoMdDownload } from "react-icons/io";
 import { FaRegEye } from "react-icons/fa";
 
 import GridLayout from "react-grid-layout";
-import ExportToMAML from "@/utils/exportToMAML";
+import {
+  ExportToMAML,
+  downloadMAMLFile,
+  generateMAMLString,
+} from "@/utils/exportToMAML";
 import TokenManager from "@/utils/store/UserManager";
 import { useEffect, useState } from "react";
 import ImportManager from "@/utils/store/ImportManager";
@@ -90,7 +94,7 @@ export default function Header(props: Props) {
               if (res.success) {
                 // open to new tab
                 window.open(
-                  `/preview?htmlContent=${res.html}`,
+                  `/preview?htmlContent=${encodeURIComponent(res.html)}`,
                   "_blank",
                 );
               }
@@ -199,7 +203,6 @@ export default function Header(props: Props) {
                       data[0];
 
                     API.downloadContent(fileURL).then((mamlData) => {
-                      console.log("mamlData", mamlData);
                       ImportManager.importDataFromURL(
                         mamlData.data,
                         duration,
@@ -222,11 +225,31 @@ export default function Header(props: Props) {
 
         <Flex gap={"1rem"}>
           <Button
+            size={"sm"}
+            padding={"0 1.2rem"}
+            marginLeft={".5rem"}
+            bg={"primary"}
+            color={"white"}
+            _hover={{ bg: "secondary" }}
+            borderRadius={"30px"}
+            leftIcon={<IoMdDownload width={"14px"} />}
+            onClick={() => {
+              downloadMAMLFile(
+                generateMAMLString(
+                  JSON.parse(JSON.stringify(props.data)),
+                  props.mamlCode,
+                ),
+              );
+            }}
+          >
+            Download Progress
+          </Button>
+
+          <Button
             isLoading={saving}
             loadingText="Saving"
             size={"sm"}
             padding={"0 1.2rem"}
-            marginLeft={".5rem"}
             bg={"primary"}
             color={"white"}
             _hover={{ bg: "secondary" }}

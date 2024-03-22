@@ -98,15 +98,15 @@ export default function MAMLLayout(props: Props) {
       const layoutProps: any[] = [];
 
       if (window) {
-        let count = parseInt(sessionStorage.getItem("count") || "0");
+        let count = parseInt(sessionStorage.getItem("count") || "0") || 0;
         props.importedData.forEach((item: any) => {
           if (item.type === "shape") {
             item.type = item.borderRadius === "50%" ? "ellipse" : "rect";
           }
 
-          if (item.type === "image") {
-            item.src = [{ source: item.src, thumbnail: item.src }];
-          }
+          // if (item.type === "image") {
+          //   item.src = [{ source: item.src, thumbnail: item.src }];
+          // }
 
           if (item.type === "link") {
             item.type = "text";
@@ -137,7 +137,7 @@ export default function MAMLLayout(props: Props) {
         setLayout(layout);
         setLayoutProps(layoutProps);
 
-        sessionStorage.setItem("count", count.toString());
+        sessionStorage.setItem("count", (count + 1).toString());
       }
     }
   }, [props.importedData]);
@@ -238,15 +238,16 @@ export default function MAMLLayout(props: Props) {
         );
         break;
       }
-      case "image":
+      case "image": {
         component = (
           <img
-            src={layoutProps[index].src[0].thumbnail}
+            src={layoutProps[index]?.src?.[0]?.thumbnail || ""}
             alt="Image"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         );
         break;
+      }
 
       case "carousel":
         component = (

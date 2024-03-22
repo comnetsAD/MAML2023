@@ -14,24 +14,17 @@ export default function Sidebar() {
     e: React.DragEvent<HTMLDivElement>,
     component: string,
   ) => {
-    e.dataTransfer.setData("component", component);
+    const storedCount = sessionStorage.getItem("count") || "0";
+    e.dataTransfer.setData("component", component + storedCount);
+    sessionStorage.setItem("count", (parseInt(storedCount) + 1).toString());
   };
-
-  const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
     const storedCount = sessionStorage.getItem("count");
-
     if (!storedCount) {
       sessionStorage.setItem("count", "0");
-    } else {
-      setCount(parseInt(storedCount));
     }
   }, []);
-
-  useEffect(() => {
-    sessionStorage.setItem("count", count.toString());
-  }, [count]);
 
   return (
     <>
@@ -40,8 +33,7 @@ export default function Sidebar() {
           title="Text"
           draggable={true}
           onDragStart={(e) => {
-            onDragStart(e, "text" + count);
-            setCount(count + 1);
+            onDragStart(e, "text");
           }}
           style={{
             cursor: "pointer",
@@ -54,8 +46,7 @@ export default function Sidebar() {
           title="Shape"
           draggable={true}
           onDragStart={(e) => {
-            onDragStart(e, "shape" + count);
-            setCount(count + 1);
+            onDragStart(e, "shape");
           }}
           style={{
             cursor: "pointer",
@@ -68,8 +59,7 @@ export default function Sidebar() {
           title="Image"
           draggable={true}
           onDragStart={(e) => {
-            onDragStart(e, "image" + count);
-            setCount(count + 1);
+            onDragStart(e, "image");
           }}
           style={{
             cursor: "pointer",
@@ -82,8 +72,7 @@ export default function Sidebar() {
           title="Image Carousel"
           draggable={true}
           onDragStart={(e) => {
-            onDragStart(e, "carousel" + count);
-            setCount(count + 1);
+            onDragStart(e, "carousel");
           }}
           style={{
             cursor: "pointer",
@@ -96,8 +85,7 @@ export default function Sidebar() {
           title="Video Player"
           draggable={true}
           onDragStart={(e) => {
-            onDragStart(e, "video" + count);
-            setCount(count + 1);
+            onDragStart(e, "video");
           }}
           style={{
             cursor: "pointer",
@@ -110,7 +98,7 @@ export default function Sidebar() {
           title="Form"
           draggable={true}
           onDragStart={(e) => {
-            onDragStart(e, "form" + count);
+            onDragStart(e, "form" );
             setCount(count + 1);
           }}
           style={{
@@ -124,8 +112,7 @@ export default function Sidebar() {
           title="Text Field"
           draggable={true}
           onDragStart={(e) => {
-            onDragStart(e, "text-field" + count);
-            setCount(count + 1);
+            onDragStart(e, "text-field");
           }}
           style={{
             cursor: "pointer",
@@ -138,8 +125,7 @@ export default function Sidebar() {
           title="Button"
           draggable={true}
           onDragStart={(e) => {
-            onDragStart(e, "button" + count);
-            setCount(count + 1);
+            onDragStart(e, "button");
           }}
           style={{
             cursor: "pointer",
@@ -152,8 +138,7 @@ export default function Sidebar() {
           title="Dropdown Menu"
           draggable={true}
           onDragStart={(e) => {
-            onDragStart(e, "dropdown" + count);
-            setCount(count + 1);
+            onDragStart(e, "dropdown");
           }}
           style={{
             cursor: "pointer",
@@ -166,7 +151,7 @@ export default function Sidebar() {
           title="Timer"
           draggable={true}
           onDragStart={(e) => {
-            onDragStart(e, "timer" + count);
+            onDragStart(e, "timer" );
             setCount(count + 1);
           }}
           style={{
