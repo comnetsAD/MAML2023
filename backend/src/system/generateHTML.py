@@ -217,11 +217,14 @@ def generateHTML(filepath: str) -> None:
         if not os.path.exists("output"):
             os.mkdir("output")
 
-        # write to file
-        with open(f"output/{os.path.basename(filepath).replace('.maml', '.html')}", "w", encoding="utf-8") as f:
+        # # write to file
+        # with open(f"output/{os.path.basename(filepath).replace('.maml', '.html')}", "w", encoding="utf-8") as f:
+        #     f.writelines(html)
+        
+        with open(f"../../public/html/{os.path.basename(filepath).replace('.maml', '.html')}", "w", encoding="utf-8") as f:
             f.writelines(html)
 
-        print("".join(html))
+        print("done")
 
 
 def main(filePath: str) -> None:

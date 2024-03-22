@@ -106,7 +106,7 @@ const getHTML = async (req: Request, res: Response) => {
       fs.unlinkSync(`${parent}/system/temp/` + fileName);
 
       const htmlFileName = fileName.replace(".maml", ".html");
-      fs.writeFileSync("public/html/" + htmlFileName, stdout);
+      // fs.writeFileSync("public/html/" + htmlFileName, stdout);
 
       res
         .status(200)
