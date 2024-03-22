@@ -15,7 +15,7 @@ import GridLayout from "react-grid-layout";
 import DraggableList from "@/components/DraggableList";
 
 export default function Home() {
-  const [enableOverlaps, setEnableOverlaps] = useState<boolean>(true);
+  const [showOptions, setShowOptions] = useState<boolean>(true);
   const [isCodeEditorOpen, setIsCodeEditorOpen] = useState<boolean>(false);
 
   const [mamlCode, setMAMLCode] = useState<string>("");
@@ -42,8 +42,8 @@ export default function Home() {
         handleImport={handleImport}
         data={data}
         mamlCode={mamlCode}
-        enableOverlaps={enableOverlaps}
-        setEnableOverlaps={setEnableOverlaps}
+        showOptions={showOptions}
+        setShowOptions={setShowOptions}
       />
 
       {/* Main Grid */}
@@ -61,7 +61,7 @@ export default function Home() {
         <GridItem>
           <MAMLLayout
             importedData={importedData}
-            enableOverlaps={enableOverlaps}
+            showOptions={showOptions}
             callback={handleData}
           />
         </GridItem>

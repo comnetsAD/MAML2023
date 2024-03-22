@@ -7,7 +7,7 @@ interface Props {
   htmlContent: string;
 }
 
-const Compare = ({ previewURL, htmlContent }: Props) => {
+const Preview = ({ previewURL, htmlContent }: Props) => {
   return (
     <>
       <Head>
@@ -59,7 +59,7 @@ const Compare = ({ previewURL, htmlContent }: Props) => {
 export async function getServerSideProps(context: NextPageContext) {
   const query = context.query;
 
-  if (!query.previewURL || !query.htmlContent) {
+  if (!query.htmlContent) {
     return {
       notFound: true,
     };
@@ -67,10 +67,9 @@ export async function getServerSideProps(context: NextPageContext) {
 
   return {
     props: {
-      previewURL: query.previewURL as string,
       htmlContent: query.htmlContent as string,
     },
   };
 }
 
-export default Compare;
+export default Preview;

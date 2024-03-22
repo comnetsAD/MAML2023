@@ -6,6 +6,7 @@ interface Props {
   index: number;
   setLayoutProps: Function;
   initialText?: string;
+  showOptions: boolean;
 }
 
 export default function TextItem(props: Props) {
@@ -49,7 +50,7 @@ export default function TextItem(props: Props) {
     <div
       style={{ position: "relative", width: "100%", height: "100%" }}
       onMouseOver={() => {
-        setOptionsVisible(true);
+        if (props.showOptions) setOptionsVisible(true);
         clearTimeout(tout);
       }}
       onMouseOut={() => {
@@ -60,7 +61,7 @@ export default function TextItem(props: Props) {
         );
       }}
       onMouseMove={() => {
-        setOptionsVisible(true);
+        if (props.showOptions) setOptionsVisible(true);
         clearTimeout(tout);
       }}
     >

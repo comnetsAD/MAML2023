@@ -34,8 +34,8 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 
 interface Props {
-  enableOverlaps: boolean;
-  setEnableOverlaps: Function;
+  showOptions: boolean;
+  setShowOptions: Function;
   data: {
     layout: GridLayout.Layout[];
     props: any[];
@@ -90,7 +90,7 @@ export default function Header(props: Props) {
               if (res.success) {
                 // open to new tab
                 window.open(
-                  `/preview?previewURL=${url}&htmlContent=${res.html}`,
+                  `/preview?htmlContent=${res.html}`,
                   "_blank",
                 );
               }
@@ -137,14 +137,14 @@ export default function Header(props: Props) {
             <span>Help</span>
           </HStack> */}
           <div>
-            {/* <span style={{ marginRight: ".8rem" }}>Allow Overlaps</span>
+            <span style={{ marginRight: ".8rem" }}>Show Options</span>
             <Switch
-              isChecked={props.enableOverlaps}
+              isChecked={props.showOptions}
               onChange={() => {
-                props.setEnableOverlaps(!props.enableOverlaps);
+                props.setShowOptions(!props.showOptions);
               }}
               style={{ marginRight: "1rem" }}
-            /> */}
+            />
 
             <Menu>
               <MenuButton
@@ -154,7 +154,7 @@ export default function Header(props: Props) {
               >
                 Import
               </MenuButton>
-              <MenuList>
+              <MenuList zIndex={9999}>
                 <MenuItem
                   onClick={() => {
                     ImportManager.chooseFile()
