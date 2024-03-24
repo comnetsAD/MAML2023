@@ -204,9 +204,13 @@ def generateHTML(filepath: str) -> None:
 
                 text += "</div>"
 
+            if data["type"] == "video":
+                text += f"<source src='{data['src']}' />"
+                attrs += "controls"
+
             style += f"z-index:{data['level'] if (tag != 'a') else 99999};"
 
-            h = f"<{tag} {attrs}style='position:absolute;{style}'>{text}</{tag}>"
+            h = f"<{tag} {attrs} style='position:absolute;{style}'>{text}</{tag}>"
             if ("link" in data and data['link'] != ""):
                 h = f"<a href='{data['link']}' target='_blank'>{h}</a>"
             html.add(h)

@@ -9,6 +9,7 @@ import Page from "../models/Page";
 
 import fs from "fs";
 import { randomString } from "../utils/randomString";
+import mongoose from "mongoose";
 
 const parent = process.env.NODE_ENV?.trim() === "prod" ? "build" : "src";
 
@@ -36,15 +37,20 @@ const getMAML = async (req: Request, res: Response) => {
     return;
   }
 
-  exec(`${process.env.OS_NAME === "win" ? "python" : "python3"} ${parent}/system/translate.py ${url}`, (err, stdout, stderr) => {
-    if (err) {
-      Logger.error(err);
-      res.status(500).json(errorMsg("Internal server error"));
-      return;
-    }
+  exec(
+    `${
+      process.env.OS_NAME === "win" ? "python" : "python3"
+    } ${parent}/system/translate.py ${url}`,
+    (err, stdout, stderr) => {
+      if (err) {
+        Logger.error(err);
+        res.status(500).json(errorMsg("Internal server error"));
+        return;
+      }
 
-    res.status(200).json({ success: true, data: stdout });
-  });
+      res.status(200).json({ success: true, data: stdout });
+    }
+  );
 };
 
 const getHTML = async (req: Request, res: Response) => {
@@ -71,7 +77,10 @@ const getHTML = async (req: Request, res: Response) => {
     return;
   }
 
-  const page = await Page.findOne({ url });
+  const page = await Page.findOne({
+    url: url,
+    userID: new mongoose.Types.ObjectId(user._id)
+  });
 
   if (!page) {
     Logger.error("Page not found");
@@ -95,7 +104,9 @@ const getHTML = async (req: Request, res: Response) => {
   fs.writeFileSync(`${parent}/system/temp/` + fileName, maml);
 
   exec(
-    `${process.env.OS_NAME === "win" ? "python" : "python3"} ${parent}/system/generateHTML.py temp/` + fileName,
+    `${
+      process.env.OS_NAME === "win" ? "python" : "python3"
+    } ${parent}/system/generateHTML.py temp/` + fileName,
     (err, stdout, stderr) => {
       if (err) {
         Logger.error(err);
@@ -108,12 +119,10 @@ const getHTML = async (req: Request, res: Response) => {
       const htmlFileName = fileName.replace(".maml", ".html");
       // fs.writeFileSync("public/html/" + htmlFileName, stdout);
 
-      res
-        .status(200)
-        .json({
-          success: true,
-          html: process.env.WEBSITE_URL + "public/html/" + htmlFileName
-        });
+      res.status(200).json({
+        success: true,
+        html: process.env.WEBSITE_URL + "public/html/" + htmlFileName
+      });
     }
   );
 };

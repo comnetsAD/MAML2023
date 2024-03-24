@@ -121,7 +121,7 @@
   },
   "video": {
     "tag": "video",
-    "attr": ["src", "id"],
+    "attr": ["id"],
     "style": ["objectFit", "display"]
   },
   "carousel": {

@@ -100,6 +100,10 @@ export default function MAMLLayout(props: Props) {
       if (window) {
         let count = parseInt(sessionStorage.getItem("count") || "0") || 0;
         props.importedData.forEach((item: any) => {
+          if (!item.type) {
+            return;
+          }
+
           if (item.type === "shape") {
             item.type = item.borderRadius === "50%" ? "ellipse" : "rect";
           }
@@ -388,12 +392,13 @@ export default function MAMLLayout(props: Props) {
       case "video":
         component = (
           <video
-            src={layoutProps[index].src}
             width="100%"
             height="100%"
             controls
             autoPlay={layoutProps[index].autoplay}
-          ></video>
+          >
+            <source src={layoutProps[index].src} />
+          </video>
         );
         break;
 
