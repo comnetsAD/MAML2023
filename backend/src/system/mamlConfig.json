@@ -11,7 +11,8 @@
       "textDecoration",
       "fontStyle",
       "lineHeight",
-      "textAlign"
+      "textAlign",
+      "display"
     ]
   },
   "image": {

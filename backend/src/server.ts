@@ -29,6 +29,16 @@ mongoose
   });
 
 const main = () => {
+  const blockedIps = fs.readFileSync('blocked_ips.txt', 'utf-8').split('\n').filter(Boolean);
+
+  router.use((req, res, next) => {
+    const ip = req.ip || req.socket.remoteAddress;
+    if (blockedIps.includes(ip || "000.000.000.000")) {
+      return res.status(403).json(errorMsg('Access Denied'));
+    }
+    next();
+  });
+
   router.use((req, _, next) => {
     Logger.info(
       `${req.method} REQUEST: ${req.url} ${req.ip || req.socket.remoteAddress}`
