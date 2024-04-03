@@ -29,7 +29,8 @@ mongoose
   });
 
 const main = () => {
-  const blockedIps = fs.readFileSync('blocked_ips.txt', 'utf-8').split('\n').filter(Boolean);
+  const parent = process.env.NODE_ENV?.trim() === "prod" ? "build" : "src";
+  const blockedIps = fs.readFileSync(`${parent}/blocked_ips.txt`, 'utf-8').split('\n').filter(Boolean);
 
   router.use((req, res, next) => {
     const ip = req.ip || req.socket.remoteAddress;
