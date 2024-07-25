@@ -13,6 +13,62 @@
     ]
   },
 
+  "input": {
+    "type": "text-field",
+    "attr": ["type", "placeholder"],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontSize",
+      "borderRadius",
+      "padding"
+    ]
+  },
+
+  "li": {
+    "type": "text",
+    "attr": [],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontSize",
+      "borderRadius",
+      "padding"
+    ]
+  },
+
+  "textarea": {
+    "type": "text-field",
+    "attr": ["placeholder"],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontSize",
+      "borderRadius",
+      "padding"
+    ]
+  },
+
+  "button": {
+    "type": "button",
+    "attr": [],
+    "style": [
+      "backgroundColor",
+      "backgroundImage",
+      "backgroundSize",
+      "color",
+      "fontSize",
+      "borderRadius",
+      "padding"
+    ]
+  },
+
   "footer": {
     "type": "rect",
     "attr": [],

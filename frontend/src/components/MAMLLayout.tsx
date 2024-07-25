@@ -112,6 +112,11 @@ export default function MAMLLayout(props: Props) {
           //   item.src = [{ source: item.src, thumbnail: item.src }];
           // }
 
+          if (item.fontWeight) {
+            item.bold = item.fontWeight === "bold";
+            delete item.fontWeight;
+          }
+
           if (item.type === "link") {
             item.type = "text";
             item.link = item.href;
@@ -325,6 +330,7 @@ export default function MAMLLayout(props: Props) {
                 outline: 0,
               }}
               placeholder="Edit Button Text"
+              value={layoutProps[index].text}
               onChange={(e) => {
                 layoutProps[index].text = e.currentTarget.value;
                 setLayoutProps([...layoutProps]);
