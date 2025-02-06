@@ -14,8 +14,9 @@ import fs from "fs";
 
 const router = express();
 const options: https.ServerOptions = {
-  key: fs.readFileSync("certificate/key.key"),
-  cert: fs.readFileSync("certificate/cert.cer")
+  // AYUSH - ADD KEYS FOR HTTPS SUPPORT IN PROD
+  // key: fs.readFileSync("certificate/key.key"),
+  // cert: fs.readFileSync("certificate/cert.cer")
 };
 
 mongoose
@@ -29,17 +30,6 @@ mongoose
   });
 
 const main = () => {
-  const parent = process.env.NODE_ENV?.trim() === "prod" ? "build" : "src";
-  const blockedIps = fs.readFileSync(`${parent}/blocked_ips.txt`, 'utf-8').split('\n').filter(Boolean);
-
-  router.use((req, res, next) => {
-    const ip = req.ip || req.socket.remoteAddress;
-    if (blockedIps.includes(ip || "000.000.000.000")) {
-      return res.status(403).json(errorMsg('Access Denied'));
-    }
-    next();
-  });
-
   router.use((req, _, next) => {
     Logger.info(
       `${req.method} REQUEST: ${req.url} ${req.ip || req.socket.remoteAddress}`

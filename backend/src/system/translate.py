@@ -1,5 +1,6 @@
-from selenium import webdriver
+from seleniumwire import webdriver
 from selenium.webdriver.chrome.service import Service
+import chromedriver_autoinstaller
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import StaleElementReferenceException
 
@@ -18,13 +19,9 @@ logger.debug("Starting translation")
 
 defaults = ["0px", "none", "auto", "rgba(0, 0, 0, 0)"]
 
+chromedriver_autoinstaller.install()
 
 def setup(adblocker=False) -> webdriver.Chrome:
-    if os.name == "nt":
-        driver_path = os.path.join(os.getcwd(), "chromedriver.exe")
-    else:
-        driver_path = os.path.join(os.getcwd(), "chromedriver")
-
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--window-size=1200,800")
 
@@ -34,8 +31,7 @@ def setup(adblocker=False) -> webdriver.Chrome:
         chrome_options.add_extension(os.path.join(
             os.getcwd(), "extensions", "adguard.crx"))
 
-    service = Service(driver_path)
-    driver = webdriver.Chrome(service=service, options=chrome_options)
+    driver = webdriver.Chrome(options=chrome_options)
 
     if adblocker:
         driver.get("https://adblock-tester.com/")
@@ -135,10 +131,7 @@ def traverse_elements(element: webdriver.Chrome, config: dict, driver: webdriver
                         if value and value not in defaults:
                             elementMAML[style] = value
 
-                    # get text if text is direct child of element
-                    # has_children = child_element.find_elements(By.XPATH, "*")
-                    has_children = False
-                    text = child_element.text if not has_children else ""
+                    text = child_element.text
 
                     if text:
                         elementMAML["text"] = text.strip()

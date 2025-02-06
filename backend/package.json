@@ -5,9 +5,10 @@
   "main": "src/server.ts",
   "scripts": {
     "build": "tsc && npm run copy-system",
-    "start": "SET NODE_ENV=prod && node build/server.js",
-    "dev": "node -e \"process.env.NODE_ENV = process.platform.toLowerCase().includes('win') ? 'dev' : 'dev'\" && nodemon src/server.ts",
-    "copy-system": "ncp src/system build/system && ncp src/blocked_ips.txt build/blocked_ips.txt"
+    "start": "NODE_ENV=prod && node build/server.js",
+    "dev": "NODE_ENV=dev nodemon src/server.ts",
+    "copy-system": "ncp src/system build/system",
+    "setup-system": "python3 -m pip install -r src/system/requirements.txt"
   },
   "keywords": [],
   "author": "",

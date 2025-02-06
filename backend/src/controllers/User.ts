@@ -22,12 +22,6 @@ const login = async (req: Request, res: Response) => {
 
     const payload = ticket.getPayload();
 
-    // check if payload.email ends with @nyu.edu
-    // if (!payload?.email?.endsWith("@nyu.edu")) {
-    //   res.status(401).json(errorMsg("Only NYU email is allowed."));
-    //   return;
-    // }
-
     const user = await User.exists({ email: payload?.email });
 
     if (!user) {
