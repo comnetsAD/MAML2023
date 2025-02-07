@@ -28,4 +28,4 @@ npm install
 npm run dev
 ```
 
-If both are running successfully, visit ```http;//localhost:8989``` to launch the MAML Editor.
+If both are running successfully, visit ```http://localhost:8989``` to launch the MAML Editor.
