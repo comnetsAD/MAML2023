@@ -81,34 +81,6 @@ export default function Home() {
           {isCodeEditorOpen && (
             <>
               <DraggableList callback={handleMAMLCode} />
-              {/* <div style={{ overflowY: "auto" }}>
-                <Text fontSize={"20px"} fontWeight={"bold"} marginTop={"2rem"}>
-                  MAMLScript Editor
-                </Text>
-                <Text>
-                  Use this editor to write MAMLScript for interactivity.
-                  <br />
-                  <a
-                    href="#"
-                    style={{
-                      textDecoration: "underline",
-                      color: colors.primary,
-                    }}
-                  >
-                    See documentation
-                  </a>
-                </Text>
-                <Textarea
-                  placeholder="Write Code"
-                  size="sm"
-                  value={mamlCode}
-                  onChange={(e) => setMAMLCode(e.target.value)}
-                  resize={"vertical"}
-                  minWidth={"400px"}
-                  minHeight={"200px"}
-                  marginTop={"1rem"}
-                />
-              </div> */}
             </>
           )}
         </GridItem>

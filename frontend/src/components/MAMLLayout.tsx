@@ -650,30 +650,6 @@ export default function MAMLLayout(props: Props) {
         }}
       />
 
-      {/* <FormModal
-        onClose={onFormClose}
-        isOpen={isFormOpen}
-        callback={(formID: string, method: string, action: string) => {
-          setLayout([
-            ...layout,
-            {
-              i: "timer" + sessionStorage.getItem("count"),
-              x: 0,
-              y: 0,
-              w: 100,
-              h: 2,
-              minW: 2,
-              minH: 1,
-            },
-          ]);
-
-          setLayoutProps([
-            ...layoutProps,
-            { id: formID, action: action, method: method },
-          ]);
-        }}
-      /> */}
-
       <OptionsModal
         onClose={onOptionsClose}
         elementID={layoutProps[selectedElement as number]?.id || ""}

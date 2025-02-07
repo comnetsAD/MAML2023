@@ -273,34 +273,6 @@ export default function Header(props: Props) {
               saveToCloud(url);
             }}
           />
-          {/* <Button
-            isDisabled={!urlForPreview}
-            size={"sm"}
-            padding={"0 1.2rem"}
-            marginLeft={".5rem"}
-            bg={"primary"}
-            color={"white"}
-            _hover={{ bg: "secondary" }}
-            borderRadius={"30px"}
-            leftIcon={<FaRegEye width={"14px"} />}
-            onClick={() => {
-              API.getHTML(TokenManager.getToken(), urlForPreview)
-                .then((res) => {
-                  if (res.success) {
-                    // open to new tab
-                    window.open(
-                      `/preview?previewURL=${urlForPreview}&htmlContent=${res.html}`,
-                      "_blank",
-                    );
-                  }
-                })
-                .catch((err) => {
-                  alert(err.response?.data?.message);
-                });
-            }}
-          >
-            Preview
-          </Button> */}
           {loggedIn && (
             <Flex direction="row" alignItems="center">
               <Avatar

@@ -94,20 +94,6 @@ export default function Sidebar() {
           <AiFillVideoCamera size={"20px"} />
         </div>
 
-        {/* <div
-          title="Form"
-          draggable={true}
-          onDragStart={(e) => {
-            onDragStart(e, "form" );
-            setCount(count + 1);
-          }}
-          style={{
-            cursor: "pointer",
-          }}
-        >
-          <FaWpforms size={"20px"} />
-        </div> */}
-
         <div
           title="Text Field"
           draggable={true}
@@ -147,19 +133,6 @@ export default function Sidebar() {
           <RxDropdownMenu size={"20px"} />
         </div>
 
-        {/* <div
-          title="Timer"
-          draggable={true}
-          onDragStart={(e) => {
-            onDragStart(e, "timer" );
-            setCount(count + 1);
-          }}
-          style={{
-            cursor: "pointer",
-          }}
-        >
-          <LuTimer size={"20px"} />
-        </div> */}
       </Flex>
     </>
   );
